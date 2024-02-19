@@ -1,0 +1,1643 @@
+---
+title: "BIOSCI 220"
+subtitle: "Quantitative Biology"
+author: "Module 1"
+institute: "Weeks 1–3"
+date: "Charlotte Jones-Todd"
+output:
+  xaringan::moon_reader:
+   css: xaringan-themer.css
+   lib_dir: libs
+   nature:
+     highlightStyle: github
+     highlightLines: true
+     countIncrementalSlides: false
+     slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+        
+
+---
+
+###  `r icons::fontawesome("info-circle")` Week 01, introductory lecture
+
++ **Course guide**: [biosci220.github.io/BIOSCI220/](https://biosci220.github.io/BIOSCI220/)
++ **Slides**: [biosci220.github.io/slides/](https://biosci220.github.io/slides/)
++ Interested in being a **class rep**? Contact Jenn at [jenn.jury@auckland.ac.nz](mailto: jenn.jury@auckland.ac.nz)
++ My **consultation hours**, Statistics Assistance Hub 301-G040:
+     + Mondays and Tuesdays, 9–11am
++ **Contact** me directly at [c.jonestodd@auckland.ac.nz](mailto:c.jonestodd@auckland.ac.nz)
++ 🎨 **a`R`t competition**! See [this CANVAS discussion](https://canvas.auckland.ac.nz/courses/104039/discussion_topics/1314906)
+
+
+---
+class: inverse, center, middle
+
+# `R` and `RStudio`
+
+![](https://media4.giphy.com/media/unQ3IJU2RG7DO/200w.gif?cid=82a1493bxhd6w3e6f52fr49g07ntkwl508dqi3nofr3hwjki&rid=200w.gif&ct=g)
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE, warning = FALSE, message = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_solarized_light()
+```
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 25px;
+    padding: 1em 4em 1em 4em;
+}
+</style>
+
+---
+
+class: inverse, center, middle
+
+# `R` and `RStudio`
+
+![](img/r-rstudio_engine.png)
+
+
+---
+class: inverse, center, middle
+
+
+#### Coding is a core part of scientific education!
+
+> "Not only is coding a core skill that gets the basic work of biology done, it's also taught [students] to look at problems in new ways." 
+
+> "Every day, biologists go into the lab to coax data out of living matter—more and more data, with the advent of [new] biological tools …To analyze it all, biologists need to write programs specifically tailored for their experiments." `r tufte::quote_footer('— [Want to Make It as a Biologist? Better Learn to Code](https://www.wired.com/2017/03/biologists-teaching-code-survive/#:~:text=Not%20only%20is%20coding%20a,at%20problems%20in%20new%20ways.&text=As%20tools%20evolve%20to%20allow,core%20part%20of%20scientific%20education.)')`
+
+
+---
+
+
+
+## Before tomorrow!!
+
+
+
+**Install `R` and `RStudio`** 
+
+1.) Instructions in the [Module 1 coursebook](https://biosci220.github.io/BIOSCI220/)
+
+2.) [😎 How to R 😎, CANVAS page](https://canvas.auckland.ac.nz/courses/104039/pages/how-to-r?module_item_id=2051404)
+
+3.) **Help sessions** in 106-014
+ 
+   + **Monday** 3.30pm to 5pm
+   + **Tuesday**, **Thursday**, and **Friday** 11.30am to 1pm
+
+4.) Come and see me in the **Statistics Assistance Hub** 301-G040:
+
+   + **Monday** and **Tuesday**, 9–11am
+---
+
+class: inverse
+
+#### [a`R`t by @djnavarro](https://djnavarro.net/)
+
+
+```{r, eval = FALSE}
+## devtools::install_github("djnavarro/turmite59")
+turmite59::turmite59("blue")
+
+```
+
+
+<img src = "img/turmite_59_blue.png" width="60%", caption = "[Artwork by @djnavarro](https://djnavarro.net/)">
+
+
+
+---
+
+class: inverse
+
+### a`R`t competition
+
+![](img/aRt.png)
+
+.footnote[[Artwork by @djnavarro](https://djnavarro.net/)]
+
+
+---
+
+class: inverse
+
+### a`R`t competition
+
++ Get `R` and `RStudio` up and running on your computer
++ Create your own a`R`t!
++ Post your a`R`t to [this CANVAS discussion](https://canvas.auckland.ac.nz/courses/104039/discussion_topics/1314906) (before next Monday's lecture)
++ Like your favourite piece!
+
+[Some **code** to get you started on CANVAS](https://canvas.auckland.ac.nz/courses/104039/files/12447726?wrap=1)
+
+[Walk-through **vlog** on CANVAS](https://auckland.au.panopto.com/Panopto/Pages/Viewer.aspx?id=ffc78481-6a9c-4cb4-9129-ae400028ef9a)
+
+.footnote[*[maybe some extra hints if you come along to a drop-in session…]*]
+
+
+---
+
+class: inverse
+
+### Selection of contributions from past students
+
+
+![](img/220-aRt.jpg)
+
+---
+
+
+###  `r icons::fontawesome("info-circle")` Week 01, lecture 02
+
++ **Course guide**: [biosci220.github.io/BIOSCI220/](https://biosci220.github.io/BIOSCI220/)
++ **Slides**: [biosci220.github.io/slides/](https://biosci220.github.io/slides/)
++ Interested in being a **class rep**? Contact Jenn at [jenn.jury@auckland.ac.nz](mailto: jenn.jury@auckland.ac.nz)
++ My **consultation hours**, Statistics Assistance Hub 301-G040:
+     + Mondays and Tuedsays, 9–11am
++ **Contact** me directly at [c.jonestodd@auckland.ac.nz](mailto:c.jonestodd@auckland.ac.nz)
++ 🎨 **a`R`t competition**! See [this CANVAS discussion](https://canvas.auckland.ac.nz/courses/104039/discussion_topics/1314906)
+
+---
+
+
+
+.small[
+### Learning objectives
+
++ **Define** the difference between `R` and `RStudio`
++ **Discuss** the benefits and issues associated with these software being used in the scientific community
++ **Distinguish** between different data types (e.g., integers, characters, logical, numerical)
++ **Explain** what an `R` function is; **describe** what an argument to an `R` function is
++ **Explain** what an `R` package is; **distinguish** between the functions `install.packages()` and `library()`
+]
+
+---
+
+
+
+.small[
+### Learning objectives
++ **Explain** what a *working directory* is in the context of `R`
++ **Use** the appropriate `R` function to read in a `.csv` data
++ **Interpret** and **fix** basic  `R` errors
++ **Define** different data types in the context of `R` 
++ **Carry out** basic exploratory data analysis using `tidyverse` (e.g., use the pipe operator, `%>%` when summarising a `data.frame`)
+]
+
+---
+class: inverse, middle, center
+
+![](https://c.tenor.com/R_N2FwCFBbcAAAAM/confused-white-persian-guardian.gif)
+
+> I found that in the beginning, coding was really daunting. However ... I found the class very practical for my degree, and I know what I've learnt will be useful in  the future even if I never code again, I've learnt a new way of thinking.  `r tufte::quote_footer('— SET comment from S1')`
+
+---
+
+
+## Why `R`? 
+
+--
++ Free
+
+--
++ Open source
+
+--
++ Huge online support network
+
+--
++ Flexible; if you can code it you can do it!
+
+--
++ Everybody's doing it...
+
+   + [Why You Should Become a UseR](https://www.psychologicalscience.org/observer/why-you-should-become-a-user-a-brief-introduction-to-r#:~:text=R%20is%20a%20programming%20language,of%20statistics%20and%20research%20methods.&text=Programming%20languages%20can%20be%20intimidating.)
+   + [Powerful Benefits of Using R to Analyze Your Research Data ](https://learning.edanz.com/powerful-benefits-of-using-r-to-analyze-your-research-data-and-a-few-limitations/)
+   + [Why R?](https://datacarpentry.org/semester-biology/about/why-r/)
+   + [The mismatch between current statistical practice and doctoral training in ecology](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/ecs2.1394)
+
+
+---
+
+
+## Why `RStudio`? 
+
+--
++ Works **really** nicely with `R`
+
+--
++ Huge online support network
+
+--
++ Flexible; so, so, many tools and additions!
+
+--
++ Everybody's doing it...
+
+  + [What Makes RStudio Different?](https://www.rstudio.com/about/what-makes-rstudio-different)
+  + [The Advantages of RStudio](https://www.theanalysisfactor.com/the-advantages-of-rstudio/)
+  + [Top 6 reasons you need to be using RStudio](https://www.r-bloggers.com/2013/02/top-6-reasons-you-need-to-be-using-rstudio/)
+
+
+---
+
+class: inverse
+
+### a`R`t competition
+
+![](img/aRt.png)
+
+.footnote[[Artwork by @djnavarro](https://djnavarro.net/)]
+
+---
+class: inverse, center, middle
+
+#### `RStudio` navigation [Annotate bit.ly/biosci220](bit.ly/biosci220)
+
+![](img/rstudio_panes.png)
+
+
+---
+
+
+## Terminology
+
++ **functions**: `R` commands that tell your computer what to do
+--
+
++ **arguments**: inputs we give to **functions** that are used by that **function** to give some output
+--
+
++ **packages**: a collection of specific **functions**
+--
+
++ **running** code: the act of telling R to perform an act by giving it commands in the console
+--
+
++ **objects**: what values are stored in
+--
+
++ **script**: a text file containing a set of commands and comments
+--
+
++ **comments**: notes written within a **script** to better document/explain what's happening
+--
+
+
+
+---
+
+
+### Data types in `R` 
+
+ + **Integers** are whole values like 1, 0, 220. These are classified `"integer"` or `int` in `R`.
+ 
+--
+ 
+ + **Numeric** values are a larger set of values containing integers but also fractions and decimal values, for example -56.94 and 1.3.  These are classified `"numeric"` or `num` or `dbl` in `R`.
+ 
+--
+ 
+ + **Logical** values are either TRUE or FALSE. These are classified `"logical"` or `lgl` in `R`.
+ 
+--
+ 
+ + **Characters** are text such as “Charlotte” and “BIOSCI220”. Characters are denoted with the quotation marks around them and are classified `"character"` or `chr` in `R`.
+
+---
+class: centre, middle, inverse
+
+### `tidy` data
+
+
+<img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/tidydata_1.jpg">
+
+
+---
+class: centre, middle, inverse
+
+### `tidy` data
+
+> "Tidy datasets are easy to manipulate, model and visualize, and have a specific structure: each variable is a column, each observation is a row, and each type of observational unit is a table. This framework makes it easy to tidy messy datasets because only a small set of tools are needed to deal with a wide range of un-tidy datasets." `r tufte::quote_footer('— Hadley Wickham, Tidy Data')`
+
+
+---
+
+
+### `tidy` data
+
+ 1. Each variable must have its **own column**
+ 
+--
+
+ 2. Each observation must have its **own row**
+ 
+--
+
+ 3. Each value must have its **own cell**
+
+
+
+---
+
+class: centre, middle, inverse
+
+#### **Piping** (What is a pipe? [Draw one at bit.ly/biosci220](bit.ly/biosci220))
+
+![](https://thumbs.gfycat.com/FreeDifficultAtlanticblackgoby-size_restricted.gif)
+
+
+---
+
+
+### Piping (`%>%`)
+
+```{r, eval = FALSE}
+I %>% 
+  tumble(out_of = "bed") %>% 
+  stumble(to = "the kitchen") %>% 
+  pour(who = "myself", unit = "cup", what = "ambition") %>% 
+  yawn() %>% 
+  stretch() %>% 
+  try(what = come_to_life())
+```
+
+Get together and write your own! **[slido.com](slido.com)** code **#biosci220**
+
+.footnote[Inspired by [@hadleywickham](https://twitter.com/hadleywickham/status/1359852563726819332?lang=en)]
+
+
+---
+
+
+
+## Errors
+
+```{r error, error = TRUE}
+library(tidy)
+```
+
+---
+
+
+
+## Errors
+
+```{r error2, error = TRUE}
+lbrary(tidyverse)
+```
+
+---
+
+
+## Errors
+
+```{r error3, error = TRUE}
+paua <- read_csv("paua.csv")
+```
+
+---
+
+
+## Errors
+
+```{r error4, error = TRUE, message = FALSE}
+library(tidyverse)
+paua <- read_csv("paua.csv")
+```
+
+
+---
+
+
+```{r, echo = FALSE, include=FALSE}
+library(flipbookr)
+```
+
+```{r example_read, include = FALSE}
+library(tidyverse)
+paua <- read_csv("https://raw.githubusercontent.com/STATS-UOA/databunker/master/data/paua.csv")
+glimpse(paua)
+```
+
+
+`r chunk_reveal(chunk_name = "example_read", title = "### Everything working nicely!", float = "top", widths = 1)`
+
+.footnote[See [Chapter 1](https://biosci220.github.io/BIOSCI220/r-and-rstudio.html#exploratory-data-analysis-eda) of the course guide]
+
+---
+
+
+
+```{r example_mean, include = FALSE}
+paua %>%
+  group_by(Species) %>%
+  summarise(av_length = mean(Length))
+```
+
+
+`r chunk_reveal(chunk_name = "example_mean", title = "### Everything working nicely!", float = "top", widths = 1)`
+
+
+---
+
+
+### Data manipulation
+
+```{r penguins_na, results='hide'}
+library(palmerpenguins)
+penguins
+penguins_nafree <- penguins %>% 
+	drop_na()
+penguins_nafree
+```
+
+
+.footnote[See [Chapter 2](https://biosci220.github.io/BIOSCI220/dealing-with-data.html#data-wrangling-and-manipulation) of the course guide]
+---
+
+
+`r chunk_reveal(chunk_name = "penguins_na", title = "### Data manipulation", float = "top", widths = 1)`
+
+
+---
+
+
+### Data manipulation
+
+```{r penguins_av,results='hide'}
+penguins_nafree %>% 
+  group_by(species) %>% 
+  summarise(avgerage_bill_length = mean(bill_length_mm))
+```
+
+.footnote[See [Chapter 2](https://biosci220.github.io/BIOSCI220/dealing-with-data.html#data-wrangling-and-manipulation) of the course guide]
+---
+
+
+
+`r chunk_reveal(chunk_name = "penguins_av", title = "### Data manipulation", float = "top", widths = 1)`
+
+---
+
+
+### Data manipulation
+
+```{r penguins_pivot, results='hide', message = FALSE, warning = FALSE}
+penguins_nafree %>%
+  filter(., sex != "male") %>%
+  select(c("species", "island", "body_mass_g")) %>%
+  group_by(species, island) %>%
+  summarise(total_mass_g = sum(body_mass_g)) %>%
+  pivot_wider(names_from = c(island), values_from = total_mass_g)
+```
+
+.footnote[See [Chapter 2](https://biosci220.github.io/BIOSCI220/dealing-with-data.html#data-wrangling-and-manipulation) of the course guide]
+---
+
+
+
+`r chunk_reveal(chunk_name = "penguins_pivot", title = "### Data manipulation", float = "top", widths = 1)`
+
+---
+
+
+class: inverse, center, middle
+
+[**code along**, live `R` demo]
+
+[**debugging**, live `R` demo]
+
+**Reply to my questions** at **[slido.com](slido.com)** code **#biosci220**
+
+
+---
+class: inverse, center, middle
+
+### Quiz
+
+**[slido.com](slido.com)** code **#biosci220**
+
+`r countdown::countdown(minutes = 5, seconds = 0, bottom = 0)`
+
+---
+
+
+### Key points
+
++ `RStudio` is an interface for using the computing language `R`
++ Errors are inevitable but **we can fix them**!
++ We can use **functions** to manipulate/calculate quantities from our data
++ We can install (and load) other **packages** to give us access to more **functions**
++ We can use the **piping operator** (i.e., `%>%`) to write code in a way that is easier to read and understand
+
+---
+
+
+###  `r icons::fontawesome("info-circle")` Week 02, lecture 01
+
++ **Slides**: [biosci220.github.io/slides/](https://biosci220.github.io/slides/)
++ **Course guide** (chapter 2): [biosci220.github.io/BIOSCI220/](https://biosci220.github.io/BIOSCI220/)
++ My **consultation hours**, Statistics Assistance Hub 301-G040:
+     + Mondays and Tuesdays, 9–11am
++ **Contact** me directly at [c.jonestodd@auckland.ac.nz](mailto:c.jonestodd@auckland.ac.nz)
++ Any admin queries please contact Jenn at [jenn.jury@auckland.ac.nz](mailto: jenn.jury@auckland.ac.nz)
++ [**Lab 01**](https://canvas.auckland.ac.nz/courses/104039/pages/week-2-laboratory-resources?module_item_id=2051421)
+
+---
+
+
+.small[
+### Learning objectives
++ **Create** and **communicate** informative data visualizations using `R` using the package `ggplot2`
++ **Map** the appropriate data structure to a `ggplot2` aesthetic
++ **Identify** the mapping of a variable given a plot
++ **Discuss** and **critique** data visualizations
+
+]
+
+---
+
+## Data visualization
+
+![](https://venngage-wordpress.s3.amazonaws.com/uploads/2020/06/image17.png)
+
+---
+class: inverse, center, middle
+
+
+> "...have obligations in that we have a great deal of power over how people ultimately make use of data, both in the patterns they see and the conclusions they draw." `r tufte::quote_footer('—  Michael Correll, Ethical Dimensions of Visualization Research')`
+
+---
+
+class: inverse, center, middle
+
+
+> "Scientific visualization is classically defined as the process of graphically displaying scientific data ... There are so many different ways to represent the same data: scatter plots, linear plots, bar plots, and pie charts ... the same data, using the same type of plot, may be perceived very differently depending on who is looking at the figure." `r tufte::quote_footer('— Nicolas P. Rougier, Michael Droettboom, Philip E. Bourne, Ten Simple Rules for Better Figures ')`
+
+
+---
+
+
+### Exploratory plots
+
+<br>
+
+  + are for data **exploration**,
+  
+  + don't have to look pretty,
+  
+  + just needs to **get to the point**,
+  
+  + help you **explore** and **discover** new data facets, and
+  
+  + aid in formulating **new questions**.
+  
+
+---
+
+
+### Explanatory plots
+
+<br>
+
+   + have a **clear** purpose,
+   
+   + are specifically designed for the audience,
+   
+   + should be **easy to read** (*this covers a lot of things*),
+   
+   + should not distort the data,
+   
+   + should guide the reader to a **particular conclusion**,
+   
+   + should answer a **specific question**, and
+   
+   + **support** a particular decision.
+   
+---
+
+
+## [Ten Simple Rules for Better Figures](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833)
+
+<br>
+
+ 1 **Know** Your Audience
+ 
+ 2 **Identify** Your Message
+ 
+ 3 **Adapt** the Figure to the Support Medium
+ 
+ 4 **Captions** Are Not Optional
+ 
+ 5 **Do Not** Trust the Defaults
+ 
+---
+
+
+## [Ten Simple Rules for Better Figures](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833)
+
+<br>
+
+ 6 Use **Color** Effectively
+ 
+ 7 **Do Not Mislead** the Reader
+    
+ 8 **Avoid** *Chartjunk*
+ 
+ 9 **Message** Trumps Beauty
+
+ 10 Get the Right **Tool**
+
+
+---
+
+
+### Introducing `ggplot2`
+
+Every `ggplot2` plot has three key components:
+
+  + `data`,
+
+  + A set of `aes`thetic mappings between variables in the data and visual properties, and
+
+  + At least one layer which describes how to render each observation. Layers are usually created with a `geom` function.
+
+.footnote[See [Chapter 2](https://biosci220.github.io/BIOSCI220/dealing-with-data.html#data-wrangling-and-manipulation) of the course guide]
+
+---
+Last week we met the `palmerpenguins`. **What you think the code below produces?** Discuss, [draw your own bit.ly/biosci220](bit.ly/biosci220)
+
+```{r, eval = FALSE, echo = TRUE}
+ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = species),size = 2)  +
+  scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +
+  xlab("Bill length (mm)") +
+  ylab("Bill depth (mm)")
+```
+
+
+
+---
+
+
+```{r bar, fig.show='hide', echo = FALSE}
+ggplot(penguins_nafree, aes(x = species, fill = sex)) +
+  geom_bar(alpha = 0.8, position = "dodge") +
+  facet_wrap(~island) +
+  xlab("") +
+  theme_linedraw() + 
+  scale_fill_manual(values = c("cyan4","darkorange"), name = "Sex") 
+```
+
+
+`r chunk_reveal(chunk_name = "bar", title = "")`
+
+
+
+---
+
+
+```{r, eval = FALSE}
+ggplot(penguins_nafree, aes(x = species, fill = sex)) +
+  geom_bar(alpha = 0.8, position = "dodge") +
+  facet_wrap(~island) +
+  xlab("") +
+  theme_linedraw() + 
+  scale_fill_manual(values = c("cyan4","darkorange"), name = "Sex") 
+```
+
+.footnote[See [Chapter 2](https://biosci220.github.io/BIOSCI220/dealing-with-data.html#data-wrangling-and-manipulation) of the course guide]
+---
+
+
+```{r point, fig.show='hide', echo = FALSE}
+ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = species),size = 2)  +
+  scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +
+  theme_bw() + 
+  xlab("Bill length (mm)") +
+  ylab("Bill depth (mm)")
+```
+
+`r chunk_reveal(chunk_name = "point", title = "")`
+
+
+---
+
+
+```{r, eval = FALSE}
+ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = species),size = 2)  +
+  scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +
+  theme_bw() + 
+  xlab("Bill length (mm)") +
+  ylab("Bill depth (mm)")
+```
+
+.footnote[See [Chapter 2](https://biosci220.github.io/BIOSCI220/dealing-with-data.html#data-wrangling-and-manipulation) of the course guide]
+
+---
+
+
+class: inverse, center, middle
+
+[**code along**, live `R` demo]
+
+
+**Reply to my questions** at **[slido.com](slido.com)** code **#biosci220**
+
+
+
+
+---
+class: inverse, center, middle
+
+### Quiz
+
+**[slido.com](slido.com)** code **#biosci220**
+
+`r countdown::countdown(minutes = 5, seconds = 0, bottom = 0)`
+
+---
+
+
+### Key points
+
++ Data visualisation is a **key** aspect of exploration and communication
++ We can **use `ggplot2`** to create informative visualisations in `R`
++ **Creating** a *ggplot* should involve **1)** the `data` object, **2)** a set of `aes`thetic mappings, and **3)** at least one (`geom`) layer.
+
+
+---
+class: inverse, center, middle
+
+###  Week 02, lecture 02
+
+Guest Lecturer: Nicole Edwards
+
+---
+
+
+###  `r icons::fontawesome("info-circle")` Week 03, lecture 01
+
++ **Slides**: [biosci220.github.io/slides/](https://biosci220.github.io/slides/)
++ **Course guide** (chapter 3): [biosci220.github.io/BIOSCI220/](https://biosci220.github.io/BIOSCI220/)
++ My **consultation hours**, Statistics Assistance Hub 301-G040:
+     + Mondays and Tuedsays, 9–11am
++ **Contact** me directly at [c.jonestodd@auckland.ac.nz](mailto:c.jonestodd@auckland.ac.nz)
++ Any admin queries please contact Jenn at [jenn.jury@auckland.ac.nz](mailto: jenn.jury@auckland.ac.nz)
++ [**Lab 01**](https://canvas.auckland.ac.nz/courses/71391/pages/week-2-laboratory-resources)
+
+---
+class: inverse, center, middle
+
+# Introduction to experimental design
+
+![](http://2017.igem.org/wiki/images/7/7b/CabeceraExperimentsValencia.gif)
+
+---
+
+class: inverse
+
+.small[
+## Learning Objectives
+
++ **Identify** the following in a given experiment
+      + experimental unit
+      + observational units
++ **List** and **describe** the three main principles of experimental design:
+     + Randomization
+     + Replication
+     + Blocking
++ **Describe** the layout and set-up of a CRD, RCBD, and a simple factorial experimental design
++ **Discuss** and **critique** a given experimental design
++ **Identify** sources of variation within a given experimental design
+]
+
+---
+#### **Between group variation** [Annotate bit.ly/biosci220](bit.ly/biosci220)
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+means <- penguins_nafree %>% group_by(species) %>% summarise(means = mean(bill_length_mm))
+mean <- mean(penguins_nafree$bill_length_mm)
+means$ends <- mean
+means$lag1 <- means$means[c(2,3,1)]
+means$lag2 <- means$means[c(3,1,2)]
+ggplot(penguins_nafree,aes(x = species, y = bill_length_mm)) + 
+    geom_violin()  + 
+  ylab("Bill length (mm)") +
+  xlab("Species") +
+  geom_point(data = means, aes(x = species, y = means),color = "blue", size = 2) +
+  annotate(geom = 'text', label = "Average bill length per species" , x = -Inf, y = Inf, hjust = 0, vjust = 1.2, color = "blue") +
+  geom_hline(yintercept = mean, color = "red") +
+  annotate(geom = 'text', label = "Overall average bill length" , x = -Inf, y = Inf, hjust = 0, vjust = 3, color = "red") +
+  geom_segment(data = means, aes(x = species, y = means, xend = species, yend = ends),col = "darkgreen", size = 2)  +
+  annotate(geom = 'text', label = "Differences to overall average" , x = -Inf, y = Inf, hjust = 0, vjust = 5, color = "darkgreen") +
+  geom_hline(data = means, aes(yintercept = means), color = "blue", alpha = 0.3, lty = 2) + 
+  geom_segment(data = means, aes(x = as.numeric(species) - 0.15, y = means, 
+                                 xend = as.numeric(species) - 0.15, yend = lag1),col = "purple", size = 2) +
+  geom_segment(data = means, aes(x = as.numeric(species) + 0.15, y = means, 
+                                 xend = as.numeric(species) + 0.15, yend = lag2),col = "purple", size = 2)+
+  annotate(geom = 'text', label = "Differences between groups" , x = -Inf, y = Inf, 
+           hjust = 0, vjust = 7, color = "purple")
+```
+
+
+
+---
+
+#### **Within group variation** [Annotate bit.ly/biosci220](bit.ly/biosci220)
+
+```{r,echo = FALSE, warning=FALSE, message=FALSE}
+jit <- ggplot() + 
+  geom_jitter(data = penguins_nafree,aes(x = species, y = bill_length_mm, color = species), alpha = 0.2) 
+
+penguins_nafree$x_points <- layer_data(jit)$x
+penguins_nafree$y_points <- layer_data(jit)$y
+penguins_nafree <- penguins_nafree %>% group_by(species) %>% mutate(sp_means = mean(bill_length_mm))
+
+ggplot() + 
+  ylab("Bill length (mm)") +
+  xlab("Species") +
+  geom_point(data = means, aes(x = species, y = means, color = species), size = 2) +
+  geom_text(data = means, aes(x = species, y = means + 2.5, color = species, 
+                              label = paste0("Species average = ",round(means,3)))) +
+  geom_hline(data = means, aes(yintercept = means, color = species), alpha = 0.3, lty = 2) +
+  geom_point(data = penguins_nafree,aes(x = x_points, y = y_points, color = species), alpha = 0.2) +
+  theme(legend.position = "none") + 
+  geom_segment(data = penguins_nafree, aes(x = x_points, y = y_points, xend = x_points, 
+                                 yend = sp_means,color = species), size = 1, alpha = 0.2) 
+```
+
+
+
+---
+
+class: inverse, middle, centre
+
+##### Clickbait: **This Mom Claims She's Found the Perfect Home Remedy for Curing Kids' Colds...**
+
+![](https://i.pinimg.com/originals/1c/ec/f1/1cecf1e43177071b90552f4f645d3468.gif)
+
+---
+class: inverse, middle, centre
+
+> Mom -XX took to Facebook to share her find. "So [my son] had a little cold so I put potatoes in his socks last night around 8-9pm," she wrote. "He didn't cough through the night, nose isn't running, isn't as congested and he slept for 12 hours." The mother also included a photo of the potatoes she had taken out of her son's socks in the morning. The used potato slices had oxidized completely, looking a sickly black color. ... , many people online credit the home remedy with curing the common cold and reducing fevers. Some claim the potatoes work by drawing "toxins" out of the body, which reduces illness and helps absorb body temperature to reduce fevers.
+
+
+.footnote[[link to article](https://cafemom.com/parenting/209849-cured-kids-colds-potatoes-socks)]
+
+
+
+---
+##### Do potatoes in your socks cure colds? Does this mother draw a valid conclusion? **[slido.com](slido.com)** code **#biosci220**
+
+<img src="https://preview.redd.it/8kdhoxhzty441.jpg?width=640&crop=smart&auto=webp&s=f56343ff13003be98bca909b309e40ea1e8eca3e" width="50%">
+
+
+.small[[link to reddit post](https://www.reddit.com/r/insanepeoplefacebook/comments/ebd1yu/return_of_the_magic_potato/)]
+---
+
+
+###  Key phrases
+
+An **experiment** is a procedure (or set of actions) where a researcher intentionally changes some factor/treatment/variable to observe the effect of their actions. As mentioned above, the collection of observational data is not experimentation.
+
+--
+
+An **experimental unit** is the smallest portion of experimental material which is *independently* perturbed. This is the item under study for which some variable (treatment) is changed. For example this could be a human subject or an agricultural plot.
+
+---
+
+
+###  Key phrases
+ 
+An **observational unit** (or subsample) is the smallest unit on which a response is measured. 
+
+If the experimental unit is split after the treatment has been applied (e.g., multiple samples taken from one human subject) then this sample is called a subsample or observational unit. If one measurement is made on each experimental unit then the **observational unit** = the **experimental unit**. 
+
+If multiple measurements are made on each subject (e.g., human) then each experimental unit has >1 observational unit. This is then *pseudo-* or *technical replication*.
+
+---
+
+###  Key phrases
+
+A **treatment** (or **independent variable** or **factor** or **treatment factor**) is an experimental condition *independently* applied to an experimental unit. It is one of the variables that is controlled by the researcher during the experiment (e.g., drug type). The values of the treatments within a set are called **levels**. 
+
+---
+###  Key phrases
+
+The **dependent variable** or **response** is the output (or thing) that is measured after an experiment. This is what the researcher measures and assesses if changing the treatment(s) (i.e., independent variable(s)) induces any change. 
+
+An **effect** is the change in the response variable caused by the controlled changes in the independent variable. Whether the magnitude of the effect (it's size) is significant (or or any practical interest) is determined by the researcher after carrying out some appropriate analyses.
+
+
+---
+### An example: `r icons::icon_style(icons::fontawesome("coffee", style = "solid"), fill = "brown")` `r icons::icon_style(icons::fontawesome("coffee", style = "solid"), fill = "black")` `r icons::icon_style(icons::fontawesome("coffee", style = "solid"), fill = "grey")`
+
+
++ Three types of coffee beans are chosen: Arabica `r icons::icon_style(icons::fontawesome("coffee", style = "solid"), fill = "brown")`, Liberica `r icons::icon_style(icons::fontawesome("coffee", style = "solid"), fill = "black")`, and Robusta `r icons::icon_style(icons::fontawesome("coffee", style = "solid"), fill = "grey")`.
++ 12 identical cups are chosen and sets of four cups are **randomly allocated** one of three treatments.
++ Four sets of each type of coffee beans are ground and cups made (in the same way) resulting in a total of 12 cups of coffee.
++ Samples are taken from each cup and the coffee strength is measured.
+
+---
+
+**Experiment design:**
+
+`r icons::icon_style(icons::fontawesome("coffee", style = "solid"), scale = 2, fill = "brown")``r icons::icon_style(icons::fontawesome("coffee", style = "solid"), scale = 2, fill = "brown")``r icons::icon_style(icons::fontawesome("coffee", style = "solid"), scale = 2, fill = "brown")``r icons::icon_style(icons::fontawesome("coffee", style = "solid"), scale = 2, fill = "black")``r icons::icon_style(icons::fontawesome("coffee", style = "solid"), scale = 2, fill = "grey")``r icons::icon_style(icons::fontawesome("coffee", style = "solid"), scale = 2, fill = "black")``r icons::icon_style(icons::fontawesome("coffee", style = "solid"), scale = 2, fill = "grey")``r icons::icon_style(icons::fontawesome("coffee", style = "solid"), scale = 2, fill = "black")``r icons::icon_style(icons::fontawesome("coffee", style = "solid"), scale = 2, fill = "black")``r icons::icon_style(icons::fontawesome("coffee", style = "solid"), scale = 2, fill = "grey")``r icons::icon_style(icons::fontawesome("coffee", style = "solid"), scale = 2, fill = "brown")``r icons::icon_style(icons::fontawesome("coffee", style = "solid"), scale = 2, fill = "grey")`
+
+#### **Scientific question**: Does coffee strength differ between bean types?
+
+---
+
+#### **Scientific question**: Does coffee strength differ between bean types?
+
+There are **3 treatments** (types of coffee beans): Arabica, Liberica, and Robusta.
+
+In this case the **experimental unit** would be the **coffee cup** as each one is allocated a different bean type (treatment).
+
+The **observational unit** changes depending on the scenario (i.e., what and how samples are taken). For example,
+
+   + if a single ml of liquid is taken from each cup and one measurement is taken per ml taken $\rightarrow$ the observational unit would be the **cup**
+---
+
+
+#### Scientific question: Does coffee strength differ between bean types?
+
+There are **3 treatments** (types of coffee beans): Arabica, Liberica, and Robusta.
+
+In this case the **experimental unit** would be the **coffee cup** as each one is allocated a different bean type (treatment).
+
+The **observational unit** changes depending on the scenario (i.e., what and how samples are taken). For example,
+
+   + if a single ml of liquid is taken from each cup and two subsamples are then taken from each ml, then if measurements are taken per subsample $\rightarrow$ then the observational unit would be a **subsample**
+   
+---
+
+#### Scientific question: Does coffee strength differ between bean types?
+
+There are **3 treatments** (types of coffee beans): Arabica, Liberica, and Robusta.
+
+In this case the **experimental unit** would be the **coffee cup** as each one is allocated a different bean type (treatment).
+
+The **observational unit** changes depending on the scenario (i.e., what and how samples are taken). For example,
+
+   + if four $\times$ 1ml of liquid were taken from each cup and from each ml a measurement is taken $\rightarrow$ then the observational unit would be **each 1ml sample**
+
+---
+###### **[slido.com](slido.com)** code **#biosci220**
+
+###### Taken directly from [The Genesis of Experimentation](https://emitanaka.org/slides/Ihaka2022/#/title-slide). The first [Ihaka lecture](https://www.auckland.ac.nz/en/science/about-the-faculty/department-of-statistics/ihaka-lecture-series.html) of 2022, given by [Emi Tanaka](https://emitanaka.org/), yesterday! Experiment from Steinauer et. al. (2015) [Plant diversity effects on soil microbial functions and enzymes are stronger than warming in a grassland experiment. Ecology.](https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/14-0088.1)
+
+```{r, fig.align='center', out.width="50%", echo = FALSE}
+knitr::include_graphics("img/experiment.png")
+```
+
+
+
+---
+class: center, middle
+
+### Three (key) principles of exprimental design
+
+.footnote[See [Chapter 3](https://biosci220.github.io/BIOSCI220/introduction-to-the-design-and-analysis-of-experiments.html) of the course guide]
+
+--
+
+### **Replication**
+
+--
+
+### **Randomisation**
+
+--
+
+### **Blocking**
+
+
+---
+
+**Replication**
+
+.footnote[See [Chapter 3](https://biosci220.github.io/BIOSCI220/introduction-to-the-design-and-analysis-of-experiments.html) of the course guide]
+
++ **Biological replication:** each treatment is *independently* applied to each of several humans, animals or plants
+
+--
+
+*Why?* To generalize results to population
+
+---
+
+**Replication**
+
+.footnote[See [Chapter 3](https://biosci220.github.io/BIOSCI220/introduction-to-the-design-and-analysis-of-experiments.html) of the course guide]
+
++ **Technical replication:** two or more samples from the same biological source which are *independently* processed
+
+--
+
+*Why?* 
+  + Advantageous if processing steps introduce a lot of variation
+  + Increases the precision with which comparisons of relative abundances between treatments are made
+
+---
+
+**Replication**
+
+.footnote[See [Chapter 3](https://biosci220.github.io/BIOSCI220/introduction-to-the-design-and-analysis-of-experiments.html) of the course guide]
+
++ **Pseudo-replication:** one sample from the same biological source, divided into two or more aliquots which are **independently** measured
+
+--
+
+*Why?* 
+  + Advantageous for noisy measuring instruments
+  + Increases the **precision** with which comparisons of relative abundances between treatments are made
+  
+---
+
+**Randomization**
+
+.footnote[See [Chapter 3](https://biosci220.github.io/BIOSCI220/introduction-to-the-design-and-analysis-of-experiments.html) of the course guide]
+
++ Protects against bias
+
+--
+
++ Plan the experiment in such a way that the variations caused by extraneous factors can all be combined under the general heading of "chance".
+
+
+--
+
++ Ensures that each treatment has the same probability of getting good (or bad) units and thus avoids systematic bias
+
+--
+
++ Random allocation can cancel out population bias; it ensures that any other possible causes for the experimental results are split equally between groups
+
+---
+
+**Randomisation**
+
+.footnote[See [Chapter 3](https://biosci220.github.io/BIOSCI220/introduction-to-the-design-and-analysis-of-experiments.html) of the course guide]
+
++ Typically statistical analysis assumes that observations are **independent**. This is almost never strictly true in practice but randomisation means that our estimates will behave as if they were based on independent observations
+
+---
+
+**Blocking**
+
+.footnote[See [Chapter 3](https://biosci220.github.io/BIOSCI220/introduction-to-the-design-and-analysis-of-experiments.html) of the course guide]
+
++ Blocking helps **control variability** by making treatment groups more alike. Experimental units are divided into subsets (called blocks) so that units within the same block are more similar than units from different subsets or blocks. 
+
+--
+
++ Blocking is a technique for dealing with *nuisance factors*. A *nuisance factor* is a factor that has some effect on the response, but is of no interest (e.g., age class).
+
+---
+### Completely randomised design (CRD)
+
+Let's consider a completely  design with one treatment factor (e.g., coffee bean type). 
+
+--
+
+Here, **n** experimental units (e.g., cups) are divided **randomly** into **t** groups.  Each group is then given one treatment level (one of the treatment factors). As we have defined only one treatment factor all other known independent variables are kept constant so as to not bias any effects.
+
+.footnote[.small[Random allocation can be achieved by simply drawing lots from a hat! To be more rigorous, though, we could use `R`'s `sample()` function.]]
+
+---
+### Completely randomised design (CRD)
+
+
+![An illustration of a CRD with one tratment factor and three treatment levels (A, B, & C)](https://github.com/cmjt/ggdesign/raw/main/README_files/figure-markdown_strict/unnamed-chunk-4-1.png)
+
+
+---
+### Randomised complete block design (RCBD)
+
+Let's consider a randomised complete block design with one treatment factor (e.g., coffee bean type). If the treatment factor has **t** levels there will be **b** blocks that each contain **t** experimental units resulting in a total of **t** $\times$ **b** experimental units.  
+
+--
+
+For example, let's imagine that for the coffee experiment we had two cup types: mugs and heatproof glasses. We might consider the type of receptacle to have an effect on the coffee strength measured; however, we are not interested in this. Therefore, to negate this we block by cup type. This means that any effect due to the blocking factor (cup type) is accounted for by the blocking.
+
+---
+### Randomised complete block design (RCBD)
+
+For a blocked design we want the **t** experimental units within each block should be as homogeneous as possible (as similar as possible, so that there is unlikely to be unwanted variation coming into the experiment this way). 
+
+--
+
+The variation between blocks (the groups of experimental units) should be large enough (i.e., blocking factors different enough) so that conclusions can be drawn. Allocation of treatments to experimental units is done randomly (i.e., treatments are randomly assigned to units) within each block.
+
+---
+### Randomised complete block design (RCBD)
+
+
+![An illustration of a RCBD with one tratment factor, three treatment levels (A, B, & C), and three blocks (rows)](https://github.com/cmjt/ggdesign/raw/main/README_files/figure-markdown_strict/unnamed-chunk-6-1.png)
+
+
+---
+### Factorial design
+
+A factorial experiment is one where there are two or more sets of (factor) treatments. Rather than studying each factor separately all combinations of the treatment factors are considered. 
+
+--
+
+Factorial designs enable us to infer any **interaction** effects, which may be present. An **interaction** effect is one where the effect of one variable depends on the value of another variable (i.e., the effect of one treatment factor on the response variable will change depending on the value of a second treatment factor.)
+
+---
+
+### Factorial design
+
+For example, we could add another treatment to the coffee experiment: **grinder type** (manual `r icons::icon_style(icons::fontawesome("mortar-pestle", style = "solid"), fill = "black")` or electric `r icons::icon_style(icons::fontawesome("plug", style = "solid"), fill = "black")`). So, now we have two treatments, bean type (with three levels) and grinder type (with two levels). Recall that in a factorial experiment we want to study **all combinations** of the levels of each factor:
+
+---
+Now, our **question about the strength of coffee** would be *Does the strength of coffee vary between beans and/or grinder?*
+
+|   | Manual    | Electric   | 
+|---|---    |---     |
+| Arabica   | A.M `r icons::icon_style(icons::fontawesome("mortar-pestle", style = "solid"), scale = 3, fill = "brown")`  | A.E `r icons::icon_style(icons::fontawesome("plug", style = "solid"), scale = 3, fill = "brown")` |
+| Liberica  | L.M `r icons::icon_style(icons::fontawesome("mortar-pestle", style = "solid"), scale = 3, fill = "black")`  |  L. E`r icons::icon_style(icons::fontawesome("plug", style = "solid"), scale = 3, fill = "black")` |
+| Robusta   |  R.M `r icons::icon_style(icons::fontawesome("mortar-pestle", style = "solid"), scale = 3, fill = "grey")`  |  R. E `r icons::icon_style(icons::fontawesome("plug", style = "solid"), scale = 3, fill = "grey")` |
+
+.footnote[Note:  a factorial design has **equal** numbers of replicates in each group then it is said to be a **balanced** design; if this is not the case then it is **unbalanced**.]
+
+
+
+---
+**Possible outcomes**
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=8, fig.width=8}
+require(tidyverse)
+require(ggplot2)
+require(patchwork)
+coffee <- data.frame(bean = rep(c("Arabica","Liberica", "Robusta"), times = 2),
+                     grinder = rep(c("Manual", "Electric"), each = 3),
+                     mean = rep(1, 6))
+expr <-  expression(paste(hat(mu)[A.M], " = ", hat(mu)[A.E]," = ", hat(mu)[L.M]," = ", hat(mu)[L.E],
+                          " = ", hat(mu)[R.M], " = ", hat(mu)[R.E]))
+p1 <- coffee %>%  
+  ggplot(., aes(x = grinder, y = mean, color = bean)) +
+  geom_line(aes(group = bean), size = rep(c(5, 1, 2.5), 2)) +
+  geom_point(size = rep(c(5, 2.5, 1), 2)) +
+  theme_classic() +
+  ylab("Mean coffee strength") +
+  xlab("") + 
+  theme(axis.text.y = element_blank(), axis.ticks.y = element_blank(), legend.position = "none") +
+  scale_color_manual(values = c("brown", "black", "grey")) +
+  ggtitle("No grinder or bean effects", subtitle = expr) 
+###
+coffee <- data.frame(bean = rep(c("Arabica","Liberica", "Robusta"), times = 2),
+                     grinder = rep(c("Manual", "Electric"), each = 3),
+                     mean = rep(c(1,2), each = 3))
+expr <-  expression(paste(hat(mu)[A.M], " = ", hat(mu)[L.M]," = ", hat(mu)[R.M]," and ", hat(mu)[A.E],
+                          " = ", hat(mu)[L.E], " = ", hat(mu)[R.E]))
+p2 <- coffee %>%  
+  ggplot(., aes(x = grinder, y = mean, color = bean)) +
+  geom_line(aes(group = bean), size = rep(c(5, 1, 2.5), 2)) +
+  geom_point(size = rep(c(5, 2.5, 1), 2)) +
+  theme_classic() +
+  ylab("Mean coffee strength") +
+  xlab("") + 
+  theme(axis.text.y = element_blank(), axis.ticks.y = element_blank(), legend.position = "none") +
+  scale_color_manual(values = c("brown", "black", "grey")) +
+  ggtitle("Grinder effect only", subtitle = expr) 
+###
+coffee <- data.frame(bean = rep(c("Arabica","Liberica", "Robusta"), times = 2),
+                     grinder = rep(c("Manual", "Electric"), each = 3),
+                     mean = rep(c(1, 2, 3), times = 2))
+expr <-  expression(paste(hat(mu)[A.M], " = ", hat(mu)[A.E]," and ", hat(mu)[L.M]," = ", hat(mu)[L.E],
+                          " and ", hat(mu)[R.M], " = ", hat(mu)[R.E]))
+p3 <- coffee %>%  
+  ggplot(., aes(x = grinder, y = mean, color = bean)) +
+  geom_line(aes(group = bean), size = 3) +
+  geom_point(size = 5) +
+  theme_classic() +
+  ylab("Mean coffee strength") +
+  xlab("") + 
+  theme(axis.text.y = element_blank(), axis.ticks.y = element_blank()) +
+  guides(color = guide_legend(title = "Bean Type")) + 
+  scale_color_manual(values = c("brown", "black", "grey")) +
+  ggtitle("Bean effect only", subtitle = expr) 
+###
+coffee <- data.frame(bean = rep(c("Arabica","Liberica", "Robusta"), times = 2),
+                     grinder = rep(c("Manual", "Electric"), each = 3),
+                     mean = 1:6)
+expr <-  expression(paste(hat(mu)[A.M], " ≠ ", hat(mu)[A.E]," ≠ ", hat(mu)[L.M]," ≠ ", hat(mu)[L.E],
+                          " ≠ ", hat(mu)[R.M], " ≠ ", hat(mu)[R.E]))
+p4 <- coffee %>%  
+  ggplot(., aes(x = grinder, y = mean, color = bean)) +
+  geom_line(aes(group = bean), size = 3) +
+  geom_point(size = 5) +
+  theme_classic() +
+  ylab("Mean coffee strength") +
+  xlab("") + 
+  theme(axis.text.y = element_blank(), axis.ticks.y = element_blank()) +
+  guides(color = guide_legend(title = "Bean Type")) + 
+  scale_color_manual(values = c("brown", "black", "grey")) +
+  ggtitle("Bean and grinder effect", subtitle = expr) 
+((p1 + p2)/(p3 + p4)) +  plot_layout(guides = "collect")
+```
+
+---
+
+If an **interaction** effect exists the effect of one factor on the response will change depending on the level of the other factor:
+
+```{r, echo = FALSE}
+coffee <- data.frame(bean = rep(c("Arabica","Liberica", "Robusta"), times = 2),
+                     grinder = rep(c("Manual", "Electric"), each = 3),
+                     mean = c(2, 1, 1.5, 1, 3, 2.5))
+coffee %>%  
+  ggplot(., aes(x = grinder, y = mean, color = bean)) +
+  geom_line(aes(group = bean), size = 3) +
+  geom_point(size = 5) +
+  theme_classic() +
+  ylab("Mean coffee strength") +
+  xlab("") + 
+  theme(axis.text.y = element_blank(), axis.ticks.y = element_blank()) +
+  guides(color = guide_legend(title = "Bean Type")) + 
+  scale_color_manual(values = c("brown", "black", "grey")) +
+  ggtitle("Interaction effect") 
+```
+
+---
+class: inverse, middle, centre
+
+###  [Annotate bit.ly/biosci220](bit.ly/biosci220)
+
+
+---
+
+### Key points
+
++ Potatoes in your socks *probably* don't cure colds...
++ An **experimental unit** is the item under study for which some treatment is changed
++ An **observational unit** is the smallest unit on which a response is measured
++ **Replication** (helps us generalise results), **Randomisation** (helps protect against bias), and **Blocking** (helps account for some factor we're not interested in) are key when designing experiments
+
+---
+
+###  `r icons::fontawesome("info-circle")` Week 03, lecture 02
+
++ **Slides**: [biosci220.github.io/slides/](https://biosci220.github.io/slides/)
++ **Course guide** (chapter 4): [biosci220.github.io/BIOSCI220/](https://biosci220.github.io/BIOSCI220/)
++ My **consultation hours**, Statistics Assistance Hub 301-G040:
+     + Mondays and Tuedsays, 9–11am
++ **Contact** me directly at [c.jonestodd@auckland.ac.nz](mailto:c.jonestodd@auckland.ac.nz)
++ Any admin queries please contact Jenn at [jenn.jury@auckland.ac.nz](mailto: jenn.jury@auckland.ac.nz)
++ [**Lab 02**](https://canvas.auckland.ac.nz/courses/71391/pages/week-3-laboratory-resources)
+
+---
+
+class: inverse, center
+
+**Mōrena**
+
+```{r, echo = FALSE, out.width="60%"}
+knitr::include_graphics("img/pumpkins.jpg")
+```
+
+---
+.small[
+### Learning objectives
+
++ **Formulate** a question/hypothesis to investigate based on the given data
++ **List** the aims, **write** out the appropriate null and alternative hypothesis using statistical notation for, and write R code to carry out a randomisation test
++ **Correctly interpret** and **communicate** a p-value in terms of a randomisation test
+]
+
+---
+   
+#### Randomisation tests
+
+<img src = "https://i.imgflip.com/2e1aal.jpg">
+
+---
+#### What can you say about this plot? **[slido.com](slido.com)** code **#biosci220**
+
+```{r, eval = TRUE, echo = FALSE}
+library(tidyverse)
+data.frame(weight = c(7.1, 5.2, 6.3, 6.7, 7.4, 5.9, 5.3, 6.1, 2.1, 4.9,
+                      4.8, 5.4, 3.6, 4.1, 4.4, 4.8, 3.4, 5.1, 5.3, 5.2),
+           group = rep(c("G1","G2"), each = 10)) %>%
+	ggplot(., aes(x = group, y = weight)) + geom_violin() + geom_jitter() +
+	xlab("Group") + ylab("Weight of pumpkin (kg)") + theme_light()
+
+```
+---
+##### Do you think the mean weight of each group are significantly different from each other? Why or why not? **[slido.com](slido.com)** code **#biosci220**
+
+```{r, eval = TRUE, echo = FALSE}
+library(tidyverse)
+data <- data.frame(weight = c(7.1, 5.2, 6.3, 6.7, 7.4, 5.9, 5.3, 6.1, 2.1, 4.9,
+                      4.8, 5.4, 3.6, 4.1, 4.4, 4.8, 3.4, 5.1, 5.3, 5.2),
+           group = rep(c("G1","G2"), each = 10))
+meds <- data %>%
+	group_by(group) %>%
+	summarise(means = mean(weight))
+ggplot(data, aes(x = group, y = weight)) + geom_violin() + geom_jitter() +
+	xlab("Group") + ylab("Weight of pumpkin (kg)") + theme_light() +
+	annotate(geom = "text", x = meds$group, y = meds$means, label = paste("Means (kg) = ", meds$means))
+	
+
+```
+
+
+---
+##### Do you think the median weight of each group are significantly different from each other? Why or why not? **[slido.com](slido.com)** code **#biosci220**
+
+```{r, eval = TRUE, echo = FALSE}
+library(tidyverse)
+data <- data.frame(weight = c(7.1, 5.2, 6.3, 6.7, 7.4, 5.9, 5.3, 6.1, 2.1, 4.9,
+                      4.8, 5.4, 3.6, 4.1, 4.4, 4.8, 3.4, 5.1, 5.3, 5.2),
+           group = rep(c("G1","G2"), each = 10))
+meds <- data %>%
+	group_by(group) %>%
+	summarise(medians = median(weight))
+ggplot(data, aes(x = group, y = weight)) + geom_violin() + geom_jitter() +
+	xlab("Group") + ylab("Weight of pumpkin (kg)") + theme_light() +
+	annotate(geom = "text", x = meds$group, y = meds$medians, label = paste("Median (kg) = ", meds$medians))
+	
+
+```
+
+---
+#### The data
+
+![](img/pumpkins_stardew.png)
+
+###### [source](https://www.reddit.com/r/StardewValley/comments/e4m54i/i_have_been_blessed_this_fall_any_suggestions/)
+---
+**Randomisation test**
+
+
+ + **Decide** on a metric to measure the effect in question (e.g., differences between group medians)
+ 
+--
+ 
+ + **Calculate** that test statistic on the observed data. Note this metric can be **anything** you wish
+ 
+--
+
+ + For chosen number of times (*bigger the better*)
+    + **Shuffle** the data labels
+    + **Calculate** the test statistic for the reshuffled data and retain
+  
+---
+**Randomisation test**
+
+ + **Calculate** the proportion of times your reshuffled statistics equal or exceed the observed
+    + typically here we use the absolute values as we'd be carrying out a **two-tailed** test (or we could double the p-value)
+    + this is the probability of such an extreme result under the null
+    
+--
+
+ + **State** the strength of evidence against the null on the basis of this **probability**.
+
+---
+### Difference in medians for our observed data
+
+```{r}
+## observed differences in medians
+data <- data.frame(weight = c(7.1, 5.2, 6.3, 6.7, 7.4, 5.9, 5.3, 6.1, 2.1, 4.9,
+                      4.8, 5.4, 3.6, 4.1, 4.4, 4.8, 3.4, 5.1, 5.3, 5.2),
+           group = rep(c("G1","G2"), each = 10))
+glimpse(data)
+```
+
+---
+### Difference in medians for our observed data
+
+```{r}
+diff_in_medians <- data %>% 
+  group_by(group) %>% 
+  summarise(median = median(weight)) %>%
+  summarise(diff = diff(median)) %>% as.numeric()
+diff_in_medians
+```
+
+---
+### Code for you to run in-lecture
+
+```{r, eval = FALSE}
+library(tidyverse)
+data.frame(weight = c(7.1, 5.2, 6.3, 6.7, 7.4, 5.9, 5.3, 6.1, 2.1, 4.9,
+                      4.8, 5.4, 3.6, 4.1, 4.4, 4.8, 3.4, 5.1, 5.3, 5.2),
+           group = rep(c("G1","G2"), each = 10)) %>%
+    mutate(random_labels = sample(group, replace = FALSE)) %>%
+    group_by(random_labels) %>%
+    summarise(median_under_null = median(weight)) %>%
+    summarise(diff_under_null = diff(median_under_null)) %>%
+    as.numeric() %>% round(., 3)
+```
+
+---
+class: center, middle, inverse
+
+### **Live randomisation test**:  [Annotate bit.ly/biosci220](bit.ly/biosci220)
+
+
+---
+class: inverse, center, middle
+
+[live demo]
+
+---
+
+### Key points
+
++ We can carry out hypothesis test on **without the restrictions** of having to know the mathematical form of the sampling distribution.
++ Embrace the **randomness**!
++ Simulating under the **NULL hypothesis** shows us what would happen under *chance alone*
++ The **location of our observed statistic** in the distribution of those simulated under the NULL hypothesis gives us information!
+
+---
+class: inverse, middle, center
+
+### `r emo::ji('scream')`  p-values `r emo::ji('scream')`
+##### **[slido.com](slido.com) code #biosci220: What does this mean?**
+
+![](https://pbs.twimg.com/media/DzVIekRXcAAUISg?format=png&name=small)
+
+
+.footnote[[Fisher, Ronald Aylmer, Journal of the Ministry of Agriculture of Great Britain, 33: 503-513 (1926)](https://repository.rothamsted.ac.uk/item/8v61q/the-arrangement-of-field-experiments)]
+
+
+---
+class: inverse, middle, center
+
+> "Good statistical practice, as an essential component of good scientific practice, emphasizes principles of good study design and conduct, a variety of numerical and graphical summaries of data, understanding of the phenomenon under study, interpretation of results in context, complete reporting and proper logical and quantitative understanding of what data summaries mean. No single index should substitute for scientific reasoning."—ASA Statement on p-Values
+
+---
+
+### `r emo::ji('scream')`  p-values `r emo::ji('scream')`
+
+Q: **What is a p-value?**
+
+A: Informally, a p-value is the probability under a specified statistical model that a statistical summary of the data would be equal to or more extreme than its observed value
+
+---
+
+### `r emo::ji('scream')`  p-values `r emo::ji('scream')`
+
+
++ **p-values** can indicate how incompatible the data are with a specified statistical model
+
+--
+
++ p-values **do not** measure the probability that the studied hypothesis is true, or the probability that the data were produced by random chance alone
+
+--
+
++ scientific conclusions and business or policy decisions **should not** be based only on whether a p-value passes a specific threshold
+
+---
+
+### `r emo::ji('scream')` Correctly interpreting p-values `r emo::ji('scream')`
+
++ proper inference requires **full** reporting and transparency
+
+--
+
++ p-value, or statistical significance, does **not** measure the size of an effect or the importance of a result
+
+--
+
++ by itself, a p-value does **not** provide a good measure of evidence regarding a model or hypothesis
+
+---
+
+### `r emo::ji('scream')` Correctly interpreting p-values `r emo::ji('scream')`
+
+There are **many** different schools of thought about how a p-value should be interpreted.
+
+Most people agree that the p-value is a useful measure of the strength of evidence against the null hypothesis. The smaller the p-value, the stronger the evidence against $H_0$. 
+
+Some people go further and use an accept/reject framework. Under this framework, the null hypothesis $H_0$ should be rejected if the p-value is less than 0.05 (say), and accepted if the p-value is greater than 0.05.
+
+---
+class: inverse
+
+## Key points 
+
++ **Every p-value has a Null Hypothesis**: You cannot interpret a p-value without first establishing the null hypothesis it is testing
+
+
++ **Variation is the key**: trying our best to explain it really...
+
+
+
+---
+**Terminology**
+
+![](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/other-stats-artwork/type_1_errors.png)
+[Artwork by @allison_horst](https://github.com/allisonhorst/stats-illustrations)
+
+
+---
+**Terminology**
+
+**Type I** error (false positive): declare a difference (i.e., reject $H_0$) when there is no difference (i.e. $H_0$ is true). 
+
+
+Risk of the Type I error is determined by the **level of significance** (which we set!) (i.e., $\alpha =\text{ P(Type I error)} = \text{P(false positive)}$.
+
+---
+**Terminology**
+
+![](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/other-stats-artwork/type_2_errors.png)
+[Artwork by @allison_horst](https://github.com/allisonhorst/stats-illustrations)
+
+
+---
+
+**Terminology**
+
+**Type II** error (false negative): difference not declared (i.e., $H_0$ not rejected) when there is a difference (i.e., $H_0$ is false). Let $\beta =$ P(do not reject $H_0$ when $H_0$ is false); so, $1-\beta$ = P(reject $H_0$ when $H_0$ is false) = P(a true positive), which is the statistical **power** of the test.
+
+---
+
+**Terminology**
+
+
+**Significance level** = probability of a Type I error = probability of finding an effect that is not there (false positive).
+
+**Power**: the probability that the test correctly rejects the null hypothesis when the
+alternative hypothesis is true. probability of finding an effect that is there =  1 - probability of a **Type II** error (false negative).
+
+
+---
+
+**Terminology**
+
+Reducing the chance of a **Type I error** (false positive) increases the chance of a **Type II error** (false negative). They are inversely related. 
+
+**Type II error** rate is determined by a combination of the following.
+
+  + **Effect size** (size of difference, of biological significance) between the true population parameters
+  + Experimental error variance 
+  + **Sample size**
+  + Choice of **Type I** error rate ( $\alpha$ )
+  
+
+---
+**Terminology**
+
+Each time we carry out a hypothesis test the probability we get a false positive result (**Type I** error) is given by $\alpha$ (the **level of significance** we choose).
+
+When we have **multiple comparisons** to make we should then control the **Type I** error rate across the entire *family* of tests under consideration, i.e., control the **Family-Wise Error Rate (FWER)**; this ensures that the risk of making at least one **Type I** error among the family of comparisons in the experiment is $\alpha$.
+
+
+
+---
+class: inverse
+
+## So that's a wrap (almost)
+
+### Key points to remember
+
++ **Software** 
+
+   + `R` and `RStudio`
+   
+--
+
++ **Data** 
+   + where it comes from
+   + how it should be treated
+   + how to display it
+
+
+   
+---
+class: inverse
+
+## So that's a wrap (almost)
+
+### Key points to remember
+
++ **Hypothesis testing**
+   + Formulate your question! Define your test statistic!
+   + We can formulate our own tests! (e.g., randomisaion test)
+   + You cannot interpret a p-value without first establishing the null hypothesis it is testing
+
+---
+class: inverse
+
+## So, that's a wrap from me. `r emo::ji("wave")` Hwyl fawr `r emo::ji("wave")`
+
+<p align="center"><img src="img/cmjt_intro.jpeg" width="100%"></p>

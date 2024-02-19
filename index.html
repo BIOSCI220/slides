@@ -1,0 +1,2654 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>BIOSCI 220</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Module 1" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/countdown/countdown.css" rel="stylesheet" />
+    <script src="libs/countdown/countdown.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# BIOSCI 220
+]
+.subtitle[
+## Quantitative Biology
+]
+.author[
+### Module 1
+]
+.institute[
+### Weeks 1–3
+]
+.date[
+### Charlotte Jones-Todd
+]
+
+---
+
+
+###  &lt;svg viewBox="0 0 512 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"&gt;&lt;/path&gt;&lt;/svg&gt; Week 01, introductory lecture
+
++ **Course guide**: [biosci220.github.io/BIOSCI220/](https://biosci220.github.io/BIOSCI220/)
++ **Slides**: [biosci220.github.io/slides/](https://biosci220.github.io/slides/)
++ Interested in being a **class rep**? Contact Jenn at [jenn.jury@auckland.ac.nz](mailto: jenn.jury@auckland.ac.nz)
++ My **consultation hours**, Statistics Assistance Hub 301-G040:
+     + Mondays and Tuesdays, 9–11am
++ **Contact** me directly at [c.jonestodd@auckland.ac.nz](mailto:c.jonestodd@auckland.ac.nz)
++ 🎨 **a`R`t competition**! See [this CANVAS discussion](https://canvas.auckland.ac.nz/courses/104039/discussion_topics/1314906)
+
+
+---
+class: inverse, center, middle
+
+# `R` and `RStudio`
+
+![](https://media4.giphy.com/media/unQ3IJU2RG7DO/200w.gif?cid=82a1493bxhd6w3e6f52fr49g07ntkwl508dqi3nofr3hwjki&amp;rid=200w.gif&amp;ct=g)
+
+
+
+
+
+&lt;style type="text/css"&gt;
+.remark-slide-content {
+    font-size: 25px;
+    padding: 1em 4em 1em 4em;
+}
+&lt;/style&gt;
+
+---
+
+class: inverse, center, middle
+
+# `R` and `RStudio`
+
+![](img/r-rstudio_engine.png)
+
+
+---
+class: inverse, center, middle
+
+
+#### Coding is a core part of scientific education!
+
+&gt; "Not only is coding a core skill that gets the basic work of biology done, it's also taught [students] to look at problems in new ways." 
+
+&gt; "Every day, biologists go into the lab to coax data out of living matter—more and more data, with the advent of [new] biological tools …To analyze it all, biologists need to write programs specifically tailored for their experiments." &lt;footer&gt;— [Want to Make It as a Biologist? Better Learn to Code](https://www.wired.com/2017/03/biologists-teaching-code-survive/#:~:text=Not%20only%20is%20coding%20a,at%20problems%20in%20new%20ways.&amp;text=As%20tools%20evolve%20to%20allow,core%20part%20of%20scientific%20education.)&lt;/footer&gt;
+
+
+---
+
+
+
+## Before tomorrow!!
+
+
+
+**Install `R` and `RStudio`** 
+
+1.) Instructions in the [Module 1 coursebook](https://biosci220.github.io/BIOSCI220/)
+
+2.) [😎 How to R 😎, CANVAS page](https://canvas.auckland.ac.nz/courses/104039/pages/how-to-r?module_item_id=2051404)
+
+3.) **Help sessions** in 106-014
+ 
+   + **Monday** 3.30pm to 5pm
+   + **Tuesday**, **Thursday**, and **Friday** 11.30am to 1pm
+
+4.) Come and see me in the **Statistics Assistance Hub** 301-G040:
+
+   + **Monday** and **Tuesday**, 9–11am
+---
+
+class: inverse
+
+#### [a`R`t by @djnavarro](https://djnavarro.net/)
+
+
+
+```r
+## devtools::install_github("djnavarro/turmite59")
+turmite59::turmite59("blue")
+```
+
+
+&lt;img src = "img/turmite_59_blue.png" width="60%", caption = "[Artwork by @djnavarro](https://djnavarro.net/)"&gt;
+
+
+
+---
+
+class: inverse
+
+### a`R`t competition
+
+![](img/aRt.png)
+
+.footnote[[Artwork by @djnavarro](https://djnavarro.net/)]
+
+
+---
+
+class: inverse
+
+### a`R`t competition
+
++ Get `R` and `RStudio` up and running on your computer
++ Create your own a`R`t!
++ Post your a`R`t to [this CANVAS discussion](https://canvas.auckland.ac.nz/courses/104039/discussion_topics/1314906) (before next Monday's lecture)
++ Like your favourite piece!
+
+[Some **code** to get you started on CANVAS](https://canvas.auckland.ac.nz/courses/104039/files/12447726?wrap=1)
+
+[Walk-through **vlog** on CANVAS](https://auckland.au.panopto.com/Panopto/Pages/Viewer.aspx?id=ffc78481-6a9c-4cb4-9129-ae400028ef9a)
+
+.footnote[*[maybe some extra hints if you come along to a drop-in session…]*]
+
+
+---
+
+class: inverse
+
+### Selection of contributions from past students
+
+
+![](img/220-aRt.jpg)
+
+---
+
+
+###  &lt;svg viewBox="0 0 512 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"&gt;&lt;/path&gt;&lt;/svg&gt; Week 01, lecture 02
+
++ **Course guide**: [biosci220.github.io/BIOSCI220/](https://biosci220.github.io/BIOSCI220/)
++ **Slides**: [biosci220.github.io/slides/](https://biosci220.github.io/slides/)
++ Interested in being a **class rep**? Contact Jenn at [jenn.jury@auckland.ac.nz](mailto: jenn.jury@auckland.ac.nz)
++ My **consultation hours**, Statistics Assistance Hub 301-G040:
+     + Mondays and Tuedsays, 9–11am
++ **Contact** me directly at [c.jonestodd@auckland.ac.nz](mailto:c.jonestodd@auckland.ac.nz)
++ 🎨 **a`R`t competition**! See [this CANVAS discussion](https://canvas.auckland.ac.nz/courses/104039/discussion_topics/1314906)
+
+---
+
+
+
+.small[
+### Learning objectives
+
++ **Define** the difference between `R` and `RStudio`
++ **Discuss** the benefits and issues associated with these software being used in the scientific community
++ **Distinguish** between different data types (e.g., integers, characters, logical, numerical)
++ **Explain** what an `R` function is; **describe** what an argument to an `R` function is
++ **Explain** what an `R` package is; **distinguish** between the functions `install.packages()` and `library()`
+]
+
+---
+
+
+
+.small[
+### Learning objectives
++ **Explain** what a *working directory* is in the context of `R`
++ **Use** the appropriate `R` function to read in a `.csv` data
++ **Interpret** and **fix** basic  `R` errors
++ **Define** different data types in the context of `R` 
++ **Carry out** basic exploratory data analysis using `tidyverse` (e.g., use the pipe operator, `%&gt;%` when summarising a `data.frame`)
+]
+
+---
+class: inverse, middle, center
+
+![](https://c.tenor.com/R_N2FwCFBbcAAAAM/confused-white-persian-guardian.gif)
+
+&gt; I found that in the beginning, coding was really daunting. However ... I found the class very practical for my degree, and I know what I've learnt will be useful in  the future even if I never code again, I've learnt a new way of thinking.  &lt;footer&gt;— SET comment from S1&lt;/footer&gt;
+
+---
+
+
+## Why `R`? 
+
+--
++ Free
+
+--
++ Open source
+
+--
++ Huge online support network
+
+--
++ Flexible; if you can code it you can do it!
+
+--
++ Everybody's doing it...
+
+   + [Why You Should Become a UseR](https://www.psychologicalscience.org/observer/why-you-should-become-a-user-a-brief-introduction-to-r#:~:text=R%20is%20a%20programming%20language,of%20statistics%20and%20research%20methods.&amp;text=Programming%20languages%20can%20be%20intimidating.)
+   + [Powerful Benefits of Using R to Analyze Your Research Data ](https://learning.edanz.com/powerful-benefits-of-using-r-to-analyze-your-research-data-and-a-few-limitations/)
+   + [Why R?](https://datacarpentry.org/semester-biology/about/why-r/)
+   + [The mismatch between current statistical practice and doctoral training in ecology](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/ecs2.1394)
+
+
+---
+
+
+## Why `RStudio`? 
+
+--
++ Works **really** nicely with `R`
+
+--
++ Huge online support network
+
+--
++ Flexible; so, so, many tools and additions!
+
+--
++ Everybody's doing it...
+
+  + [What Makes RStudio Different?](https://www.rstudio.com/about/what-makes-rstudio-different)
+  + [The Advantages of RStudio](https://www.theanalysisfactor.com/the-advantages-of-rstudio/)
+  + [Top 6 reasons you need to be using RStudio](https://www.r-bloggers.com/2013/02/top-6-reasons-you-need-to-be-using-rstudio/)
+
+
+---
+
+class: inverse
+
+### a`R`t competition
+
+![](img/aRt.png)
+
+.footnote[[Artwork by @djnavarro](https://djnavarro.net/)]
+
+---
+class: inverse, center, middle
+
+#### `RStudio` navigation [Annotate bit.ly/biosci220](bit.ly/biosci220)
+
+![](img/rstudio_panes.png)
+
+
+---
+
+
+## Terminology
+
++ **functions**: `R` commands that tell your computer what to do
+--
+
++ **arguments**: inputs we give to **functions** that are used by that **function** to give some output
+--
+
++ **packages**: a collection of specific **functions**
+--
+
++ **running** code: the act of telling R to perform an act by giving it commands in the console
+--
+
++ **objects**: what values are stored in
+--
+
++ **script**: a text file containing a set of commands and comments
+--
+
++ **comments**: notes written within a **script** to better document/explain what's happening
+--
+
+
+
+---
+
+
+### Data types in `R` 
+
+ + **Integers** are whole values like 1, 0, 220. These are classified `"integer"` or `int` in `R`.
+ 
+--
+ 
+ + **Numeric** values are a larger set of values containing integers but also fractions and decimal values, for example -56.94 and 1.3.  These are classified `"numeric"` or `num` or `dbl` in `R`.
+ 
+--
+ 
+ + **Logical** values are either TRUE or FALSE. These are classified `"logical"` or `lgl` in `R`.
+ 
+--
+ 
+ + **Characters** are text such as “Charlotte” and “BIOSCI220”. Characters are denoted with the quotation marks around them and are classified `"character"` or `chr` in `R`.
+
+---
+class: centre, middle, inverse
+
+### `tidy` data
+
+
+&lt;img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/tidydata_1.jpg"&gt;
+
+
+---
+class: centre, middle, inverse
+
+### `tidy` data
+
+&gt; "Tidy datasets are easy to manipulate, model and visualize, and have a specific structure: each variable is a column, each observation is a row, and each type of observational unit is a table. This framework makes it easy to tidy messy datasets because only a small set of tools are needed to deal with a wide range of un-tidy datasets." &lt;footer&gt;— Hadley Wickham, Tidy Data&lt;/footer&gt;
+
+
+---
+
+
+### `tidy` data
+
+ 1. Each variable must have its **own column**
+ 
+--
+
+ 2. Each observation must have its **own row**
+ 
+--
+
+ 3. Each value must have its **own cell**
+
+
+
+---
+
+class: centre, middle, inverse
+
+#### **Piping** (What is a pipe? [Draw one at bit.ly/biosci220](bit.ly/biosci220))
+
+![](https://thumbs.gfycat.com/FreeDifficultAtlanticblackgoby-size_restricted.gif)
+
+
+---
+
+
+### Piping (`%&gt;%`)
+
+
+```r
+I %&gt;% 
+  tumble(out_of = "bed") %&gt;% 
+  stumble(to = "the kitchen") %&gt;% 
+  pour(who = "myself", unit = "cup", what = "ambition") %&gt;% 
+  yawn() %&gt;% 
+  stretch() %&gt;% 
+  try(what = come_to_life())
+```
+
+Get together and write your own! **[slido.com](slido.com)** code **#biosci220**
+
+.footnote[Inspired by [@hadleywickham](https://twitter.com/hadleywickham/status/1359852563726819332?lang=en)]
+
+
+---
+
+
+
+## Errors
+
+
+```r
+library(tidy)
+```
+
+```
+## Error in library(tidy): there is no package called 'tidy'
+```
+
+---
+
+
+
+## Errors
+
+
+```r
+lbrary(tidyverse)
+```
+
+```
+## Error in lbrary(tidyverse): could not find function "lbrary"
+```
+
+---
+
+
+## Errors
+
+
+```r
+paua &lt;- read_csv("paua.csv")
+```
+
+```
+## Error in read_csv("paua.csv"): could not find function "read_csv"
+```
+
+---
+
+
+## Errors
+
+
+```r
+library(tidyverse)
+paua &lt;- read_csv("paua.csv")
+```
+
+```
+## Error: 'paua.csv' does not exist in current working directory ('/home/charlotte/Git/slides').
+```
+
+
+---
+
+
+
+
+
+
+
+count: false
+ 
+### Everything working nicely!
+.panel1-example_read-auto[
+
+```r
+*library(tidyverse)
+```
+]
+ 
+.panel2-example_read-auto[
+
+]
+
+---
+count: false
+ 
+### Everything working nicely!
+.panel1-example_read-auto[
+
+```r
+library(tidyverse)
+*paua &lt;- read_csv("https://raw.githubusercontent.com/STATS-UOA/databunker/master/data/paua.csv")
+```
+]
+ 
+.panel2-example_read-auto[
+
+```
+## Rows: 60 Columns: 3
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: ","
+## chr (1): Species
+## dbl (2): Length, Age
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+```
+]
+
+---
+count: false
+ 
+### Everything working nicely!
+.panel1-example_read-auto[
+
+```r
+library(tidyverse)
+paua &lt;- read_csv("https://raw.githubusercontent.com/STATS-UOA/databunker/master/data/paua.csv")
+*glimpse(paua)
+```
+]
+ 
+.panel2-example_read-auto[
+
+```
+## Rows: 60 Columns: 3
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: ","
+## chr (1): Species
+## dbl (2): Length, Age
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+```
+
+```
+## Rows: 60
+## Columns: 3
+## $ Species &lt;chr&gt; "Haliotis iris", "Haliotis australis", "Haliotis australis", "…
+## $ Length  &lt;dbl&gt; 1.80, 5.40, 4.80, 5.75, 5.65, 2.80, 5.90, 3.75, 7.20, 4.25, 6.…
+## $ Age     &lt;dbl&gt; 1.497884, 11.877010, 5.416991, 4.497799, 5.500789, 2.500972, 6…
+```
+]
+
+&lt;style&gt;
+.panel1-example_read-auto {
+  color: black;
+  width: 99%;
+  hight: 32%;
+  float: top;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-example_read-auto {
+  color: black;
+  width: NA%;
+  hight: 32%;
+  float: top;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-example_read-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: top;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+.footnote[See [Chapter 1](https://biosci220.github.io/BIOSCI220/r-and-rstudio.html#exploratory-data-analysis-eda) of the course guide]
+
+---
+
+
+
+
+
+
+count: false
+ 
+### Everything working nicely!
+.panel1-example_mean-auto[
+
+```r
+*paua
+```
+]
+ 
+.panel2-example_mean-auto[
+
+```
+## # A tibble: 60 × 3
+##    Species            Length   Age
+##    &lt;chr&gt;               &lt;dbl&gt; &lt;dbl&gt;
+##  1 Haliotis iris        1.8   1.50
+##  2 Haliotis australis   5.4  11.9 
+##  3 Haliotis australis   4.8   5.42
+##  4 Haliotis iris        5.75  4.50
+##  5 Haliotis iris        5.65  5.50
+##  6 Haliotis iris        2.8   2.50
+##  7 Haliotis australis   5.9   6.49
+##  8 Haliotis iris        3.75  5.00
+##  9 Haliotis australis   7.2   8.56
+## 10 Haliotis iris        4.25  5.50
+## # ℹ 50 more rows
+```
+]
+
+---
+count: false
+ 
+### Everything working nicely!
+.panel1-example_mean-auto[
+
+```r
+paua %&gt;%
+* group_by(Species)
+```
+]
+ 
+.panel2-example_mean-auto[
+
+```
+## # A tibble: 60 × 3
+## # Groups:   Species [2]
+##    Species            Length   Age
+##    &lt;chr&gt;               &lt;dbl&gt; &lt;dbl&gt;
+##  1 Haliotis iris        1.8   1.50
+##  2 Haliotis australis   5.4  11.9 
+##  3 Haliotis australis   4.8   5.42
+##  4 Haliotis iris        5.75  4.50
+##  5 Haliotis iris        5.65  5.50
+##  6 Haliotis iris        2.8   2.50
+##  7 Haliotis australis   5.9   6.49
+##  8 Haliotis iris        3.75  5.00
+##  9 Haliotis australis   7.2   8.56
+## 10 Haliotis iris        4.25  5.50
+## # ℹ 50 more rows
+```
+]
+
+---
+count: false
+ 
+### Everything working nicely!
+.panel1-example_mean-auto[
+
+```r
+paua %&gt;%
+  group_by(Species) %&gt;%
+* summarise(av_length = mean(Length))
+```
+]
+ 
+.panel2-example_mean-auto[
+
+```
+## # A tibble: 2 × 2
+##   Species            av_length
+##   &lt;chr&gt;                  &lt;dbl&gt;
+## 1 Haliotis australis      5.77
+## 2 Haliotis iris           4.81
+```
+]
+
+&lt;style&gt;
+.panel1-example_mean-auto {
+  color: black;
+  width: 99%;
+  hight: 32%;
+  float: top;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-example_mean-auto {
+  color: black;
+  width: NA%;
+  hight: 32%;
+  float: top;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-example_mean-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: top;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+---
+
+
+### Data manipulation
+
+
+```r
+library(palmerpenguins)
+penguins
+penguins_nafree &lt;- penguins %&gt;% 
+	drop_na()
+penguins_nafree
+```
+
+
+.footnote[See [Chapter 2](https://biosci220.github.io/BIOSCI220/dealing-with-data.html#data-wrangling-and-manipulation) of the course guide]
+---
+
+
+count: false
+ 
+### Data manipulation
+.panel1-penguins_na-auto[
+
+```r
+*library(palmerpenguins)
+```
+]
+ 
+.panel2-penguins_na-auto[
+
+]
+
+---
+count: false
+ 
+### Data manipulation
+.panel1-penguins_na-auto[
+
+```r
+library(palmerpenguins)
+*penguins
+```
+]
+ 
+.panel2-penguins_na-auto[
+
+```
+## # A tibble: 344 × 8
+##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+##  1 Adelie  Torgersen           39.1          18.7               181        3750
+##  2 Adelie  Torgersen           39.5          17.4               186        3800
+##  3 Adelie  Torgersen           40.3          18                 195        3250
+##  4 Adelie  Torgersen           NA            NA                  NA          NA
+##  5 Adelie  Torgersen           36.7          19.3               193        3450
+##  6 Adelie  Torgersen           39.3          20.6               190        3650
+##  7 Adelie  Torgersen           38.9          17.8               181        3625
+##  8 Adelie  Torgersen           39.2          19.6               195        4675
+##  9 Adelie  Torgersen           34.1          18.1               193        3475
+## 10 Adelie  Torgersen           42            20.2               190        4250
+## # ℹ 334 more rows
+## # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;
+```
+]
+
+---
+count: false
+ 
+### Data manipulation
+.panel1-penguins_na-auto[
+
+```r
+library(palmerpenguins)
+penguins
+*penguins_nafree &lt;- penguins
+```
+]
+ 
+.panel2-penguins_na-auto[
+
+```
+## # A tibble: 344 × 8
+##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+##  1 Adelie  Torgersen           39.1          18.7               181        3750
+##  2 Adelie  Torgersen           39.5          17.4               186        3800
+##  3 Adelie  Torgersen           40.3          18                 195        3250
+##  4 Adelie  Torgersen           NA            NA                  NA          NA
+##  5 Adelie  Torgersen           36.7          19.3               193        3450
+##  6 Adelie  Torgersen           39.3          20.6               190        3650
+##  7 Adelie  Torgersen           38.9          17.8               181        3625
+##  8 Adelie  Torgersen           39.2          19.6               195        4675
+##  9 Adelie  Torgersen           34.1          18.1               193        3475
+## 10 Adelie  Torgersen           42            20.2               190        4250
+## # ℹ 334 more rows
+## # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;
+```
+]
+
+---
+count: false
+ 
+### Data manipulation
+.panel1-penguins_na-auto[
+
+```r
+library(palmerpenguins)
+penguins
+penguins_nafree &lt;- penguins %&gt;%
+*drop_na()
+```
+]
+ 
+.panel2-penguins_na-auto[
+
+```
+## # A tibble: 344 × 8
+##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+##  1 Adelie  Torgersen           39.1          18.7               181        3750
+##  2 Adelie  Torgersen           39.5          17.4               186        3800
+##  3 Adelie  Torgersen           40.3          18                 195        3250
+##  4 Adelie  Torgersen           NA            NA                  NA          NA
+##  5 Adelie  Torgersen           36.7          19.3               193        3450
+##  6 Adelie  Torgersen           39.3          20.6               190        3650
+##  7 Adelie  Torgersen           38.9          17.8               181        3625
+##  8 Adelie  Torgersen           39.2          19.6               195        4675
+##  9 Adelie  Torgersen           34.1          18.1               193        3475
+## 10 Adelie  Torgersen           42            20.2               190        4250
+## # ℹ 334 more rows
+## # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;
+```
+]
+
+---
+count: false
+ 
+### Data manipulation
+.panel1-penguins_na-auto[
+
+```r
+library(palmerpenguins)
+penguins
+penguins_nafree &lt;- penguins %&gt;%
+	drop_na()
+*penguins_nafree
+```
+]
+ 
+.panel2-penguins_na-auto[
+
+```
+## # A tibble: 344 × 8
+##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+##  1 Adelie  Torgersen           39.1          18.7               181        3750
+##  2 Adelie  Torgersen           39.5          17.4               186        3800
+##  3 Adelie  Torgersen           40.3          18                 195        3250
+##  4 Adelie  Torgersen           NA            NA                  NA          NA
+##  5 Adelie  Torgersen           36.7          19.3               193        3450
+##  6 Adelie  Torgersen           39.3          20.6               190        3650
+##  7 Adelie  Torgersen           38.9          17.8               181        3625
+##  8 Adelie  Torgersen           39.2          19.6               195        4675
+##  9 Adelie  Torgersen           34.1          18.1               193        3475
+## 10 Adelie  Torgersen           42            20.2               190        4250
+## # ℹ 334 more rows
+## # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;
+```
+
+```
+## # A tibble: 333 × 8
+##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+##  1 Adelie  Torgersen           39.1          18.7               181        3750
+##  2 Adelie  Torgersen           39.5          17.4               186        3800
+##  3 Adelie  Torgersen           40.3          18                 195        3250
+##  4 Adelie  Torgersen           36.7          19.3               193        3450
+##  5 Adelie  Torgersen           39.3          20.6               190        3650
+##  6 Adelie  Torgersen           38.9          17.8               181        3625
+##  7 Adelie  Torgersen           39.2          19.6               195        4675
+##  8 Adelie  Torgersen           41.1          17.6               182        3200
+##  9 Adelie  Torgersen           38.6          21.2               191        3800
+## 10 Adelie  Torgersen           34.6          21.1               198        4400
+## # ℹ 323 more rows
+## # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;
+```
+]
+
+&lt;style&gt;
+.panel1-penguins_na-auto {
+  color: black;
+  width: 99%;
+  hight: 32%;
+  float: top;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-penguins_na-auto {
+  color: black;
+  width: NA%;
+  hight: 32%;
+  float: top;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-penguins_na-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: top;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+---
+
+
+### Data manipulation
+
+
+```r
+penguins_nafree %&gt;% 
+  group_by(species) %&gt;% 
+  summarise(avgerage_bill_length = mean(bill_length_mm))
+```
+
+.footnote[See [Chapter 2](https://biosci220.github.io/BIOSCI220/dealing-with-data.html#data-wrangling-and-manipulation) of the course guide]
+---
+
+
+
+count: false
+ 
+### Data manipulation
+.panel1-penguins_av-auto[
+
+```r
+*penguins_nafree
+```
+]
+ 
+.panel2-penguins_av-auto[
+
+```
+## # A tibble: 333 × 8
+##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+##  1 Adelie  Torgersen           39.1          18.7               181        3750
+##  2 Adelie  Torgersen           39.5          17.4               186        3800
+##  3 Adelie  Torgersen           40.3          18                 195        3250
+##  4 Adelie  Torgersen           36.7          19.3               193        3450
+##  5 Adelie  Torgersen           39.3          20.6               190        3650
+##  6 Adelie  Torgersen           38.9          17.8               181        3625
+##  7 Adelie  Torgersen           39.2          19.6               195        4675
+##  8 Adelie  Torgersen           41.1          17.6               182        3200
+##  9 Adelie  Torgersen           38.6          21.2               191        3800
+## 10 Adelie  Torgersen           34.6          21.1               198        4400
+## # ℹ 323 more rows
+## # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;
+```
+]
+
+---
+count: false
+ 
+### Data manipulation
+.panel1-penguins_av-auto[
+
+```r
+penguins_nafree %&gt;%
+* group_by(species)
+```
+]
+ 
+.panel2-penguins_av-auto[
+
+```
+## # A tibble: 333 × 8
+## # Groups:   species [3]
+##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+##  1 Adelie  Torgersen           39.1          18.7               181        3750
+##  2 Adelie  Torgersen           39.5          17.4               186        3800
+##  3 Adelie  Torgersen           40.3          18                 195        3250
+##  4 Adelie  Torgersen           36.7          19.3               193        3450
+##  5 Adelie  Torgersen           39.3          20.6               190        3650
+##  6 Adelie  Torgersen           38.9          17.8               181        3625
+##  7 Adelie  Torgersen           39.2          19.6               195        4675
+##  8 Adelie  Torgersen           41.1          17.6               182        3200
+##  9 Adelie  Torgersen           38.6          21.2               191        3800
+## 10 Adelie  Torgersen           34.6          21.1               198        4400
+## # ℹ 323 more rows
+## # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;
+```
+]
+
+---
+count: false
+ 
+### Data manipulation
+.panel1-penguins_av-auto[
+
+```r
+penguins_nafree %&gt;%
+  group_by(species) %&gt;%
+* summarise(avgerage_bill_length = mean(bill_length_mm))
+```
+]
+ 
+.panel2-penguins_av-auto[
+
+```
+## # A tibble: 3 × 2
+##   species   avgerage_bill_length
+##   &lt;fct&gt;                    &lt;dbl&gt;
+## 1 Adelie                    38.8
+## 2 Chinstrap                 48.8
+## 3 Gentoo                    47.6
+```
+]
+
+&lt;style&gt;
+.panel1-penguins_av-auto {
+  color: black;
+  width: 99%;
+  hight: 32%;
+  float: top;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-penguins_av-auto {
+  color: black;
+  width: NA%;
+  hight: 32%;
+  float: top;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-penguins_av-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: top;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+### Data manipulation
+
+
+```r
+penguins_nafree %&gt;%
+  filter(., sex != "male") %&gt;%
+  select(c("species", "island", "body_mass_g")) %&gt;%
+  group_by(species, island) %&gt;%
+  summarise(total_mass_g = sum(body_mass_g)) %&gt;%
+  pivot_wider(names_from = c(island), values_from = total_mass_g)
+```
+
+.footnote[See [Chapter 2](https://biosci220.github.io/BIOSCI220/dealing-with-data.html#data-wrangling-and-manipulation) of the course guide]
+---
+
+
+
+count: false
+ 
+### Data manipulation
+.panel1-penguins_pivot-auto[
+
+```r
+*penguins_nafree
+```
+]
+ 
+.panel2-penguins_pivot-auto[
+
+```
+## # A tibble: 333 × 8
+##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+##  1 Adelie  Torgersen           39.1          18.7               181        3750
+##  2 Adelie  Torgersen           39.5          17.4               186        3800
+##  3 Adelie  Torgersen           40.3          18                 195        3250
+##  4 Adelie  Torgersen           36.7          19.3               193        3450
+##  5 Adelie  Torgersen           39.3          20.6               190        3650
+##  6 Adelie  Torgersen           38.9          17.8               181        3625
+##  7 Adelie  Torgersen           39.2          19.6               195        4675
+##  8 Adelie  Torgersen           41.1          17.6               182        3200
+##  9 Adelie  Torgersen           38.6          21.2               191        3800
+## 10 Adelie  Torgersen           34.6          21.1               198        4400
+## # ℹ 323 more rows
+## # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;
+```
+]
+
+---
+count: false
+ 
+### Data manipulation
+.panel1-penguins_pivot-auto[
+
+```r
+penguins_nafree %&gt;%
+* filter(., sex != "male")
+```
+]
+ 
+.panel2-penguins_pivot-auto[
+
+```
+## # A tibble: 165 × 8
+##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+##  1 Adelie  Torgersen           39.5          17.4               186        3800
+##  2 Adelie  Torgersen           40.3          18                 195        3250
+##  3 Adelie  Torgersen           36.7          19.3               193        3450
+##  4 Adelie  Torgersen           38.9          17.8               181        3625
+##  5 Adelie  Torgersen           41.1          17.6               182        3200
+##  6 Adelie  Torgersen           36.6          17.8               185        3700
+##  7 Adelie  Torgersen           38.7          19                 195        3450
+##  8 Adelie  Torgersen           34.4          18.4               184        3325
+##  9 Adelie  Biscoe              37.8          18.3               174        3400
+## 10 Adelie  Biscoe              35.9          19.2               189        3800
+## # ℹ 155 more rows
+## # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;
+```
+]
+
+---
+count: false
+ 
+### Data manipulation
+.panel1-penguins_pivot-auto[
+
+```r
+penguins_nafree %&gt;%
+  filter(., sex != "male") %&gt;%
+* select(c("species", "island", "body_mass_g"))
+```
+]
+ 
+.panel2-penguins_pivot-auto[
+
+```
+## # A tibble: 165 × 3
+##    species island    body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;           &lt;int&gt;
+##  1 Adelie  Torgersen        3800
+##  2 Adelie  Torgersen        3250
+##  3 Adelie  Torgersen        3450
+##  4 Adelie  Torgersen        3625
+##  5 Adelie  Torgersen        3200
+##  6 Adelie  Torgersen        3700
+##  7 Adelie  Torgersen        3450
+##  8 Adelie  Torgersen        3325
+##  9 Adelie  Biscoe           3400
+## 10 Adelie  Biscoe           3800
+## # ℹ 155 more rows
+```
+]
+
+---
+count: false
+ 
+### Data manipulation
+.panel1-penguins_pivot-auto[
+
+```r
+penguins_nafree %&gt;%
+  filter(., sex != "male") %&gt;%
+  select(c("species", "island", "body_mass_g")) %&gt;%
+* group_by(species, island)
+```
+]
+ 
+.panel2-penguins_pivot-auto[
+
+```
+## # A tibble: 165 × 3
+## # Groups:   species, island [5]
+##    species island    body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;           &lt;int&gt;
+##  1 Adelie  Torgersen        3800
+##  2 Adelie  Torgersen        3250
+##  3 Adelie  Torgersen        3450
+##  4 Adelie  Torgersen        3625
+##  5 Adelie  Torgersen        3200
+##  6 Adelie  Torgersen        3700
+##  7 Adelie  Torgersen        3450
+##  8 Adelie  Torgersen        3325
+##  9 Adelie  Biscoe           3400
+## 10 Adelie  Biscoe           3800
+## # ℹ 155 more rows
+```
+]
+
+---
+count: false
+ 
+### Data manipulation
+.panel1-penguins_pivot-auto[
+
+```r
+penguins_nafree %&gt;%
+  filter(., sex != "male") %&gt;%
+  select(c("species", "island", "body_mass_g")) %&gt;%
+  group_by(species, island) %&gt;%
+* summarise(total_mass_g = sum(body_mass_g))
+```
+]
+ 
+.panel2-penguins_pivot-auto[
+
+```
+## # A tibble: 5 × 3
+## # Groups:   species [3]
+##   species   island    total_mass_g
+##   &lt;fct&gt;     &lt;fct&gt;            &lt;int&gt;
+## 1 Adelie    Biscoe           74125
+## 2 Adelie    Dream            90300
+## 3 Adelie    Torgersen        81500
+## 4 Chinstrap Dream           119925
+## 5 Gentoo    Biscoe          271425
+```
+]
+
+---
+count: false
+ 
+### Data manipulation
+.panel1-penguins_pivot-auto[
+
+```r
+penguins_nafree %&gt;%
+  filter(., sex != "male") %&gt;%
+  select(c("species", "island", "body_mass_g")) %&gt;%
+  group_by(species, island) %&gt;%
+  summarise(total_mass_g = sum(body_mass_g)) %&gt;%
+* pivot_wider(names_from = c(island), values_from = total_mass_g)
+```
+]
+ 
+.panel2-penguins_pivot-auto[
+
+```
+## # A tibble: 3 × 4
+## # Groups:   species [3]
+##   species   Biscoe  Dream Torgersen
+##   &lt;fct&gt;      &lt;int&gt;  &lt;int&gt;     &lt;int&gt;
+## 1 Adelie     74125  90300     81500
+## 2 Chinstrap     NA 119925        NA
+## 3 Gentoo    271425     NA        NA
+```
+]
+
+&lt;style&gt;
+.panel1-penguins_pivot-auto {
+  color: black;
+  width: 99%;
+  hight: 32%;
+  float: top;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-penguins_pivot-auto {
+  color: black;
+  width: NA%;
+  hight: 32%;
+  float: top;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-penguins_pivot-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: top;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+class: inverse, center, middle
+
+[**code along**, live `R` demo]
+
+[**debugging**, live `R` demo]
+
+**Reply to my questions** at **[slido.com](slido.com)** code **#biosci220**
+
+
+---
+class: inverse, center, middle
+
+### Quiz
+
+**[slido.com](slido.com)** code **#biosci220**
+
+<div class="countdown" id="timer_82ca7aab" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+
+
+### Key points
+
++ `RStudio` is an interface for using the computing language `R`
++ Errors are inevitable but **we can fix them**!
++ We can use **functions** to manipulate/calculate quantities from our data
++ We can install (and load) other **packages** to give us access to more **functions**
++ We can use the **piping operator** (i.e., `%&gt;%`) to write code in a way that is easier to read and understand
+
+---
+
+
+###  &lt;svg viewBox="0 0 512 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"&gt;&lt;/path&gt;&lt;/svg&gt; Week 02, lecture 01
+
++ **Slides**: [biosci220.github.io/slides/](https://biosci220.github.io/slides/)
++ **Course guide** (chapter 2): [biosci220.github.io/BIOSCI220/](https://biosci220.github.io/BIOSCI220/)
++ My **consultation hours**, Statistics Assistance Hub 301-G040:
+     + Mondays and Tuesdays, 9–11am
++ **Contact** me directly at [c.jonestodd@auckland.ac.nz](mailto:c.jonestodd@auckland.ac.nz)
++ Any admin queries please contact Jenn at [jenn.jury@auckland.ac.nz](mailto: jenn.jury@auckland.ac.nz)
++ [**Lab 01**](https://canvas.auckland.ac.nz/courses/104039/pages/week-2-laboratory-resources?module_item_id=2051421)
+
+---
+
+
+.small[
+### Learning objectives
++ **Create** and **communicate** informative data visualizations using `R` using the package `ggplot2`
++ **Map** the appropriate data structure to a `ggplot2` aesthetic
++ **Identify** the mapping of a variable given a plot
++ **Discuss** and **critique** data visualizations
+
+]
+
+---
+
+## Data visualization
+
+![](https://venngage-wordpress.s3.amazonaws.com/uploads/2020/06/image17.png)
+
+---
+class: inverse, center, middle
+
+
+&gt; "...have obligations in that we have a great deal of power over how people ultimately make use of data, both in the patterns they see and the conclusions they draw." &lt;footer&gt;—  Michael Correll, Ethical Dimensions of Visualization Research&lt;/footer&gt;
+
+---
+
+class: inverse, center, middle
+
+
+&gt; "Scientific visualization is classically defined as the process of graphically displaying scientific data ... There are so many different ways to represent the same data: scatter plots, linear plots, bar plots, and pie charts ... the same data, using the same type of plot, may be perceived very differently depending on who is looking at the figure." &lt;footer&gt;— Nicolas P. Rougier, Michael Droettboom, Philip E. Bourne, Ten Simple Rules for Better Figures &lt;/footer&gt;
+
+
+---
+
+
+### Exploratory plots
+
+&lt;br&gt;
+
+  + are for data **exploration**,
+  
+  + don't have to look pretty,
+  
+  + just needs to **get to the point**,
+  
+  + help you **explore** and **discover** new data facets, and
+  
+  + aid in formulating **new questions**.
+  
+
+---
+
+
+### Explanatory plots
+
+&lt;br&gt;
+
+   + have a **clear** purpose,
+   
+   + are specifically designed for the audience,
+   
+   + should be **easy to read** (*this covers a lot of things*),
+   
+   + should not distort the data,
+   
+   + should guide the reader to a **particular conclusion**,
+   
+   + should answer a **specific question**, and
+   
+   + **support** a particular decision.
+   
+---
+
+
+## [Ten Simple Rules for Better Figures](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833)
+
+&lt;br&gt;
+
+ 1 **Know** Your Audience
+ 
+ 2 **Identify** Your Message
+ 
+ 3 **Adapt** the Figure to the Support Medium
+ 
+ 4 **Captions** Are Not Optional
+ 
+ 5 **Do Not** Trust the Defaults
+ 
+---
+
+
+## [Ten Simple Rules for Better Figures](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833)
+
+&lt;br&gt;
+
+ 6 Use **Color** Effectively
+ 
+ 7 **Do Not Mislead** the Reader
+    
+ 8 **Avoid** *Chartjunk*
+ 
+ 9 **Message** Trumps Beauty
+
+ 10 Get the Right **Tool**
+
+
+---
+
+
+### Introducing `ggplot2`
+
+Every `ggplot2` plot has three key components:
+
+  + `data`,
+
+  + A set of `aes`thetic mappings between variables in the data and visual properties, and
+
+  + At least one layer which describes how to render each observation. Layers are usually created with a `geom` function.
+
+.footnote[See [Chapter 2](https://biosci220.github.io/BIOSCI220/dealing-with-data.html#data-wrangling-and-manipulation) of the course guide]
+
+---
+Last week we met the `palmerpenguins`. **What you think the code below produces?** Discuss, [draw your own bit.ly/biosci220](bit.ly/biosci220)
+
+
+```r
+ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = species),size = 2)  +
+  scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +
+  xlab("Bill length (mm)") +
+  ylab("Bill depth (mm)")
+```
+
+
+
+---
+
+
+
+
+
+count: false
+ 
+
+.panel1-bar-auto[
+
+```r
+*ggplot(penguins_nafree, aes(x = species, fill = sex))
+```
+]
+ 
+.panel2-bar-auto[
+![](index_files/figure-html/bar_auto_01_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-bar-auto[
+
+```r
+ggplot(penguins_nafree, aes(x = species, fill = sex)) +
+* geom_bar(alpha = 0.8, position = "dodge")
+```
+]
+ 
+.panel2-bar-auto[
+![](index_files/figure-html/bar_auto_02_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-bar-auto[
+
+```r
+ggplot(penguins_nafree, aes(x = species, fill = sex)) +
+  geom_bar(alpha = 0.8, position = "dodge") +
+* facet_wrap(~island)
+```
+]
+ 
+.panel2-bar-auto[
+![](index_files/figure-html/bar_auto_03_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-bar-auto[
+
+```r
+ggplot(penguins_nafree, aes(x = species, fill = sex)) +
+  geom_bar(alpha = 0.8, position = "dodge") +
+  facet_wrap(~island) +
+* xlab("")
+```
+]
+ 
+.panel2-bar-auto[
+![](index_files/figure-html/bar_auto_04_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-bar-auto[
+
+```r
+ggplot(penguins_nafree, aes(x = species, fill = sex)) +
+  geom_bar(alpha = 0.8, position = "dodge") +
+  facet_wrap(~island) +
+  xlab("") +
+* theme_linedraw()
+```
+]
+ 
+.panel2-bar-auto[
+![](index_files/figure-html/bar_auto_05_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-bar-auto[
+
+```r
+ggplot(penguins_nafree, aes(x = species, fill = sex)) +
+  geom_bar(alpha = 0.8, position = "dodge") +
+  facet_wrap(~island) +
+  xlab("") +
+  theme_linedraw() +
+* scale_fill_manual(values = c("cyan4","darkorange"), name = "Sex")
+```
+]
+ 
+.panel2-bar-auto[
+![](index_files/figure-html/bar_auto_06_output-1.png)&lt;!-- --&gt;
+]
+
+&lt;style&gt;
+.panel1-bar-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-bar-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-bar-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+---
+
+
+
+```r
+ggplot(penguins_nafree, aes(x = species, fill = sex)) +
+  geom_bar(alpha = 0.8, position = "dodge") +
+  facet_wrap(~island) +
+  xlab("") +
+  theme_linedraw() + 
+  scale_fill_manual(values = c("cyan4","darkorange"), name = "Sex") 
+```
+
+.footnote[See [Chapter 2](https://biosci220.github.io/BIOSCI220/dealing-with-data.html#data-wrangling-and-manipulation) of the course guide]
+---
+
+
+
+
+count: false
+ 
+
+.panel1-point-auto[
+
+```r
+*ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm))
+```
+]
+ 
+.panel2-point-auto[
+![](index_files/figure-html/point_auto_01_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-point-auto[
+
+```r
+ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
+* geom_point(aes(color = species),size = 2)
+```
+]
+ 
+.panel2-point-auto[
+![](index_files/figure-html/point_auto_02_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-point-auto[
+
+```r
+ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = species),size = 2)  +
+* scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "")
+```
+]
+ 
+.panel2-point-auto[
+![](index_files/figure-html/point_auto_03_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-point-auto[
+
+```r
+ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = species),size = 2)  +
+  scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +
+* theme_bw()
+```
+]
+ 
+.panel2-point-auto[
+![](index_files/figure-html/point_auto_04_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-point-auto[
+
+```r
+ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = species),size = 2)  +
+  scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +
+  theme_bw() +
+* xlab("Bill length (mm)")
+```
+]
+ 
+.panel2-point-auto[
+![](index_files/figure-html/point_auto_05_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-point-auto[
+
+```r
+ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = species),size = 2)  +
+  scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +
+  theme_bw() +
+  xlab("Bill length (mm)") +
+* ylab("Bill depth (mm)")
+```
+]
+ 
+.panel2-point-auto[
+![](index_files/figure-html/point_auto_06_output-1.png)&lt;!-- --&gt;
+]
+
+&lt;style&gt;
+.panel1-point-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-point-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-point-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+---
+
+
+
+```r
+ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = species),size = 2)  +
+  scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +
+  theme_bw() + 
+  xlab("Bill length (mm)") +
+  ylab("Bill depth (mm)")
+```
+
+.footnote[See [Chapter 2](https://biosci220.github.io/BIOSCI220/dealing-with-data.html#data-wrangling-and-manipulation) of the course guide]
+
+---
+
+
+class: inverse, center, middle
+
+[**code along**, live `R` demo]
+
+
+**Reply to my questions** at **[slido.com](slido.com)** code **#biosci220**
+
+
+
+
+---
+class: inverse, center, middle
+
+### Quiz
+
+**[slido.com](slido.com)** code **#biosci220**
+
+<div class="countdown" id="timer_ab1d30c4" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+
+
+### Key points
+
++ Data visualisation is a **key** aspect of exploration and communication
++ We can **use `ggplot2`** to create informative visualisations in `R`
++ **Creating** a *ggplot* should involve **1)** the `data` object, **2)** a set of `aes`thetic mappings, and **3)** at least one (`geom`) layer.
+
+
+---
+class: inverse, center, middle
+
+###  Week 02, lecture 02
+
+Guest Lecturer: Nicole Edwards
+
+---
+
+
+###  &lt;svg viewBox="0 0 512 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"&gt;&lt;/path&gt;&lt;/svg&gt; Week 03, lecture 01
+
++ **Slides**: [biosci220.github.io/slides/](https://biosci220.github.io/slides/)
++ **Course guide** (chapter 3): [biosci220.github.io/BIOSCI220/](https://biosci220.github.io/BIOSCI220/)
++ My **consultation hours**, Statistics Assistance Hub 301-G040:
+     + Mondays and Tuedsays, 9–11am
++ **Contact** me directly at [c.jonestodd@auckland.ac.nz](mailto:c.jonestodd@auckland.ac.nz)
++ Any admin queries please contact Jenn at [jenn.jury@auckland.ac.nz](mailto: jenn.jury@auckland.ac.nz)
++ [**Lab 01**](https://canvas.auckland.ac.nz/courses/71391/pages/week-2-laboratory-resources)
+
+---
+class: inverse, center, middle
+
+# Introduction to experimental design
+
+![](http://2017.igem.org/wiki/images/7/7b/CabeceraExperimentsValencia.gif)
+
+---
+
+class: inverse
+
+.small[
+## Learning Objectives
+
++ **Identify** the following in a given experiment
+      + experimental unit
+      + observational units
++ **List** and **describe** the three main principles of experimental design:
+     + Randomization
+     + Replication
+     + Blocking
++ **Describe** the layout and set-up of a CRD, RCBD, and a simple factorial experimental design
++ **Discuss** and **critique** a given experimental design
++ **Identify** sources of variation within a given experimental design
+]
+
+---
+#### **Between group variation** [Annotate bit.ly/biosci220](bit.ly/biosci220)
+
+![](index_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
+
+
+
+---
+
+#### **Within group variation** [Annotate bit.ly/biosci220](bit.ly/biosci220)
+
+![](index_files/figure-html/unnamed-chunk-8-1.png)&lt;!-- --&gt;
+
+
+
+---
+
+class: inverse, middle, centre
+
+##### Clickbait: **This Mom Claims She's Found the Perfect Home Remedy for Curing Kids' Colds...**
+
+![](https://i.pinimg.com/originals/1c/ec/f1/1cecf1e43177071b90552f4f645d3468.gif)
+
+---
+class: inverse, middle, centre
+
+&gt; Mom -XX took to Facebook to share her find. "So [my son] had a little cold so I put potatoes in his socks last night around 8-9pm," she wrote. "He didn't cough through the night, nose isn't running, isn't as congested and he slept for 12 hours." The mother also included a photo of the potatoes she had taken out of her son's socks in the morning. The used potato slices had oxidized completely, looking a sickly black color. ... , many people online credit the home remedy with curing the common cold and reducing fevers. Some claim the potatoes work by drawing "toxins" out of the body, which reduces illness and helps absorb body temperature to reduce fevers.
+
+
+.footnote[[link to article](https://cafemom.com/parenting/209849-cured-kids-colds-potatoes-socks)]
+
+
+
+---
+##### Do potatoes in your socks cure colds? Does this mother draw a valid conclusion? **[slido.com](slido.com)** code **#biosci220**
+
+&lt;img src="https://preview.redd.it/8kdhoxhzty441.jpg?width=640&amp;crop=smart&amp;auto=webp&amp;s=f56343ff13003be98bca909b309e40ea1e8eca3e" width="50%"&gt;
+
+
+.small[[link to reddit post](https://www.reddit.com/r/insanepeoplefacebook/comments/ebd1yu/return_of_the_magic_potato/)]
+---
+
+
+###  Key phrases
+
+An **experiment** is a procedure (or set of actions) where a researcher intentionally changes some factor/treatment/variable to observe the effect of their actions. As mentioned above, the collection of observational data is not experimentation.
+
+--
+
+An **experimental unit** is the smallest portion of experimental material which is *independently* perturbed. This is the item under study for which some variable (treatment) is changed. For example this could be a human subject or an agricultural plot.
+
+---
+
+
+###  Key phrases
+ 
+An **observational unit** (or subsample) is the smallest unit on which a response is measured. 
+
+If the experimental unit is split after the treatment has been applied (e.g., multiple samples taken from one human subject) then this sample is called a subsample or observational unit. If one measurement is made on each experimental unit then the **observational unit** = the **experimental unit**. 
+
+If multiple measurements are made on each subject (e.g., human) then each experimental unit has &gt;1 observational unit. This is then *pseudo-* or *technical replication*.
+
+---
+
+###  Key phrases
+
+A **treatment** (or **independent variable** or **factor** or **treatment factor**) is an experimental condition *independently* applied to an experimental unit. It is one of the variables that is controlled by the researcher during the experiment (e.g., drug type). The values of the treatments within a set are called **levels**. 
+
+---
+###  Key phrases
+
+The **dependent variable** or **response** is the output (or thing) that is measured after an experiment. This is what the researcher measures and assesses if changing the treatment(s) (i.e., independent variable(s)) induces any change. 
+
+An **effect** is the change in the response variable caused by the controlled changes in the independent variable. Whether the magnitude of the effect (it's size) is significant (or or any practical interest) is determined by the researcher after carrying out some appropriate analyses.
+
+
+---
+### An example: &lt;svg viewBox="0 0 640 512" style="height:1em;position:relative;display:inline-block;top:.1em;fill:brown;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M192 384h192c53 0 96-43 96-96h32c70.6 0 128-57.4 128-128S582.6 32 512 32H120c-13.3 0-24 10.7-24 24v232c0 53 43 96 96 96zM512 96c35.3 0 64 28.7 64 64s-28.7 64-64 64h-32V96h32zm47.7 384H48.3c-47.6 0-61-64-36-64h583.3c25 0 11.8 64-35.9 64z"&gt;&lt;/path&gt;&lt;/svg&gt; &lt;svg viewBox="0 0 640 512" style="height:1em;position:relative;display:inline-block;top:.1em;fill:black;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M192 384h192c53 0 96-43 96-96h32c70.6 0 128-57.4 128-128S582.6 32 512 32H120c-13.3 0-24 10.7-24 24v232c0 53 43 96 96 96zM512 96c35.3 0 64 28.7 64 64s-28.7 64-64 64h-32V96h32zm47.7 384H48.3c-47.6 0-61-64-36-64h583.3c25 0 11.8 64-35.9 64z"&gt;&lt;/path&gt;&lt;/svg&gt; &lt;svg viewBox="0 0 640 512" style="height:1em;position:relative;display:inline-block;top:.1em;fill:grey;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M192 384h192c53 0 96-43 96-96h32c70.6 0 128-57.4 128-128S582.6 32 512 32H120c-13.3 0-24 10.7-24 24v232c0 53 43 96 96 96zM512 96c35.3 0 64 28.7 64 64s-28.7 64-64 64h-32V96h32zm47.7 384H48.3c-47.6 0-61-64-36-64h583.3c25 0 11.8 64-35.9 64z"&gt;&lt;/path&gt;&lt;/svg&gt;
+
+
++ Three types of coffee beans are chosen: Arabica &lt;svg viewBox="0 0 640 512" style="height:1em;position:relative;display:inline-block;top:.1em;fill:brown;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M192 384h192c53 0 96-43 96-96h32c70.6 0 128-57.4 128-128S582.6 32 512 32H120c-13.3 0-24 10.7-24 24v232c0 53 43 96 96 96zM512 96c35.3 0 64 28.7 64 64s-28.7 64-64 64h-32V96h32zm47.7 384H48.3c-47.6 0-61-64-36-64h583.3c25 0 11.8 64-35.9 64z"&gt;&lt;/path&gt;&lt;/svg&gt;, Liberica &lt;svg viewBox="0 0 640 512" style="height:1em;position:relative;display:inline-block;top:.1em;fill:black;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M192 384h192c53 0 96-43 96-96h32c70.6 0 128-57.4 128-128S582.6 32 512 32H120c-13.3 0-24 10.7-24 24v232c0 53 43 96 96 96zM512 96c35.3 0 64 28.7 64 64s-28.7 64-64 64h-32V96h32zm47.7 384H48.3c-47.6 0-61-64-36-64h583.3c25 0 11.8 64-35.9 64z"&gt;&lt;/path&gt;&lt;/svg&gt;, and Robusta &lt;svg viewBox="0 0 640 512" style="height:1em;position:relative;display:inline-block;top:.1em;fill:grey;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M192 384h192c53 0 96-43 96-96h32c70.6 0 128-57.4 128-128S582.6 32 512 32H120c-13.3 0-24 10.7-24 24v232c0 53 43 96 96 96zM512 96c35.3 0 64 28.7 64 64s-28.7 64-64 64h-32V96h32zm47.7 384H48.3c-47.6 0-61-64-36-64h583.3c25 0 11.8 64-35.9 64z"&gt;&lt;/path&gt;&lt;/svg&gt;.
++ 12 identical cups are chosen and sets of four cups are **randomly allocated** one of three treatments.
++ Four sets of each type of coffee beans are ground and cups made (in the same way) resulting in a total of 12 cups of coffee.
++ Samples are taken from each cup and the coffee strength is measured.
+
+---
+
+**Experiment design:**
+
+&lt;svg viewBox="0 0 640 512" style="position:relative;display:inline-block;top:.1em;fill:brown;height:2em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M192 384h192c53 0 96-43 96-96h32c70.6 0 128-57.4 128-128S582.6 32 512 32H120c-13.3 0-24 10.7-24 24v232c0 53 43 96 96 96zM512 96c35.3 0 64 28.7 64 64s-28.7 64-64 64h-32V96h32zm47.7 384H48.3c-47.6 0-61-64-36-64h583.3c25 0 11.8 64-35.9 64z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;svg viewBox="0 0 640 512" style="position:relative;display:inline-block;top:.1em;fill:brown;height:2em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M192 384h192c53 0 96-43 96-96h32c70.6 0 128-57.4 128-128S582.6 32 512 32H120c-13.3 0-24 10.7-24 24v232c0 53 43 96 96 96zM512 96c35.3 0 64 28.7 64 64s-28.7 64-64 64h-32V96h32zm47.7 384H48.3c-47.6 0-61-64-36-64h583.3c25 0 11.8 64-35.9 64z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;svg viewBox="0 0 640 512" style="position:relative;display:inline-block;top:.1em;fill:brown;height:2em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M192 384h192c53 0 96-43 96-96h32c70.6 0 128-57.4 128-128S582.6 32 512 32H120c-13.3 0-24 10.7-24 24v232c0 53 43 96 96 96zM512 96c35.3 0 64 28.7 64 64s-28.7 64-64 64h-32V96h32zm47.7 384H48.3c-47.6 0-61-64-36-64h583.3c25 0 11.8 64-35.9 64z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;svg viewBox="0 0 640 512" style="position:relative;display:inline-block;top:.1em;fill:black;height:2em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M192 384h192c53 0 96-43 96-96h32c70.6 0 128-57.4 128-128S582.6 32 512 32H120c-13.3 0-24 10.7-24 24v232c0 53 43 96 96 96zM512 96c35.3 0 64 28.7 64 64s-28.7 64-64 64h-32V96h32zm47.7 384H48.3c-47.6 0-61-64-36-64h583.3c25 0 11.8 64-35.9 64z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;svg viewBox="0 0 640 512" style="position:relative;display:inline-block;top:.1em;fill:grey;height:2em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M192 384h192c53 0 96-43 96-96h32c70.6 0 128-57.4 128-128S582.6 32 512 32H120c-13.3 0-24 10.7-24 24v232c0 53 43 96 96 96zM512 96c35.3 0 64 28.7 64 64s-28.7 64-64 64h-32V96h32zm47.7 384H48.3c-47.6 0-61-64-36-64h583.3c25 0 11.8 64-35.9 64z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;svg viewBox="0 0 640 512" style="position:relative;display:inline-block;top:.1em;fill:black;height:2em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M192 384h192c53 0 96-43 96-96h32c70.6 0 128-57.4 128-128S582.6 32 512 32H120c-13.3 0-24 10.7-24 24v232c0 53 43 96 96 96zM512 96c35.3 0 64 28.7 64 64s-28.7 64-64 64h-32V96h32zm47.7 384H48.3c-47.6 0-61-64-36-64h583.3c25 0 11.8 64-35.9 64z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;svg viewBox="0 0 640 512" style="position:relative;display:inline-block;top:.1em;fill:grey;height:2em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M192 384h192c53 0 96-43 96-96h32c70.6 0 128-57.4 128-128S582.6 32 512 32H120c-13.3 0-24 10.7-24 24v232c0 53 43 96 96 96zM512 96c35.3 0 64 28.7 64 64s-28.7 64-64 64h-32V96h32zm47.7 384H48.3c-47.6 0-61-64-36-64h583.3c25 0 11.8 64-35.9 64z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;svg viewBox="0 0 640 512" style="position:relative;display:inline-block;top:.1em;fill:black;height:2em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M192 384h192c53 0 96-43 96-96h32c70.6 0 128-57.4 128-128S582.6 32 512 32H120c-13.3 0-24 10.7-24 24v232c0 53 43 96 96 96zM512 96c35.3 0 64 28.7 64 64s-28.7 64-64 64h-32V96h32zm47.7 384H48.3c-47.6 0-61-64-36-64h583.3c25 0 11.8 64-35.9 64z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;svg viewBox="0 0 640 512" style="position:relative;display:inline-block;top:.1em;fill:black;height:2em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M192 384h192c53 0 96-43 96-96h32c70.6 0 128-57.4 128-128S582.6 32 512 32H120c-13.3 0-24 10.7-24 24v232c0 53 43 96 96 96zM512 96c35.3 0 64 28.7 64 64s-28.7 64-64 64h-32V96h32zm47.7 384H48.3c-47.6 0-61-64-36-64h583.3c25 0 11.8 64-35.9 64z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;svg viewBox="0 0 640 512" style="position:relative;display:inline-block;top:.1em;fill:grey;height:2em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M192 384h192c53 0 96-43 96-96h32c70.6 0 128-57.4 128-128S582.6 32 512 32H120c-13.3 0-24 10.7-24 24v232c0 53 43 96 96 96zM512 96c35.3 0 64 28.7 64 64s-28.7 64-64 64h-32V96h32zm47.7 384H48.3c-47.6 0-61-64-36-64h583.3c25 0 11.8 64-35.9 64z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;svg viewBox="0 0 640 512" style="position:relative;display:inline-block;top:.1em;fill:brown;height:2em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M192 384h192c53 0 96-43 96-96h32c70.6 0 128-57.4 128-128S582.6 32 512 32H120c-13.3 0-24 10.7-24 24v232c0 53 43 96 96 96zM512 96c35.3 0 64 28.7 64 64s-28.7 64-64 64h-32V96h32zm47.7 384H48.3c-47.6 0-61-64-36-64h583.3c25 0 11.8 64-35.9 64z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;svg viewBox="0 0 640 512" style="position:relative;display:inline-block;top:.1em;fill:grey;height:2em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M192 384h192c53 0 96-43 96-96h32c70.6 0 128-57.4 128-128S582.6 32 512 32H120c-13.3 0-24 10.7-24 24v232c0 53 43 96 96 96zM512 96c35.3 0 64 28.7 64 64s-28.7 64-64 64h-32V96h32zm47.7 384H48.3c-47.6 0-61-64-36-64h583.3c25 0 11.8 64-35.9 64z"&gt;&lt;/path&gt;&lt;/svg&gt;
+
+#### **Scientific question**: Does coffee strength differ between bean types?
+
+---
+
+#### **Scientific question**: Does coffee strength differ between bean types?
+
+There are **3 treatments** (types of coffee beans): Arabica, Liberica, and Robusta.
+
+In this case the **experimental unit** would be the **coffee cup** as each one is allocated a different bean type (treatment).
+
+The **observational unit** changes depending on the scenario (i.e., what and how samples are taken). For example,
+
+   + if a single ml of liquid is taken from each cup and one measurement is taken per ml taken `\(\rightarrow\)` the observational unit would be the **cup**
+---
+
+
+#### Scientific question: Does coffee strength differ between bean types?
+
+There are **3 treatments** (types of coffee beans): Arabica, Liberica, and Robusta.
+
+In this case the **experimental unit** would be the **coffee cup** as each one is allocated a different bean type (treatment).
+
+The **observational unit** changes depending on the scenario (i.e., what and how samples are taken). For example,
+
+   + if a single ml of liquid is taken from each cup and two subsamples are then taken from each ml, then if measurements are taken per subsample `\(\rightarrow\)` then the observational unit would be a **subsample**
+   
+---
+
+#### Scientific question: Does coffee strength differ between bean types?
+
+There are **3 treatments** (types of coffee beans): Arabica, Liberica, and Robusta.
+
+In this case the **experimental unit** would be the **coffee cup** as each one is allocated a different bean type (treatment).
+
+The **observational unit** changes depending on the scenario (i.e., what and how samples are taken). For example,
+
+   + if four `\(\times\)` 1ml of liquid were taken from each cup and from each ml a measurement is taken `\(\rightarrow\)` then the observational unit would be **each 1ml sample**
+
+---
+###### **[slido.com](slido.com)** code **#biosci220**
+
+###### Taken directly from [The Genesis of Experimentation](https://emitanaka.org/slides/Ihaka2022/#/title-slide). The first [Ihaka lecture](https://www.auckland.ac.nz/en/science/about-the-faculty/department-of-statistics/ihaka-lecture-series.html) of 2022, given by [Emi Tanaka](https://emitanaka.org/), yesterday! Experiment from Steinauer et. al. (2015) [Plant diversity effects on soil microbial functions and enzymes are stronger than warming in a grassland experiment. Ecology.](https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/14-0088.1)
+
+&lt;img src="img/experiment.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+
+
+---
+class: center, middle
+
+### Three (key) principles of exprimental design
+
+.footnote[See [Chapter 3](https://biosci220.github.io/BIOSCI220/introduction-to-the-design-and-analysis-of-experiments.html) of the course guide]
+
+--
+
+### **Replication**
+
+--
+
+### **Randomisation**
+
+--
+
+### **Blocking**
+
+
+---
+
+**Replication**
+
+.footnote[See [Chapter 3](https://biosci220.github.io/BIOSCI220/introduction-to-the-design-and-analysis-of-experiments.html) of the course guide]
+
++ **Biological replication:** each treatment is *independently* applied to each of several humans, animals or plants
+
+--
+
+*Why?* To generalize results to population
+
+---
+
+**Replication**
+
+.footnote[See [Chapter 3](https://biosci220.github.io/BIOSCI220/introduction-to-the-design-and-analysis-of-experiments.html) of the course guide]
+
++ **Technical replication:** two or more samples from the same biological source which are *independently* processed
+
+--
+
+*Why?* 
+  + Advantageous if processing steps introduce a lot of variation
+  + Increases the precision with which comparisons of relative abundances between treatments are made
+
+---
+
+**Replication**
+
+.footnote[See [Chapter 3](https://biosci220.github.io/BIOSCI220/introduction-to-the-design-and-analysis-of-experiments.html) of the course guide]
+
++ **Pseudo-replication:** one sample from the same biological source, divided into two or more aliquots which are **independently** measured
+
+--
+
+*Why?* 
+  + Advantageous for noisy measuring instruments
+  + Increases the **precision** with which comparisons of relative abundances between treatments are made
+  
+---
+
+**Randomization**
+
+.footnote[See [Chapter 3](https://biosci220.github.io/BIOSCI220/introduction-to-the-design-and-analysis-of-experiments.html) of the course guide]
+
++ Protects against bias
+
+--
+
++ Plan the experiment in such a way that the variations caused by extraneous factors can all be combined under the general heading of "chance".
+
+
+--
+
++ Ensures that each treatment has the same probability of getting good (or bad) units and thus avoids systematic bias
+
+--
+
++ Random allocation can cancel out population bias; it ensures that any other possible causes for the experimental results are split equally between groups
+
+---
+
+**Randomisation**
+
+.footnote[See [Chapter 3](https://biosci220.github.io/BIOSCI220/introduction-to-the-design-and-analysis-of-experiments.html) of the course guide]
+
++ Typically statistical analysis assumes that observations are **independent**. This is almost never strictly true in practice but randomisation means that our estimates will behave as if they were based on independent observations
+
+---
+
+**Blocking**
+
+.footnote[See [Chapter 3](https://biosci220.github.io/BIOSCI220/introduction-to-the-design-and-analysis-of-experiments.html) of the course guide]
+
++ Blocking helps **control variability** by making treatment groups more alike. Experimental units are divided into subsets (called blocks) so that units within the same block are more similar than units from different subsets or blocks. 
+
+--
+
++ Blocking is a technique for dealing with *nuisance factors*. A *nuisance factor* is a factor that has some effect on the response, but is of no interest (e.g., age class).
+
+---
+### Completely randomised design (CRD)
+
+Let's consider a completely  design with one treatment factor (e.g., coffee bean type). 
+
+--
+
+Here, **n** experimental units (e.g., cups) are divided **randomly** into **t** groups.  Each group is then given one treatment level (one of the treatment factors). As we have defined only one treatment factor all other known independent variables are kept constant so as to not bias any effects.
+
+.footnote[.small[Random allocation can be achieved by simply drawing lots from a hat! To be more rigorous, though, we could use `R`'s `sample()` function.]]
+
+---
+### Completely randomised design (CRD)
+
+
+![An illustration of a CRD with one tratment factor and three treatment levels (A, B, &amp; C)](https://github.com/cmjt/ggdesign/raw/main/README_files/figure-markdown_strict/unnamed-chunk-4-1.png)
+
+
+---
+### Randomised complete block design (RCBD)
+
+Let's consider a randomised complete block design with one treatment factor (e.g., coffee bean type). If the treatment factor has **t** levels there will be **b** blocks that each contain **t** experimental units resulting in a total of **t** `\(\times\)` **b** experimental units.  
+
+--
+
+For example, let's imagine that for the coffee experiment we had two cup types: mugs and heatproof glasses. We might consider the type of receptacle to have an effect on the coffee strength measured; however, we are not interested in this. Therefore, to negate this we block by cup type. This means that any effect due to the blocking factor (cup type) is accounted for by the blocking.
+
+---
+### Randomised complete block design (RCBD)
+
+For a blocked design we want the **t** experimental units within each block should be as homogeneous as possible (as similar as possible, so that there is unlikely to be unwanted variation coming into the experiment this way). 
+
+--
+
+The variation between blocks (the groups of experimental units) should be large enough (i.e., blocking factors different enough) so that conclusions can be drawn. Allocation of treatments to experimental units is done randomly (i.e., treatments are randomly assigned to units) within each block.
+
+---
+### Randomised complete block design (RCBD)
+
+
+![An illustration of a RCBD with one tratment factor, three treatment levels (A, B, &amp; C), and three blocks (rows)](https://github.com/cmjt/ggdesign/raw/main/README_files/figure-markdown_strict/unnamed-chunk-6-1.png)
+
+
+---
+### Factorial design
+
+A factorial experiment is one where there are two or more sets of (factor) treatments. Rather than studying each factor separately all combinations of the treatment factors are considered. 
+
+--
+
+Factorial designs enable us to infer any **interaction** effects, which may be present. An **interaction** effect is one where the effect of one variable depends on the value of another variable (i.e., the effect of one treatment factor on the response variable will change depending on the value of a second treatment factor.)
+
+---
+
+### Factorial design
+
+For example, we could add another treatment to the coffee experiment: **grinder type** (manual &lt;svg viewBox="0 0 512 512" style="height:1em;position:relative;display:inline-block;top:.1em;fill:black;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M501.54 60.91c17.22-17.22 12.51-46.25-9.27-57.14a35.696 35.696 0 0 0-37.37 3.37L251.09 160h151.37l99.08-99.09zM496 192H16c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h16c0 80.98 50.2 150.11 121.13 178.32-12.76 16.87-21.72 36.8-24.95 58.69-1.46 9.92 6.04 18.98 16.07 18.98h223.5c10.03 0 17.53-9.06 16.07-18.98-3.22-21.89-12.18-41.82-24.95-58.69C429.8 406.11 480 336.98 480 256h16c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z"&gt;&lt;/path&gt;&lt;/svg&gt; or electric &lt;svg viewBox="0 0 384 512" style="height:1em;position:relative;display:inline-block;top:.1em;fill:black;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M320,32a32,32,0,0,0-64,0v96h64Zm48,128H16A16,16,0,0,0,0,176v32a16,16,0,0,0,16,16H32v32A160.07,160.07,0,0,0,160,412.8V512h64V412.8A160.07,160.07,0,0,0,352,256V224h16a16,16,0,0,0,16-16V176A16,16,0,0,0,368,160ZM128,32a32,32,0,0,0-64,0v96h64Z"&gt;&lt;/path&gt;&lt;/svg&gt;). So, now we have two treatments, bean type (with three levels) and grinder type (with two levels). Recall that in a factorial experiment we want to study **all combinations** of the levels of each factor:
+
+---
+Now, our **question about the strength of coffee** would be *Does the strength of coffee vary between beans and/or grinder?*
+
+|   | Manual    | Electric   | 
+|---|---    |---     |
+| Arabica   | A.M &lt;svg viewBox="0 0 512 512" style="position:relative;display:inline-block;top:.1em;fill:brown;height:3em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M501.54 60.91c17.22-17.22 12.51-46.25-9.27-57.14a35.696 35.696 0 0 0-37.37 3.37L251.09 160h151.37l99.08-99.09zM496 192H16c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h16c0 80.98 50.2 150.11 121.13 178.32-12.76 16.87-21.72 36.8-24.95 58.69-1.46 9.92 6.04 18.98 16.07 18.98h223.5c10.03 0 17.53-9.06 16.07-18.98-3.22-21.89-12.18-41.82-24.95-58.69C429.8 406.11 480 336.98 480 256h16c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z"&gt;&lt;/path&gt;&lt;/svg&gt;  | A.E &lt;svg viewBox="0 0 384 512" style="position:relative;display:inline-block;top:.1em;fill:brown;height:3em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M320,32a32,32,0,0,0-64,0v96h64Zm48,128H16A16,16,0,0,0,0,176v32a16,16,0,0,0,16,16H32v32A160.07,160.07,0,0,0,160,412.8V512h64V412.8A160.07,160.07,0,0,0,352,256V224h16a16,16,0,0,0,16-16V176A16,16,0,0,0,368,160ZM128,32a32,32,0,0,0-64,0v96h64Z"&gt;&lt;/path&gt;&lt;/svg&gt; |
+| Liberica  | L.M &lt;svg viewBox="0 0 512 512" style="position:relative;display:inline-block;top:.1em;fill:black;height:3em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M501.54 60.91c17.22-17.22 12.51-46.25-9.27-57.14a35.696 35.696 0 0 0-37.37 3.37L251.09 160h151.37l99.08-99.09zM496 192H16c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h16c0 80.98 50.2 150.11 121.13 178.32-12.76 16.87-21.72 36.8-24.95 58.69-1.46 9.92 6.04 18.98 16.07 18.98h223.5c10.03 0 17.53-9.06 16.07-18.98-3.22-21.89-12.18-41.82-24.95-58.69C429.8 406.11 480 336.98 480 256h16c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z"&gt;&lt;/path&gt;&lt;/svg&gt;  |  L. E&lt;svg viewBox="0 0 384 512" style="position:relative;display:inline-block;top:.1em;fill:black;height:3em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M320,32a32,32,0,0,0-64,0v96h64Zm48,128H16A16,16,0,0,0,0,176v32a16,16,0,0,0,16,16H32v32A160.07,160.07,0,0,0,160,412.8V512h64V412.8A160.07,160.07,0,0,0,352,256V224h16a16,16,0,0,0,16-16V176A16,16,0,0,0,368,160ZM128,32a32,32,0,0,0-64,0v96h64Z"&gt;&lt;/path&gt;&lt;/svg&gt; |
+| Robusta   |  R.M &lt;svg viewBox="0 0 512 512" style="position:relative;display:inline-block;top:.1em;fill:grey;height:3em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M501.54 60.91c17.22-17.22 12.51-46.25-9.27-57.14a35.696 35.696 0 0 0-37.37 3.37L251.09 160h151.37l99.08-99.09zM496 192H16c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h16c0 80.98 50.2 150.11 121.13 178.32-12.76 16.87-21.72 36.8-24.95 58.69-1.46 9.92 6.04 18.98 16.07 18.98h223.5c10.03 0 17.53-9.06 16.07-18.98-3.22-21.89-12.18-41.82-24.95-58.69C429.8 406.11 480 336.98 480 256h16c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z"&gt;&lt;/path&gt;&lt;/svg&gt;  |  R. E &lt;svg viewBox="0 0 384 512" style="position:relative;display:inline-block;top:.1em;fill:grey;height:3em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M320,32a32,32,0,0,0-64,0v96h64Zm48,128H16A16,16,0,0,0,0,176v32a16,16,0,0,0,16,16H32v32A160.07,160.07,0,0,0,160,412.8V512h64V412.8A160.07,160.07,0,0,0,352,256V224h16a16,16,0,0,0,16-16V176A16,16,0,0,0,368,160ZM128,32a32,32,0,0,0-64,0v96h64Z"&gt;&lt;/path&gt;&lt;/svg&gt; |
+
+.footnote[Note:  a factorial design has **equal** numbers of replicates in each group then it is said to be a **balanced** design; if this is not the case then it is **unbalanced**.]
+
+
+
+---
+**Possible outcomes**
+
+![](index_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;
+
+---
+
+If an **interaction** effect exists the effect of one factor on the response will change depending on the level of the other factor:
+
+![](index_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
+
+---
+class: inverse, middle, centre
+
+###  [Annotate bit.ly/biosci220](bit.ly/biosci220)
+
+
+---
+
+### Key points
+
++ Potatoes in your socks *probably* don't cure colds...
++ An **experimental unit** is the item under study for which some treatment is changed
++ An **observational unit** is the smallest unit on which a response is measured
++ **Replication** (helps us generalise results), **Randomisation** (helps protect against bias), and **Blocking** (helps account for some factor we're not interested in) are key when designing experiments
+
+---
+
+###  &lt;svg viewBox="0 0 512 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"&gt;&lt;/path&gt;&lt;/svg&gt; Week 03, lecture 02
+
++ **Slides**: [biosci220.github.io/slides/](https://biosci220.github.io/slides/)
++ **Course guide** (chapter 4): [biosci220.github.io/BIOSCI220/](https://biosci220.github.io/BIOSCI220/)
++ My **consultation hours**, Statistics Assistance Hub 301-G040:
+     + Mondays and Tuedsays, 9–11am
++ **Contact** me directly at [c.jonestodd@auckland.ac.nz](mailto:c.jonestodd@auckland.ac.nz)
++ Any admin queries please contact Jenn at [jenn.jury@auckland.ac.nz](mailto: jenn.jury@auckland.ac.nz)
++ [**Lab 02**](https://canvas.auckland.ac.nz/courses/71391/pages/week-3-laboratory-resources)
+
+---
+
+class: inverse, center
+
+**Mōrena**
+
+&lt;img src="img/pumpkins.jpg" width="60%" /&gt;
+
+---
+.small[
+### Learning objectives
+
++ **Formulate** a question/hypothesis to investigate based on the given data
++ **List** the aims, **write** out the appropriate null and alternative hypothesis using statistical notation for, and write R code to carry out a randomisation test
++ **Correctly interpret** and **communicate** a p-value in terms of a randomisation test
+]
+
+---
+   
+#### Randomisation tests
+
+&lt;img src = "https://i.imgflip.com/2e1aal.jpg"&gt;
+
+---
+#### What can you say about this plot? **[slido.com](slido.com)** code **#biosci220**
+
+![](index_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
+---
+##### Do you think the mean weight of each group are significantly different from each other? Why or why not? **[slido.com](slido.com)** code **#biosci220**
+
+![](index_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
+
+
+---
+##### Do you think the median weight of each group are significantly different from each other? Why or why not? **[slido.com](slido.com)** code **#biosci220**
+
+![](index_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
+
+---
+#### The data
+
+![](img/pumpkins_stardew.png)
+
+###### [source](https://www.reddit.com/r/StardewValley/comments/e4m54i/i_have_been_blessed_this_fall_any_suggestions/)
+---
+**Randomisation test**
+
+
+ + **Decide** on a metric to measure the effect in question (e.g., differences between group medians)
+ 
+--
+ 
+ + **Calculate** that test statistic on the observed data. Note this metric can be **anything** you wish
+ 
+--
+
+ + For chosen number of times (*bigger the better*)
+    + **Shuffle** the data labels
+    + **Calculate** the test statistic for the reshuffled data and retain
+  
+---
+**Randomisation test**
+
+ + **Calculate** the proportion of times your reshuffled statistics equal or exceed the observed
+    + typically here we use the absolute values as we'd be carrying out a **two-tailed** test (or we could double the p-value)
+    + this is the probability of such an extreme result under the null
+    
+--
+
+ + **State** the strength of evidence against the null on the basis of this **probability**.
+
+---
+### Difference in medians for our observed data
+
+
+```r
+## observed differences in medians
+data &lt;- data.frame(weight = c(7.1, 5.2, 6.3, 6.7, 7.4, 5.9, 5.3, 6.1, 2.1, 4.9,
+                      4.8, 5.4, 3.6, 4.1, 4.4, 4.8, 3.4, 5.1, 5.3, 5.2),
+           group = rep(c("G1","G2"), each = 10))
+glimpse(data)
+```
+
+```
+## Rows: 20
+## Columns: 2
+## $ weight &lt;dbl&gt; 7.1, 5.2, 6.3, 6.7, 7.4, 5.9, 5.3, 6.1, 2.1, 4.9, 4.8, 5.4, 3.6…
+## $ group  &lt;chr&gt; "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G2…
+```
+
+---
+### Difference in medians for our observed data
+
+
+```r
+diff_in_medians &lt;- data %&gt;% 
+  group_by(group) %&gt;% 
+  summarise(median = median(weight)) %&gt;%
+  summarise(diff = diff(median)) %&gt;% as.numeric()
+diff_in_medians
+```
+
+```
+## [1] -1.2
+```
+
+---
+### Code for you to run in-lecture
+
+
+```r
+library(tidyverse)
+data.frame(weight = c(7.1, 5.2, 6.3, 6.7, 7.4, 5.9, 5.3, 6.1, 2.1, 4.9,
+                      4.8, 5.4, 3.6, 4.1, 4.4, 4.8, 3.4, 5.1, 5.3, 5.2),
+           group = rep(c("G1","G2"), each = 10)) %&gt;%
+    mutate(random_labels = sample(group, replace = FALSE)) %&gt;%
+    group_by(random_labels) %&gt;%
+    summarise(median_under_null = median(weight)) %&gt;%
+    summarise(diff_under_null = diff(median_under_null)) %&gt;%
+    as.numeric() %&gt;% round(., 3)
+```
+
+---
+class: center, middle, inverse
+
+### **Live randomisation test**:  [Annotate bit.ly/biosci220](bit.ly/biosci220)
+
+
+---
+class: inverse, center, middle
+
+[live demo]
+
+---
+
+### Key points
+
++ We can carry out hypothesis test on **without the restrictions** of having to know the mathematical form of the sampling distribution.
++ Embrace the **randomness**!
++ Simulating under the **NULL hypothesis** shows us what would happen under *chance alone*
++ The **location of our observed statistic** in the distribution of those simulated under the NULL hypothesis gives us information!
+
+---
+class: inverse, middle, center
+
+### 😱  p-values 😱
+##### **[slido.com](slido.com) code #biosci220: What does this mean?**
+
+![](https://pbs.twimg.com/media/DzVIekRXcAAUISg?format=png&amp;name=small)
+
+
+.footnote[[Fisher, Ronald Aylmer, Journal of the Ministry of Agriculture of Great Britain, 33: 503-513 (1926)](https://repository.rothamsted.ac.uk/item/8v61q/the-arrangement-of-field-experiments)]
+
+
+---
+class: inverse, middle, center
+
+&gt; "Good statistical practice, as an essential component of good scientific practice, emphasizes principles of good study design and conduct, a variety of numerical and graphical summaries of data, understanding of the phenomenon under study, interpretation of results in context, complete reporting and proper logical and quantitative understanding of what data summaries mean. No single index should substitute for scientific reasoning."—ASA Statement on p-Values
+
+---
+
+### 😱  p-values 😱
+
+Q: **What is a p-value?**
+
+A: Informally, a p-value is the probability under a specified statistical model that a statistical summary of the data would be equal to or more extreme than its observed value
+
+---
+
+### 😱  p-values 😱
+
+
++ **p-values** can indicate how incompatible the data are with a specified statistical model
+
+--
+
++ p-values **do not** measure the probability that the studied hypothesis is true, or the probability that the data were produced by random chance alone
+
+--
+
++ scientific conclusions and business or policy decisions **should not** be based only on whether a p-value passes a specific threshold
+
+---
+
+### 😱 Correctly interpreting p-values 😱
+
++ proper inference requires **full** reporting and transparency
+
+--
+
++ p-value, or statistical significance, does **not** measure the size of an effect or the importance of a result
+
+--
+
++ by itself, a p-value does **not** provide a good measure of evidence regarding a model or hypothesis
+
+---
+
+### 😱 Correctly interpreting p-values 😱
+
+There are **many** different schools of thought about how a p-value should be interpreted.
+
+Most people agree that the p-value is a useful measure of the strength of evidence against the null hypothesis. The smaller the p-value, the stronger the evidence against `\(H_0\)`. 
+
+Some people go further and use an accept/reject framework. Under this framework, the null hypothesis `\(H_0\)` should be rejected if the p-value is less than 0.05 (say), and accepted if the p-value is greater than 0.05.
+
+---
+class: inverse
+
+## Key points 
+
++ **Every p-value has a Null Hypothesis**: You cannot interpret a p-value without first establishing the null hypothesis it is testing
+
+
++ **Variation is the key**: trying our best to explain it really...
+
+
+
+---
+**Terminology**
+
+![](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/other-stats-artwork/type_1_errors.png)
+[Artwork by @allison_horst](https://github.com/allisonhorst/stats-illustrations)
+
+
+---
+**Terminology**
+
+**Type I** error (false positive): declare a difference (i.e., reject `\(H_0\)`) when there is no difference (i.e. `\(H_0\)` is true). 
+
+
+Risk of the Type I error is determined by the **level of significance** (which we set!) (i.e., `\(\alpha =\text{ P(Type I error)} = \text{P(false positive)}\)`.
+
+---
+**Terminology**
+
+![](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/other-stats-artwork/type_2_errors.png)
+[Artwork by @allison_horst](https://github.com/allisonhorst/stats-illustrations)
+
+
+---
+
+**Terminology**
+
+**Type II** error (false negative): difference not declared (i.e., `\(H_0\)` not rejected) when there is a difference (i.e., `\(H_0\)` is false). Let `\(\beta =\)` P(do not reject `\(H_0\)` when `\(H_0\)` is false); so, `\(1-\beta\)` = P(reject `\(H_0\)` when `\(H_0\)` is false) = P(a true positive), which is the statistical **power** of the test.
+
+---
+
+**Terminology**
+
+
+**Significance level** = probability of a Type I error = probability of finding an effect that is not there (false positive).
+
+**Power**: the probability that the test correctly rejects the null hypothesis when the
+alternative hypothesis is true. probability of finding an effect that is there =  1 - probability of a **Type II** error (false negative).
+
+
+---
+
+**Terminology**
+
+Reducing the chance of a **Type I error** (false positive) increases the chance of a **Type II error** (false negative). They are inversely related. 
+
+**Type II error** rate is determined by a combination of the following.
+
+  + **Effect size** (size of difference, of biological significance) between the true population parameters
+  + Experimental error variance 
+  + **Sample size**
+  + Choice of **Type I** error rate ( `\(\alpha\)` )
+  
+
+---
+**Terminology**
+
+Each time we carry out a hypothesis test the probability we get a false positive result (**Type I** error) is given by `\(\alpha\)` (the **level of significance** we choose).
+
+When we have **multiple comparisons** to make we should then control the **Type I** error rate across the entire *family* of tests under consideration, i.e., control the **Family-Wise Error Rate (FWER)**; this ensures that the risk of making at least one **Type I** error among the family of comparisons in the experiment is `\(\alpha\)`.
+
+
+
+---
+class: inverse
+
+## So that's a wrap (almost)
+
+### Key points to remember
+
++ **Software** 
+
+   + `R` and `RStudio`
+   
+--
+
++ **Data** 
+   + where it comes from
+   + how it should be treated
+   + how to display it
+
+
+   
+---
+class: inverse
+
+## So that's a wrap (almost)
+
+### Key points to remember
+
++ **Hypothesis testing**
+   + Formulate your question! Define your test statistic!
+   + We can formulate our own tests! (e.g., randomisaion test)
+   + You cannot interpret a p-value without first establishing the null hypothesis it is testing
+
+---
+class: inverse
+
+## So, that's a wrap from me. 👋 Hwyl fawr 👋
+
+&lt;p align="center"&gt;&lt;img src="img/cmjt_intro.jpeg" width="100%"&gt;&lt;/p&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "<div class=\"progress-bar-container\">\n  <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">\n  </div>\n</div>\n"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
