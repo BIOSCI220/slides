@@ -1,4 +1,4 @@
-## <img src="https://github.com/BIOSCI220/hoiho/blob/main/hoiho_hex.png?raw=true" width="100" height="100"> BIOSCI 220: Quantitative Biology, Module 1 slides Weeks 1–3
+## <img src="https://github.com/BIOSCI220/hoiho/blob/main/hoiho_hex.png?raw=true" width="100" height="100"> BIOSCI 220: Quantitative Biology, Module 1. Slides weeks 1–3
 
 ### Overview
 

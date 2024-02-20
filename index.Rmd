@@ -55,6 +55,16 @@ style_solarized_light()
 }
 </style>
 
+
+---
+
+class: inverse, center
+
+
+
+![](img/fourth_wing.png)
+
+.footnote[[source](https://the-empyrean-series.fandom.com/wiki/Known_World)]
 ---
 
 class: inverse, center, middle
