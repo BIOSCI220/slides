@@ -107,6 +107,7 @@ class: inverse, center, middle
 4.) Come and see me in the **Statistics Assistance Hub** 301-G040:
 
    + **Monday** and **Tuesday**, 9–11am
+   
 ---
 
 class: inverse
@@ -175,6 +176,7 @@ class: inverse
      + Mondays and Tuedsays, 9–11am
 + **Contact** me directly at [c.jonestodd@auckland.ac.nz](mailto:c.jonestodd@auckland.ac.nz)
 + 🎨 **a`R`t competition**! See [this CANVAS discussion](https://canvas.auckland.ac.nz/courses/104039/discussion_topics/1314906)
++ 🎲[Dragon Hunt](https://statbiscuit.github.io/mini_games/zork/index.html)
 
 ---
 
@@ -271,7 +273,7 @@ class: inverse
 ---
 class: inverse, center, middle
 
-#### `RStudio` navigation [Annotate bit.ly/biosci220](bit.ly/biosci220)
+#### `RStudio` navigation [live demo]
 
 ![](img/rstudio_panes.png)
 
@@ -356,14 +358,6 @@ class: centre, middle, inverse
  3. Each value must have its **own cell**
 
 
-
----
-
-class: centre, middle, inverse
-
-#### **Piping** (What is a pipe? [Draw one at bit.ly/biosci220](bit.ly/biosci220))
-
-![](https://thumbs.gfycat.com/FreeDifficultAtlanticblackgoby-size_restricted.gif)
 
 
 ---
@@ -473,6 +467,7 @@ penguins_nafree
 
 
 .footnote[See [Chapter 2](https://biosci220.github.io/BIOSCI220/dealing-with-data.html#data-wrangling-and-manipulation) of the course guide]
+
 ---
 
 
@@ -480,8 +475,6 @@ penguins_nafree
 
 
 ---
-
-
 ### Data manipulation
 
 ```{r penguins_av,results='hide'}
@@ -491,15 +484,13 @@ penguins_nafree %>%
 ```
 
 .footnote[See [Chapter 2](https://biosci220.github.io/BIOSCI220/dealing-with-data.html#data-wrangling-and-manipulation) of the course guide]
----
 
+---
 
 
 `r chunk_reveal(chunk_name = "penguins_av", title = "### Data manipulation", float = "top", widths = 1)`
 
 ---
-
-
 ### Data manipulation
 
 ```{r penguins_pivot, results='hide', message = FALSE, warning = FALSE}
@@ -512,15 +503,14 @@ penguins_nafree %>%
 ```
 
 .footnote[See [Chapter 2](https://biosci220.github.io/BIOSCI220/dealing-with-data.html#data-wrangling-and-manipulation) of the course guide]
----
 
+---
 
 
 `r chunk_reveal(chunk_name = "penguins_pivot", title = "### Data manipulation", float = "top", widths = 1)`
 
+
 ---
-
-
 class: inverse, center, middle
 
 [**code along**, live `R` demo]
@@ -562,12 +552,17 @@ class: inverse, center, middle
 + **Contact** me directly at [c.jonestodd@auckland.ac.nz](mailto:c.jonestodd@auckland.ac.nz)
 + Any admin queries please contact Jenn at [jenn.jury@auckland.ac.nz](mailto: jenn.jury@auckland.ac.nz)
 + [**Lab 01**](https://canvas.auckland.ac.nz/courses/104039/pages/week-2-laboratory-resources?module_item_id=2051421)
++ 🎲[matching syntax](https://statbiscuit.github.io/mini_games/matching/matching.html)
 
 ---
 
 
 .small[
 ### Learning objectives
+
++ **Carry out** and **interpret** the outputs of basic exploratory data analysis using in-built `R` functions
++ **Carry out** basic data-wrangling techniques in `R` (e.g., using functions such as the `tidyverse` functions `mutate()`, `group_by()`, and `summarize()`).
++ **Implement** tidyverse pipelines using the `%>%` (pipe) operator
 + **Create** and **communicate** informative data visualizations using `R` using the package `ggplot2`
 + **Map** the appropriate data structure to a `ggplot2` aesthetic
 + **Identify** the mapping of a variable given a plot
@@ -577,12 +572,38 @@ class: inverse, center, middle
 
 ---
 
-## Data visualization
+## Data wrangling/manipulation recap
 
-![](https://venngage-wordpress.s3.amazonaws.com/uploads/2020/06/image17.png)
+
+[**code along**, live `R` demo]
+
+```{r, eval = FALSE}
+library(palmerpenguins)
+library(tidyverse)
+penguins_nafree <- penguins %>% 
+	drop_na()
+penguins_nafree %>%
+  filter(., sex != "male") %>%
+  select(c("species", "island", "body_mass_g")) %>%
+  group_by(species, island) %>%
+  summarise(total_mass_g = sum(body_mass_g)) %>%
+  pivot_wider(names_from = c(island), values_from = total_mass_g)
+```
+
+**Reply to my questions** at **[slido.com](slido.com)** code **#biosci220**
 
 ---
 class: inverse, center, middle
+
+
+![](https://www.bookdesignawards.co.nz/wp-content/uploads/2020/08/We-Are-Here_Page_3-1-768x474.jpg)
+[We Are Here, An atlas of Aotearoa Chris McDowall & Tim Denee](https://www.masseypress.ac.nz/books/we-are-here)
+
+.pull-left[.footnote[**Discuss** at **[slido.com](slido.com)** code **#biosci220**]]
+
+---
+class: inverse, center, middle
+
 
 
 > "...have obligations in that we have a great deal of power over how people ultimately make use of data, both in the patterns they see and the conclusions they draw." `r tufte::quote_footer('—  Michael Correll, Ethical Dimensions of Visualization Research')`
@@ -670,6 +691,15 @@ class: inverse, center, middle
 
 
 ---
+### Introducing `ggplot2`
+
+`ggplot2` is an `R` package for producing statistical, or data, graphics; it part of the `tidyverse` collection of packages (*look at the output you get when you load `tidyverse`*).
+
+
+![](https://biosci220.github.io/BIOSCI220/figs/ggplot.png)
+
+
+---
 
 
 ### Introducing `ggplot2`
@@ -685,9 +715,10 @@ Every `ggplot2` plot has three key components:
 .footnote[See [Chapter 2](https://biosci220.github.io/BIOSCI220/dealing-with-data.html#data-wrangling-and-manipulation) of the course guide]
 
 ---
-Last week we met the `palmerpenguins`. **What you think the code below produces?** Discuss, [draw your own bit.ly/biosci220](bit.ly/biosci220)
+Last week we met the `palmerpenguins`. **What you think the code below produces?** 
 
-```{r, eval = FALSE, echo = TRUE}
+```{r pnt, eval = FALSE, echo = TRUE}
+penguins_nafree <- penguins %>%  drop_na()
 ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
   geom_point(aes(color = species),size = 2)  +
   scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +
@@ -695,29 +726,21 @@ ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
   ylab("Bill depth (mm)")
 ```
 
-
+**Discuss** at **[slido.com](slido.com)** code **#biosci220**
 
 ---
+class: inverse, center, middle
+
+[**code along**, live `R` demo]
 
 
-```{r bar, fig.show='hide', echo = FALSE}
-ggplot(penguins_nafree, aes(x = species, fill = sex)) +
-  geom_bar(alpha = 0.8, position = "dodge") +
-  facet_wrap(~island) +
-  xlab("") +
-  theme_linedraw() + 
-  scale_fill_manual(values = c("cyan4","darkorange"), name = "Sex") 
-```
-
-
-`r chunk_reveal(chunk_name = "bar", title = "")`
-
-
+**Reply to my questions** at **[slido.com](slido.com)** code **#biosci220**
 
 ---
 
 
 ```{r, eval = FALSE}
+penguins_nafree <- penguins %>%  drop_na()
 ggplot(penguins_nafree, aes(x = species, fill = sex)) +
   geom_bar(alpha = 0.8, position = "dodge") +
   facet_wrap(~island) +
@@ -730,7 +753,41 @@ ggplot(penguins_nafree, aes(x = species, fill = sex)) +
 ---
 
 
+
+
+```{r bar, fig.show='hide', echo = FALSE}
+penguins_nafree <- penguins %>%  drop_na()
+ggplot(penguins_nafree, aes(x = species, fill = sex)) +
+  geom_bar(alpha = 0.8, position = "dodge") +
+  facet_wrap(~island) +
+  xlab("") +
+  theme_linedraw() + 
+  scale_fill_manual(values = c("cyan4","darkorange"), name = "Sex") 
+```
+
+
+`r chunk_reveal(chunk_name = "bar", title = "")`
+
+---
+
+```{r, eval = FALSE}
+penguins_nafree <- penguins %>%  drop_na()
+ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = species),size = 2)  +
+  scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +
+  theme_bw() + 
+  xlab("Bill length (mm)") +
+  ylab("Bill depth (mm)")
+```
+
+.footnote[See [Chapter 2](https://biosci220.github.io/BIOSCI220/dealing-with-data.html#data-wrangling-and-manipulation) of the course guide]
+
+---
+
+
+
 ```{r point, fig.show='hide', echo = FALSE}
+penguins_nafree <- penguins %>%  drop_na()
 ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
   geom_point(aes(color = species),size = 2)  +
   scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +
@@ -745,18 +802,6 @@ ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
 ---
 
 
-```{r, eval = FALSE}
-ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
-  geom_point(aes(color = species),size = 2)  +
-  scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +
-  theme_bw() + 
-  xlab("Bill length (mm)") +
-  ylab("Bill depth (mm)")
-```
-
-.footnote[See [Chapter 2](https://biosci220.github.io/BIOSCI220/dealing-with-data.html#data-wrangling-and-manipulation) of the course guide]
-
----
 
 
 class: inverse, center, middle

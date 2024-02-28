@@ -113,6 +113,7 @@ class: inverse, center, middle
 4.) Come and see me in the **Statistics Assistance Hub** 301-G040:
 
    + **Monday** and **Tuesday**, 9–11am
+   
 ---
 
 class: inverse
@@ -181,6 +182,7 @@ class: inverse
      + Mondays and Tuedsays, 9–11am
 + **Contact** me directly at [c.jonestodd@auckland.ac.nz](mailto:c.jonestodd@auckland.ac.nz)
 + 🎨 **a`R`t competition**! See [this CANVAS discussion](https://canvas.auckland.ac.nz/courses/104039/discussion_topics/1314906)
++ 🎲[Dragon Hunt](https://statbiscuit.github.io/mini_games/zork/index.html)
 
 ---
 
@@ -277,7 +279,7 @@ class: inverse
 ---
 class: inverse, center, middle
 
-#### `RStudio` navigation [Annotate bit.ly/biosci220](bit.ly/biosci220)
+#### `RStudio` navigation [live demo]
 
 ![](img/rstudio_panes.png)
 
@@ -363,14 +365,6 @@ class: centre, middle, inverse
 
 
 
----
-
-class: centre, middle, inverse
-
-#### **Piping** (What is a pipe? [Draw one at bit.ly/biosci220](bit.ly/biosci220))
-
-![](https://thumbs.gfycat.com/FreeDifficultAtlanticblackgoby-size_restricted.gif)
-
 
 ---
 
@@ -449,7 +443,7 @@ paua &lt;- read_csv("paua.csv")
 ```
 
 ```
-## Error: 'paua.csv' does not exist in current working directory ('/home/cjon911/Git/slides').
+## Error: 'paua.csv' does not exist in current working directory ('/home/charlotte/Git/slides').
 ```
 
 
@@ -707,6 +701,7 @@ penguins_nafree
 
 
 .footnote[See [Chapter 2](https://biosci220.github.io/BIOSCI220/dealing-with-data.html#data-wrangling-and-manipulation) of the course guide]
+
 ---
 
 
@@ -911,8 +906,6 @@ penguins_nafree &lt;- penguins %&gt;%
 
 
 ---
-
-
 ### Data manipulation
 
 
@@ -923,8 +916,8 @@ penguins_nafree %&gt;%
 ```
 
 .footnote[See [Chapter 2](https://biosci220.github.io/BIOSCI220/dealing-with-data.html#data-wrangling-and-manipulation) of the course guide]
----
 
+---
 
 
 count: false
@@ -1047,8 +1040,6 @@ penguins_nafree %&gt;%
 
 
 ---
-
-
 ### Data manipulation
 
 
@@ -1062,8 +1053,8 @@ penguins_nafree %&gt;%
 ```
 
 .footnote[See [Chapter 2](https://biosci220.github.io/BIOSCI220/dealing-with-data.html#data-wrangling-and-manipulation) of the course guide]
----
 
+---
 
 
 count: false
@@ -1286,9 +1277,8 @@ penguins_nafree %&gt;%
 
 
 
+
 ---
-
-
 class: inverse, center, middle
 
 [**code along**, live `R` demo]
@@ -1305,7 +1295,7 @@ class: inverse, center, middle
 
 **[slido.com](slido.com)** code **#biosci220**
 
-<div class="countdown" id="timer_dcc79fa0" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_e40abbb2" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1333,12 +1323,17 @@ class: inverse, center, middle
 + **Contact** me directly at [c.jonestodd@auckland.ac.nz](mailto:c.jonestodd@auckland.ac.nz)
 + Any admin queries please contact Jenn at [jenn.jury@auckland.ac.nz](mailto: jenn.jury@auckland.ac.nz)
 + [**Lab 01**](https://canvas.auckland.ac.nz/courses/104039/pages/week-2-laboratory-resources?module_item_id=2051421)
++ 🎲[matching syntax](https://statbiscuit.github.io/mini_games/matching/matching.html)
 
 ---
 
 
 .small[
 ### Learning objectives
+
++ **Carry out** and **interpret** the outputs of basic exploratory data analysis using in-built `R` functions
++ **Carry out** basic data-wrangling techniques in `R` (e.g., using functions such as the `tidyverse` functions `mutate()`, `group_by()`, and `summarize()`).
++ **Implement** tidyverse pipelines using the `%&gt;%` (pipe) operator
 + **Create** and **communicate** informative data visualizations using `R` using the package `ggplot2`
 + **Map** the appropriate data structure to a `ggplot2` aesthetic
 + **Identify** the mapping of a variable given a plot
@@ -1348,12 +1343,39 @@ class: inverse, center, middle
 
 ---
 
-## Data visualization
+## Data wrangling/manipulation recap
 
-![](https://venngage-wordpress.s3.amazonaws.com/uploads/2020/06/image17.png)
+
+[**code along**, live `R` demo]
+
+
+```r
+library(palmerpenguins)
+library(tidyverse)
+penguins_nafree &lt;- penguins %&gt;% 
+	drop_na()
+penguins_nafree %&gt;%
+  filter(., sex != "male") %&gt;%
+  select(c("species", "island", "body_mass_g")) %&gt;%
+  group_by(species, island) %&gt;%
+  summarise(total_mass_g = sum(body_mass_g)) %&gt;%
+  pivot_wider(names_from = c(island), values_from = total_mass_g)
+```
+
+**Reply to my questions** at **[slido.com](slido.com)** code **#biosci220**
 
 ---
 class: inverse, center, middle
+
+
+![](https://www.bookdesignawards.co.nz/wp-content/uploads/2020/08/We-Are-Here_Page_3-1-768x474.jpg)
+[We Are Here, An atlas of Aotearoa Chris McDowall &amp; Tim Denee](https://www.masseypress.ac.nz/books/we-are-here)
+
+.pull-left[.footnote[**Discuss** at **[slido.com](slido.com)** code **#biosci220**]]
+
+---
+class: inverse, center, middle
+
 
 
 &gt; "...have obligations in that we have a great deal of power over how people ultimately make use of data, both in the patterns they see and the conclusions they draw." &lt;footer&gt;—  Michael Correll, Ethical Dimensions of Visualization Research&lt;/footer&gt;
@@ -1441,6 +1463,15 @@ class: inverse, center, middle
 
 
 ---
+### Introducing `ggplot2`
+
+`ggplot2` is an `R` package for producing statistical, or data, graphics; it part of the `tidyverse` collection of packages (*look at the output you get when you load `tidyverse`*).
+
+
+![](https://biosci220.github.io/BIOSCI220/figs/ggplot.png)
+
+
+---
 
 
 ### Introducing `ggplot2`
@@ -1456,10 +1487,11 @@ Every `ggplot2` plot has three key components:
 .footnote[See [Chapter 2](https://biosci220.github.io/BIOSCI220/dealing-with-data.html#data-wrangling-and-manipulation) of the course guide]
 
 ---
-Last week we met the `palmerpenguins`. **What you think the code below produces?** Discuss, [draw your own bit.ly/biosci220](bit.ly/biosci220)
+Last week we met the `palmerpenguins`. **What you think the code below produces?** 
 
 
 ```r
+penguins_nafree &lt;- penguins %&gt;%  drop_na()
 ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
   geom_point(aes(color = species),size = 2)  +
   scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +
@@ -1467,9 +1499,34 @@ ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
   ylab("Bill depth (mm)")
 ```
 
-
+**Discuss** at **[slido.com](slido.com)** code **#biosci220**
 
 ---
+class: inverse, center, middle
+
+[**code along**, live `R` demo]
+
+
+**Reply to my questions** at **[slido.com](slido.com)** code **#biosci220**
+
+---
+
+
+
+```r
+penguins_nafree &lt;- penguins %&gt;%  drop_na()
+ggplot(penguins_nafree, aes(x = species, fill = sex)) +
+  geom_bar(alpha = 0.8, position = "dodge") +
+  facet_wrap(~island) +
+  xlab("") +
+  theme_linedraw() + 
+  scale_fill_manual(values = c("cyan4","darkorange"), name = "Sex") 
+```
+
+.footnote[See [Chapter 2](https://biosci220.github.io/BIOSCI220/dealing-with-data.html#data-wrangling-and-manipulation) of the course guide]
+---
+
+
 
 
 
@@ -1481,12 +1538,12 @@ count: false
 .panel1-bar-auto[
 
 ```r
-*ggplot(penguins_nafree, aes(x = species, fill = sex))
+*penguins_nafree &lt;- penguins %&gt;%  drop_na()
 ```
 ]
  
 .panel2-bar-auto[
-![](index_files/figure-html/bar_auto_01_output-1.png)&lt;!-- --&gt;
+
 ]
 
 ---
@@ -1496,8 +1553,8 @@ count: false
 .panel1-bar-auto[
 
 ```r
-ggplot(penguins_nafree, aes(x = species, fill = sex)) +
-* geom_bar(alpha = 0.8, position = "dodge")
+penguins_nafree &lt;- penguins %&gt;%  drop_na()
+*ggplot(penguins_nafree, aes(x = species, fill = sex))
 ```
 ]
  
@@ -1512,9 +1569,9 @@ count: false
 .panel1-bar-auto[
 
 ```r
+penguins_nafree &lt;- penguins %&gt;%  drop_na()
 ggplot(penguins_nafree, aes(x = species, fill = sex)) +
-  geom_bar(alpha = 0.8, position = "dodge") +
-* facet_wrap(~island)
+* geom_bar(alpha = 0.8, position = "dodge")
 ```
 ]
  
@@ -1529,10 +1586,10 @@ count: false
 .panel1-bar-auto[
 
 ```r
+penguins_nafree &lt;- penguins %&gt;%  drop_na()
 ggplot(penguins_nafree, aes(x = species, fill = sex)) +
   geom_bar(alpha = 0.8, position = "dodge") +
-  facet_wrap(~island) +
-* xlab("")
+* facet_wrap(~island)
 ```
 ]
  
@@ -1547,11 +1604,11 @@ count: false
 .panel1-bar-auto[
 
 ```r
+penguins_nafree &lt;- penguins %&gt;%  drop_na()
 ggplot(penguins_nafree, aes(x = species, fill = sex)) +
   geom_bar(alpha = 0.8, position = "dodge") +
   facet_wrap(~island) +
-  xlab("") +
-* theme_linedraw()
+* xlab("")
 ```
 ]
  
@@ -1566,6 +1623,27 @@ count: false
 .panel1-bar-auto[
 
 ```r
+penguins_nafree &lt;- penguins %&gt;%  drop_na()
+ggplot(penguins_nafree, aes(x = species, fill = sex)) +
+  geom_bar(alpha = 0.8, position = "dodge") +
+  facet_wrap(~island) +
+  xlab("") +
+* theme_linedraw()
+```
+]
+ 
+.panel2-bar-auto[
+![](index_files/figure-html/bar_auto_06_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-bar-auto[
+
+```r
+penguins_nafree &lt;- penguins %&gt;%  drop_na()
 ggplot(penguins_nafree, aes(x = species, fill = sex)) +
   geom_bar(alpha = 0.8, position = "dodge") +
   facet_wrap(~island) +
@@ -1576,7 +1654,7 @@ ggplot(penguins_nafree, aes(x = species, fill = sex)) +
 ]
  
 .panel2-bar-auto[
-![](index_files/figure-html/bar_auto_06_output-1.png)&lt;!-- --&gt;
+![](index_files/figure-html/bar_auto_07_output-1.png)&lt;!-- --&gt;
 ]
 
 &lt;style&gt;
@@ -1608,23 +1686,23 @@ ggplot(penguins_nafree, aes(x = species, fill = sex)) +
 
 
 
-
-
 ---
-
 
 
 ```r
-ggplot(penguins_nafree, aes(x = species, fill = sex)) +
-  geom_bar(alpha = 0.8, position = "dodge") +
-  facet_wrap(~island) +
-  xlab("") +
-  theme_linedraw() + 
-  scale_fill_manual(values = c("cyan4","darkorange"), name = "Sex") 
+penguins_nafree &lt;- penguins %&gt;%  drop_na()
+ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = species),size = 2)  +
+  scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +
+  theme_bw() + 
+  xlab("Bill length (mm)") +
+  ylab("Bill depth (mm)")
 ```
 
 .footnote[See [Chapter 2](https://biosci220.github.io/BIOSCI220/dealing-with-data.html#data-wrangling-and-manipulation) of the course guide]
+
 ---
+
 
 
 
@@ -1635,12 +1713,12 @@ count: false
 .panel1-point-auto[
 
 ```r
-*ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm))
+*penguins_nafree &lt;- penguins %&gt;%  drop_na()
 ```
 ]
  
 .panel2-point-auto[
-![](index_files/figure-html/point_auto_01_output-1.png)&lt;!-- --&gt;
+
 ]
 
 ---
@@ -1650,8 +1728,8 @@ count: false
 .panel1-point-auto[
 
 ```r
-ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
-* geom_point(aes(color = species),size = 2)
+penguins_nafree &lt;- penguins %&gt;%  drop_na()
+*ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm))
 ```
 ]
  
@@ -1666,9 +1744,9 @@ count: false
 .panel1-point-auto[
 
 ```r
+penguins_nafree &lt;- penguins %&gt;%  drop_na()
 ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
-  geom_point(aes(color = species),size = 2)  +
-* scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "")
+* geom_point(aes(color = species),size = 2)
 ```
 ]
  
@@ -1683,10 +1761,10 @@ count: false
 .panel1-point-auto[
 
 ```r
+penguins_nafree &lt;- penguins %&gt;%  drop_na()
 ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
   geom_point(aes(color = species),size = 2)  +
-  scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +
-* theme_bw()
+* scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "")
 ```
 ]
  
@@ -1701,11 +1779,11 @@ count: false
 .panel1-point-auto[
 
 ```r
+penguins_nafree &lt;- penguins %&gt;%  drop_na()
 ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
   geom_point(aes(color = species),size = 2)  +
   scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +
-  theme_bw() +
-* xlab("Bill length (mm)")
+* theme_bw()
 ```
 ]
  
@@ -1720,6 +1798,27 @@ count: false
 .panel1-point-auto[
 
 ```r
+penguins_nafree &lt;- penguins %&gt;%  drop_na()
+ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = species),size = 2)  +
+  scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +
+  theme_bw() +
+* xlab("Bill length (mm)")
+```
+]
+ 
+.panel2-point-auto[
+![](index_files/figure-html/point_auto_06_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-point-auto[
+
+```r
+penguins_nafree &lt;- penguins %&gt;%  drop_na()
 ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
   geom_point(aes(color = species),size = 2)  +
   scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +
@@ -1730,7 +1829,7 @@ ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
 ]
  
 .panel2-point-auto[
-![](index_files/figure-html/point_auto_06_output-1.png)&lt;!-- --&gt;
+![](index_files/figure-html/point_auto_07_output-1.png)&lt;!-- --&gt;
 ]
 
 &lt;style&gt;
@@ -1767,19 +1866,6 @@ ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
 
 
 
-```r
-ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
-  geom_point(aes(color = species),size = 2)  +
-  scale_color_manual(values = c("darkorange","darkorchid","cyan4"), name = "") +
-  theme_bw() + 
-  xlab("Bill length (mm)") +
-  ylab("Bill depth (mm)")
-```
-
-.footnote[See [Chapter 2](https://biosci220.github.io/BIOSCI220/dealing-with-data.html#data-wrangling-and-manipulation) of the course guide]
-
----
-
 
 class: inverse, center, middle
 
@@ -1798,7 +1884,7 @@ class: inverse, center, middle
 
 **[slido.com](slido.com)** code **#biosci220**
 
-<div class="countdown" id="timer_d3a6159f" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_e8bc3400" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
