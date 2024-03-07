@@ -1310,18 +1310,19 @@ coffee %>%
 ###  `r icons::fontawesome("info-circle")` Week 03, lecture 02
 
 + **Slides**: [biosci220.github.io/slides/](https://biosci220.github.io/slides/)
-+ **Course guide** (chapter 4): [biosci220.github.io/BIOSCI220/](https://biosci220.github.io/BIOSCI220/)
++ **Course guide** (chapter 5): [biosci220.github.io/BIOSCI220/](https://biosci220.github.io/BIOSCI220/)
 + My **consultation hours**, Statistics Assistance Hub 301-G040:
      + Mondays and Tuedsays, 9–11am
 + **Contact** me directly at [c.jonestodd@auckland.ac.nz](mailto:c.jonestodd@auckland.ac.nz)
 + Any admin queries please contact Jenn at [jenn.jury@auckland.ac.nz](mailto: jenn.jury@auckland.ac.nz)
 + [**Lab 02**](https://canvas.auckland.ac.nz/courses/71391/pages/week-3-laboratory-resources)
++ 🎲[shady](https://statbiscuit.github.io/mini_games/shady/index.html)
 
 ---
 
 class: inverse, center
 
-**Mōrena**
+**My 2021 pumpkin haul**
 
 ```{r, echo = FALSE, out.width="60%"}
 knitr::include_graphics("img/pumpkins.jpg")
@@ -1332,15 +1333,9 @@ knitr::include_graphics("img/pumpkins.jpg")
 ### Learning objectives
 
 + **Formulate** a question/hypothesis to investigate based on the given data
-+ **List** the aims, **write** out the appropriate null and alternative hypothesis using statistical notation for, and write R code to carry out a randomisation test
++ **List** the aims, **write** out the appropriate null and alternative hypothesis using statistical notation for, and write `R` code to carry out a randomisation test
 + **Correctly interpret** and **communicate** a p-value in terms of a randomisation test
 ]
-
----
-   
-#### Randomisation tests
-
-<img src = "https://i.imgflip.com/2e1aal.jpg">
 
 ---
 #### What can you say about this plot? **[slido.com](slido.com)** code **#biosci220**
@@ -1392,11 +1387,22 @@ ggplot(data, aes(x = group, y = weight)) + geom_violin() + geom_jitter() +
 ```
 
 ---
-#### The data
+#### The data (whoop if you're keen for March 19th)
 
 ![](img/pumpkins_stardew.png)
 
 ###### [source](https://www.reddit.com/r/StardewValley/comments/e4m54i/i_have_been_blessed_this_fall_any_suggestions/)
+
+---
+
+[link](https://github.com/BIOSCI738/cowstats/blob/main/img/randomisation.png?raw=true)
+
+```{r, echo=FALSE, fig.height=5}
+knitr::include_graphics("https://github.com/BIOSCI738/cowstats/blob/main/img/randomisation.png?raw=true")
+```
+
+
+
 ---
 **Randomisation test**
 
@@ -1429,8 +1435,10 @@ ggplot(data, aes(x = group, y = weight)) + geom_violin() + geom_jitter() +
 
 ```{r}
 ## observed differences in medians
-data <- data.frame(weight = c(7.1, 5.2, 6.3, 6.7, 7.4, 5.9, 5.3, 6.1, 2.1, 4.9,
-                      4.8, 5.4, 3.6, 4.1, 4.4, 4.8, 3.4, 5.1, 5.3, 5.2),
+data <- data.frame(weight = c(7.1, 5.2, 6.3, 6.7, 7.4, 
+                              5.9, 5.3, 6.1, 2.1, 4.9,
+                              4.8, 5.4, 3.6, 4.1, 4.4, 
+                              4.8, 3.4, 5.1, 5.3, 5.2),
            group = rep(c("G1","G2"), each = 10))
 glimpse(data)
 ```
@@ -1447,7 +1455,7 @@ diff_in_medians
 ```
 
 ---
-### Code for you to run in-lecture
+### Code for you to run
 
 ```{r, eval = FALSE}
 library(tidyverse)
@@ -1464,13 +1472,8 @@ data.frame(weight = c(7.1, 5.2, 6.3, 6.7, 7.4, 5.9, 5.3, 6.1, 2.1, 4.9,
 ---
 class: center, middle, inverse
 
-### **Live randomisation test**:  [Annotate bit.ly/biosci220](bit.ly/biosci220)
+### [**Live randomisation test**]
 
-
----
-class: inverse, center, middle
-
-[live demo]
 
 ---
 
@@ -1511,29 +1514,29 @@ A: Informally, a p-value is the probability under a specified statistical model 
 ### `r emo::ji('scream')`  p-values `r emo::ji('scream')`
 
 
-+ **p-values** can indicate how incompatible the data are with a specified statistical model
++ **P-values** can indicate how incompatible the data are with a specified statistical model
 
 --
 
-+ p-values **do not** measure the probability that the studied hypothesis is true, or the probability that the data were produced by random chance alone
++ P-values **do not** measure the probability that the studied hypothesis is true, or the probability that the data were produced by random chance alone
 
 --
 
-+ scientific conclusions and business or policy decisions **should not** be based only on whether a p-value passes a specific threshold
++ Scientific conclusions and business or policy decisions **should not** be based only on whether a p-value passes a specific threshold
 
 ---
 
 ### `r emo::ji('scream')` Correctly interpreting p-values `r emo::ji('scream')`
 
-+ proper inference requires **full** reporting and transparency
++ Proper inference requires **full** reporting and transparency
 
 --
 
-+ p-value, or statistical significance, does **not** measure the size of an effect or the importance of a result
++ P-value, or statistical significance, does **not** measure the size of an effect or the importance of a result
 
 --
 
-+ by itself, a p-value does **not** provide a good measure of evidence regarding a model or hypothesis
++ By itself, a p-value does **not** provide a good measure of evidence regarding a model or hypothesis
 
 ---
 
@@ -1558,14 +1561,14 @@ class: inverse
 
 
 ---
-**Terminology**
+**Looking forward: some more terminology**
 
 ![](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/other-stats-artwork/type_1_errors.png)
 [Artwork by @allison_horst](https://github.com/allisonhorst/stats-illustrations)
 
 
 ---
-**Terminology**
+**Looking forward: some more terminology**
 
 **Type I** error (false positive): declare a difference (i.e., reject $H_0$) when there is no difference (i.e. $H_0$ is true). 
 
@@ -1573,7 +1576,7 @@ class: inverse
 Risk of the Type I error is determined by the **level of significance** (which we set!) (i.e., $\alpha =\text{ P(Type I error)} = \text{P(false positive)}$.
 
 ---
-**Terminology**
+**Looking forward: some more terminology**
 
 ![](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/other-stats-artwork/type_2_errors.png)
 [Artwork by @allison_horst](https://github.com/allisonhorst/stats-illustrations)
@@ -1581,13 +1584,13 @@ Risk of the Type I error is determined by the **level of significance** (which w
 
 ---
 
-**Terminology**
+**Looking forward: some more terminology**
 
 **Type II** error (false negative): difference not declared (i.e., $H_0$ not rejected) when there is a difference (i.e., $H_0$ is false). Let $\beta =$ P(do not reject $H_0$ when $H_0$ is false); so, $1-\beta$ = P(reject $H_0$ when $H_0$ is false) = P(a true positive), which is the statistical **power** of the test.
 
 ---
 
-**Terminology**
+**Looking forward: some more terminology**
 
 
 **Significance level** = probability of a Type I error = probability of finding an effect that is not there (false positive).
@@ -1598,7 +1601,7 @@ alternative hypothesis is true. probability of finding an effect that is there =
 
 ---
 
-**Terminology**
+**Looking forward: some more terminology**
 
 Reducing the chance of a **Type I error** (false positive) increases the chance of a **Type II error** (false negative). They are inversely related. 
 
@@ -1611,7 +1614,7 @@ Reducing the chance of a **Type I error** (false positive) increases the chance 
   
 
 ---
-**Terminology**
+**Looking forward: some more terminology**
 
 Each time we carry out a hypothesis test the probability we get a false positive result (**Type I** error) is given by $\alpha$ (the **level of significance** we choose).
 
