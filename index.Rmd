@@ -27,9 +27,10 @@ output:
 + **Slides**: [biosci220.github.io/slides/](https://biosci220.github.io/slides/)
 + Interested in being a **class rep**? Contact Jenn at [jenn.jury@auckland.ac.nz](mailto: jenn.jury@auckland.ac.nz)
 + My **consultation hours**, Statistics Assistance Hub 301-G040:
-     + Mondays and Tuesdays, 9–11am
+     + Mondays, 10.30–11.30am
 + **Contact** me directly at [c.jonestodd@auckland.ac.nz](mailto:c.jonestodd@auckland.ac.nz)
-+ 🎨 **a`R`t competition**! See [this CANVAS discussion](https://canvas.auckland.ac.nz/courses/104039/discussion_topics/1314906)
++ 🎲[Dragon Hunt](https://statbiscuit.github.io/mini_games/zork/index.html)
++ 🎨 **a`R`t competition**! See [this CANVAS discussion](https://canvas.auckland.ac.nz/courses/104040/discussion_topics/1385037)
 
 
 ---
@@ -97,7 +98,7 @@ class: inverse, center, middle
 
 1.) Instructions in the [Module 1 coursebook](https://biosci220.github.io/BIOSCI220/)
 
-2.) [😎 How to R 😎, CANVAS page](https://canvas.auckland.ac.nz/courses/104039/pages/how-to-r?module_item_id=2051404)
+2.) [😎 How to R 😎, CANVAS page](https://canvas.auckland.ac.nz/courses/104040/pages/how-to-r)
 
 3.) **Help sessions** in 106-014
  
@@ -106,7 +107,7 @@ class: inverse, center, middle
 
 4.) Come and see me in the **Statistics Assistance Hub** 301-G040:
 
-   + **Monday** and **Tuesday**, 9–11am
+   + **Today**, 10.30–11.30am
    
 ---
 
@@ -145,7 +146,7 @@ class: inverse
 
 + Get `R` and `RStudio` up and running on your computer
 + Create your own a`R`t!
-+ Post your a`R`t to [this CANVAS discussion](https://canvas.auckland.ac.nz/courses/104039/discussion_topics/1314906) (before next Monday's lecture)
++ Post your a`R`t to [this CANVAS discussion](https://canvas.auckland.ac.nz/courses/104040/discussion_topics/1385037) (before next Monday's lecture)
 + Like your favourite piece!
 
 [Some **code** to get you started on CANVAS](https://canvas.auckland.ac.nz/courses/104039/files/12447726?wrap=1)
@@ -173,9 +174,9 @@ class: inverse
 + **Slides**: [biosci220.github.io/slides/](https://biosci220.github.io/slides/)
 + Interested in being a **class rep**? Contact Jenn at [jenn.jury@auckland.ac.nz](mailto: jenn.jury@auckland.ac.nz)
 + My **consultation hours**, Statistics Assistance Hub 301-G040:
-     + Mondays and Tuedsays, 9–11am
+     + Mondays, 10.30–11.30am
 + **Contact** me directly at [c.jonestodd@auckland.ac.nz](mailto:c.jonestodd@auckland.ac.nz)
-+ 🎨 **a`R`t competition**! See [this CANVAS discussion](https://canvas.auckland.ac.nz/courses/104039/discussion_topics/1314906)
++ 🎨 **a`R`t competition**! See [this CANVAS discussion](https://canvas.auckland.ac.nz/courses/104040/discussion_topics/1385037)
 + 🎲[Dragon Hunt](https://statbiscuit.github.io/mini_games/zork/index.html)
 
 ---
@@ -548,7 +549,7 @@ class: inverse, center, middle
 + **Slides**: [biosci220.github.io/slides/](https://biosci220.github.io/slides/)
 + **Course guide** (chapter 2): [biosci220.github.io/BIOSCI220/](https://biosci220.github.io/BIOSCI220/)
 + My **consultation hours**, Statistics Assistance Hub 301-G040:
-     + Mondays and Tuesdays, 9–11am
+     + Mondays, 10.30–11.30am
 + **Contact** me directly at [c.jonestodd@auckland.ac.nz](mailto:c.jonestodd@auckland.ac.nz)
 + Any admin queries please contact Jenn at [jenn.jury@auckland.ac.nz](mailto: jenn.jury@auckland.ac.nz)
 + [**Lab 01**](https://canvas.auckland.ac.nz/courses/104039/pages/week-2-laboratory-resources?module_item_id=2051421)
@@ -840,6 +841,8 @@ class: inverse, center, middle
 
 Guest Lecturer: Nicole Edwards
 
+ + 🎲[Kawakawa](https://statbiscuit.github.io/mini_games/kawakawa/index.html)
+
 ---
 
 
@@ -848,7 +851,7 @@ Guest Lecturer: Nicole Edwards
 + **Slides**: [biosci220.github.io/slides/](https://biosci220.github.io/slides/)
 + **Course guide** (chapter 4): [biosci220.github.io/BIOSCI220/](https://biosci220.github.io/BIOSCI220/)
 + My **consultation hours**, Statistics Assistance Hub 301-G040:
-     + Mondays and Tuedsays, 9–11am
+     + Mondays, 10.30–11.30am
 + **Contact** me directly at [c.jonestodd@auckland.ac.nz](mailto:c.jonestodd@auckland.ac.nz)
 + Any admin queries please contact Jenn at [jenn.jury@auckland.ac.nz](mailto: jenn.jury@auckland.ac.nz)
 + [**Lab 02**](https://canvas.auckland.ac.nz/courses/71391/pages/week-3-laboratory-resources)
@@ -1300,7 +1303,6 @@ coffee %>%
 
 ### Key points
 
-+ Potatoes in your socks *probably* don't cure colds...
 + An **experimental unit** is the item under study for which some treatment is changed
 + An **observational unit** is the smallest unit on which a response is measured
 + **Replication** (helps us generalise results), **Randomisation** (helps protect against bias), and **Blocking** (helps account for some factor we're not interested in) are key when designing experiments
@@ -1312,7 +1314,7 @@ coffee %>%
 + **Slides**: [biosci220.github.io/slides/](https://biosci220.github.io/slides/)
 + **Course guide** (chapter 5): [biosci220.github.io/BIOSCI220/](https://biosci220.github.io/BIOSCI220/)
 + My **consultation hours**, Statistics Assistance Hub 301-G040:
-     + Mondays and Tuedsays, 9–11am
+     + Mondays, 10.30–11.30am
 + **Contact** me directly at [c.jonestodd@auckland.ac.nz](mailto:c.jonestodd@auckland.ac.nz)
 + Any admin queries please contact Jenn at [jenn.jury@auckland.ac.nz](mailto: jenn.jury@auckland.ac.nz)
 + [**Lab 02**](https://canvas.auckland.ac.nz/courses/71391/pages/week-3-laboratory-resources)
