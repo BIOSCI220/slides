@@ -102,8 +102,8 @@ class: inverse, center, middle
 
 3.) **Help sessions** in 106-014
  
-   + **Monday** 3.30pm to 5pm
-   + **Tuesday**, **Thursday**, and **Friday** 11.30am to 1pm
+   + **Monday** and **Tuesday** 3.30pm to 5pm
+   + **Tuesday** and **Friday** 11.30am to 1pm
 
 4.) Come and see me in the **Statistics Assistance Hub** 301-G040:
 
@@ -149,9 +149,9 @@ class: inverse
 + Post your a`R`t to [this CANVAS discussion](https://canvas.auckland.ac.nz/courses/104040/discussion_topics/1385037) (before next Monday's lecture)
 + Like your favourite piece!
 
-[Some **code** to get you started on CANVAS](https://canvas.auckland.ac.nz/courses/104039/files/12447726?wrap=1)
+[Some **code** to get you started on CANVAS](https://canvas.auckland.ac.nz/courses/104040/files/13316182?wrap=1)
 
-[Walk-through **vlog** on CANVAS](https://auckland.au.panopto.com/Panopto/Pages/Viewer.aspx?id=ffc78481-6a9c-4cb4-9129-ae400028ef9a)
+[Walk-through **vlog** on CANVAS](https://auckland.au.panopto.com/Panopto/Pages/Viewer.aspx?id=8f2f1414-a66f-45c9-b61f-b1ad0174ff6d)
 
 .footnote[*[maybe some extra hints if you come along to a drop-in session…]*]
 
