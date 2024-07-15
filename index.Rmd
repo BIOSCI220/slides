@@ -555,7 +555,7 @@ class: inverse, center, middle
      + Mondays, 10.30–11.30am
 + **Contact** me directly at [c.jonestodd@auckland.ac.nz](mailto:c.jonestodd@auckland.ac.nz)
 + Any admin queries please contact Jenn at [jenn.jury@auckland.ac.nz](mailto: jenn.jury@auckland.ac.nz)
-+ [**Lab 01**](https://canvas.auckland.ac.nz/courses/104039/pages/week-2-laboratory-resources?module_item_id=2051421)
++ **Lab 01**
 + 🎲[matching syntax](https://statbiscuit.github.io/mini_games/matching/matching.html)
 
 ---
