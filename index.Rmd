@@ -857,7 +857,7 @@ Guest Lecturer: Nicole Edwards
      + Mondays, 10.30–11.30am
 + **Contact** me directly at [c.jonestodd@auckland.ac.nz](mailto:c.jonestodd@auckland.ac.nz)
 + Any admin queries please contact Jenn at [jenn.jury@auckland.ac.nz](mailto: jenn.jury@auckland.ac.nz)
-+ [**Lab 02**](https://canvas.auckland.ac.nz/courses/71391/pages/week-3-laboratory-resources)
++ **Lab 02**
 + 🎲[Design-o-gram](https://statbiscuit.github.io/mini_games/design-o-gram/index.html)
 
 
@@ -871,7 +871,7 @@ class: inverse
 + **Identify** the following in a given experiment
       + experimental unit
       + observational units
-+ **List** and **describe** the three main principles of experimental design:
++ **List** and **describe** the three main principles of experimental design
      + Randomization
      + Replication
      + Blocking
@@ -1320,18 +1320,9 @@ coffee %>%
      + Mondays, 10.30–11.30am
 + **Contact** me directly at [c.jonestodd@auckland.ac.nz](mailto:c.jonestodd@auckland.ac.nz)
 + Any admin queries please contact Jenn at [jenn.jury@auckland.ac.nz](mailto: jenn.jury@auckland.ac.nz)
-+ [**Lab 02**](https://canvas.auckland.ac.nz/courses/71391/pages/week-3-laboratory-resources)
++ **Lab 02**
 + 🎲[shady](https://statbiscuit.github.io/mini_games/shady/index.html)
 
----
-
-class: inverse, center
-
-**My 2021 pumpkin haul**
-
-```{r, echo = FALSE, out.width="60%"}
-knitr::include_graphics("img/pumpkins.jpg")
-```
 
 ---
 .small[
@@ -1351,7 +1342,7 @@ data.frame(weight = c(7.1, 5.2, 6.3, 6.7, 7.4, 5.9, 5.3, 6.1, 2.1, 4.9,
                       4.8, 5.4, 3.6, 4.1, 4.4, 4.8, 3.4, 5.1, 5.3, 5.2),
            group = rep(c("G1","G2"), each = 10)) %>%
 	ggplot(., aes(x = group, y = weight)) + geom_violin() + geom_jitter() +
-	xlab("Group") + ylab("Weight of pumpkin (kg)") + theme_light()
+	xlab("Group") + ylab("Weight (kg)") + theme_light()
 
 ```
 ---
@@ -1366,7 +1357,7 @@ meds <- data %>%
 	group_by(group) %>%
 	summarise(means = mean(weight))
 ggplot(data, aes(x = group, y = weight)) + geom_violin() + geom_jitter() +
-	xlab("Group") + ylab("Weight of pumpkin (kg)") + theme_light() +
+	xlab("Group") + ylab("Weight (kg)") + theme_light() +
 	annotate(geom = "text", x = meds$group, y = meds$means, label = paste("Means (kg) = ", meds$means))
 	
 
@@ -1385,18 +1376,11 @@ meds <- data %>%
 	group_by(group) %>%
 	summarise(medians = median(weight))
 ggplot(data, aes(x = group, y = weight)) + geom_violin() + geom_jitter() +
-	xlab("Group") + ylab("Weight of pumpkin (kg)") + theme_light() +
+	xlab("Group") + ylab("Weight (kg)") + theme_light() +
 	annotate(geom = "text", x = meds$group, y = meds$medians, label = paste("Median (kg) = ", meds$medians))
 	
 
 ```
-
----
-#### The data (whoop if you're keen for March 19th)
-
-![](img/pumpkins_stardew.png)
-
-###### [source](https://www.reddit.com/r/StardewValley/comments/e4m54i/i_have_been_blessed_this_fall_any_suggestions/)
 
 ---
 
