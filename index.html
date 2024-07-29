@@ -123,7 +123,7 @@ class: inverse
 
 
 
-``` r
+```r
 ## devtools::install_github("djnavarro/turmite59")
 turmite59::turmite59("blue")
 ```
@@ -376,7 +376,7 @@ class: centre, middle, inverse
 ### Piping (`%&gt;%`)
 
 
-``` r
+```r
 I %&gt;% 
   tumble(out_of = "bed") %&gt;% 
   stumble(to = "the kitchen") %&gt;% 
@@ -398,7 +398,7 @@ Get together and write your own! **[slido.com](slido.com)** code **#biosci220**
 ## Errors
 
 
-``` r
+```r
 library(tidy)
 ```
 
@@ -413,7 +413,7 @@ library(tidy)
 ## Errors
 
 
-``` r
+```r
 lbrary(tidyverse)
 ```
 
@@ -427,7 +427,7 @@ lbrary(tidyverse)
 ## Errors
 
 
-``` r
+```r
 paua &lt;- read_csv("paua.csv")
 ```
 
@@ -441,13 +441,13 @@ paua &lt;- read_csv("paua.csv")
 ## Errors
 
 
-``` r
+```r
 library(tidyverse)
 paua &lt;- read_csv("paua.csv")
 ```
 
 ```
-## Error: 'paua.csv' does not exist in current working directory ('/home/charlotte/Git/slides').
+## Error: 'paua.csv' does not exist in current working directory ('/home/cjon911/Git/slides').
 ```
 
 
@@ -464,7 +464,7 @@ count: false
 ### Everything working nicely!
 .panel1-example_read-auto[
 
-``` r
+```r
 *library(tidyverse)
 ```
 ]
@@ -479,7 +479,7 @@ count: false
 ### Everything working nicely!
 .panel1-example_read-auto[
 
-``` r
+```r
 library(tidyverse)
 *paua &lt;- read_csv("https://raw.githubusercontent.com/STATS-UOA/databunker/master/data/paua.csv")
 ```
@@ -505,7 +505,7 @@ count: false
 ### Everything working nicely!
 .panel1-example_read-auto[
 
-``` r
+```r
 library(tidyverse)
 paua &lt;- read_csv("https://raw.githubusercontent.com/STATS-UOA/databunker/master/data/paua.csv")
 *glimpse(paua)
@@ -577,7 +577,7 @@ count: false
 ### Everything working nicely!
 .panel1-example_mean-auto[
 
-``` r
+```r
 *paua
 ```
 ]
@@ -608,7 +608,7 @@ count: false
 ### Everything working nicely!
 .panel1-example_mean-auto[
 
-``` r
+```r
 paua %&gt;%
 * group_by(Species)
 ```
@@ -641,7 +641,7 @@ count: false
 ### Everything working nicely!
 .panel1-example_mean-auto[
 
-``` r
+```r
 paua %&gt;%
   group_by(Species) %&gt;%
 * summarise(av_length = mean(Length))
@@ -695,7 +695,7 @@ paua %&gt;%
 ### Data manipulation
 
 
-``` r
+```r
 library(palmerpenguins)
 penguins
 penguins_nafree &lt;- penguins %&gt;% 
@@ -714,7 +714,7 @@ count: false
 ### Data manipulation
 .panel1-penguins_na-auto[
 
-``` r
+```r
 *library(palmerpenguins)
 ```
 ]
@@ -729,7 +729,7 @@ count: false
 ### Data manipulation
 .panel1-penguins_na-auto[
 
-``` r
+```r
 library(palmerpenguins)
 *penguins
 ```
@@ -762,7 +762,7 @@ count: false
 ### Data manipulation
 .panel1-penguins_na-auto[
 
-``` r
+```r
 library(palmerpenguins)
 penguins
 *penguins_nafree &lt;- penguins
@@ -796,7 +796,7 @@ count: false
 ### Data manipulation
 .panel1-penguins_na-auto[
 
-``` r
+```r
 library(palmerpenguins)
 penguins
 penguins_nafree &lt;- penguins %&gt;%
@@ -831,7 +831,7 @@ count: false
 ### Data manipulation
 .panel1-penguins_na-auto[
 
-``` r
+```r
 library(palmerpenguins)
 penguins
 penguins_nafree &lt;- penguins %&gt;%
@@ -913,7 +913,7 @@ penguins_nafree &lt;- penguins %&gt;%
 ### Data manipulation
 
 
-``` r
+```r
 penguins_nafree %&gt;% 
   group_by(species) %&gt;% 
   summarise(avgerage_bill_length = mean(bill_length_mm))
@@ -929,7 +929,7 @@ count: false
 ### Data manipulation
 .panel1-penguins_av-auto[
 
-``` r
+```r
 *penguins_nafree
 ```
 ]
@@ -961,7 +961,7 @@ count: false
 ### Data manipulation
 .panel1-penguins_av-auto[
 
-``` r
+```r
 penguins_nafree %&gt;%
 * group_by(species)
 ```
@@ -995,7 +995,7 @@ count: false
 ### Data manipulation
 .panel1-penguins_av-auto[
 
-``` r
+```r
 penguins_nafree %&gt;%
   group_by(species) %&gt;%
 * summarise(avgerage_bill_length = mean(bill_length_mm))
@@ -1047,7 +1047,7 @@ penguins_nafree %&gt;%
 ### Data manipulation
 
 
-``` r
+```r
 penguins_nafree %&gt;%
   filter(., sex != "male") %&gt;%
   select(c("species", "island", "body_mass_g")) %&gt;%
@@ -1066,7 +1066,7 @@ count: false
 ### Data manipulation
 .panel1-penguins_pivot-auto[
 
-``` r
+```r
 *penguins_nafree
 ```
 ]
@@ -1098,7 +1098,7 @@ count: false
 ### Data manipulation
 .panel1-penguins_pivot-auto[
 
-``` r
+```r
 penguins_nafree %&gt;%
 * filter(., sex != "male")
 ```
@@ -1131,7 +1131,7 @@ count: false
 ### Data manipulation
 .panel1-penguins_pivot-auto[
 
-``` r
+```r
 penguins_nafree %&gt;%
   filter(., sex != "male") %&gt;%
 * select(c("species", "island", "body_mass_g"))
@@ -1164,7 +1164,7 @@ count: false
 ### Data manipulation
 .panel1-penguins_pivot-auto[
 
-``` r
+```r
 penguins_nafree %&gt;%
   filter(., sex != "male") %&gt;%
   select(c("species", "island", "body_mass_g")) %&gt;%
@@ -1199,7 +1199,7 @@ count: false
 ### Data manipulation
 .panel1-penguins_pivot-auto[
 
-``` r
+```r
 penguins_nafree %&gt;%
   filter(., sex != "male") %&gt;%
   select(c("species", "island", "body_mass_g")) %&gt;%
@@ -1229,7 +1229,7 @@ count: false
 ### Data manipulation
 .panel1-penguins_pivot-auto[
 
-``` r
+```r
 penguins_nafree %&gt;%
   filter(., sex != "male") %&gt;%
   select(c("species", "island", "body_mass_g")) %&gt;%
@@ -1299,7 +1299,7 @@ class: inverse, center, middle
 
 **[slido.com](slido.com)** code **#biosci220**
 
-<div class="countdown" id="timer_3cff1e65" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_7c35b130" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1353,7 +1353,7 @@ class: inverse, center, middle
 [**code along**, live `R` demo]
 
 
-``` r
+```r
 library(palmerpenguins)
 library(tidyverse)
 penguins_nafree &lt;- penguins %&gt;% 
@@ -1494,7 +1494,7 @@ Every `ggplot2` plot has three key components:
 Last week we met the `palmerpenguins`. **What you think the code below produces?** 
 
 
-``` r
+```r
 penguins_nafree &lt;- penguins %&gt;%  drop_na()
 ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
   geom_point(aes(color = species),size = 2)  +
@@ -1517,7 +1517,7 @@ class: inverse, center, middle
 
 
 
-``` r
+```r
 penguins_nafree &lt;- penguins %&gt;%  drop_na()
 ggplot(penguins_nafree, aes(x = species, fill = sex)) +
   geom_bar(alpha = 0.8, position = "dodge") +
@@ -1541,7 +1541,7 @@ count: false
 
 .panel1-bar-auto[
 
-``` r
+```r
 *penguins_nafree &lt;- penguins %&gt;%  drop_na()
 ```
 ]
@@ -1556,7 +1556,7 @@ count: false
 
 .panel1-bar-auto[
 
-``` r
+```r
 penguins_nafree &lt;- penguins %&gt;%  drop_na()
 *ggplot(penguins_nafree, aes(x = species, fill = sex))
 ```
@@ -1572,7 +1572,7 @@ count: false
 
 .panel1-bar-auto[
 
-``` r
+```r
 penguins_nafree &lt;- penguins %&gt;%  drop_na()
 ggplot(penguins_nafree, aes(x = species, fill = sex)) +
 * geom_bar(alpha = 0.8, position = "dodge")
@@ -1589,7 +1589,7 @@ count: false
 
 .panel1-bar-auto[
 
-``` r
+```r
 penguins_nafree &lt;- penguins %&gt;%  drop_na()
 ggplot(penguins_nafree, aes(x = species, fill = sex)) +
   geom_bar(alpha = 0.8, position = "dodge") +
@@ -1607,7 +1607,7 @@ count: false
 
 .panel1-bar-auto[
 
-``` r
+```r
 penguins_nafree &lt;- penguins %&gt;%  drop_na()
 ggplot(penguins_nafree, aes(x = species, fill = sex)) +
   geom_bar(alpha = 0.8, position = "dodge") +
@@ -1626,7 +1626,7 @@ count: false
 
 .panel1-bar-auto[
 
-``` r
+```r
 penguins_nafree &lt;- penguins %&gt;%  drop_na()
 ggplot(penguins_nafree, aes(x = species, fill = sex)) +
   geom_bar(alpha = 0.8, position = "dodge") +
@@ -1646,7 +1646,7 @@ count: false
 
 .panel1-bar-auto[
 
-``` r
+```r
 penguins_nafree &lt;- penguins %&gt;%  drop_na()
 ggplot(penguins_nafree, aes(x = species, fill = sex)) +
   geom_bar(alpha = 0.8, position = "dodge") +
@@ -1693,7 +1693,7 @@ ggplot(penguins_nafree, aes(x = species, fill = sex)) +
 ---
 
 
-``` r
+```r
 penguins_nafree &lt;- penguins %&gt;%  drop_na()
 ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
   geom_point(aes(color = species),size = 2)  +
@@ -1716,7 +1716,7 @@ count: false
 
 .panel1-point-auto[
 
-``` r
+```r
 *penguins_nafree &lt;- penguins %&gt;%  drop_na()
 ```
 ]
@@ -1731,7 +1731,7 @@ count: false
 
 .panel1-point-auto[
 
-``` r
+```r
 penguins_nafree &lt;- penguins %&gt;%  drop_na()
 *ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm))
 ```
@@ -1747,7 +1747,7 @@ count: false
 
 .panel1-point-auto[
 
-``` r
+```r
 penguins_nafree &lt;- penguins %&gt;%  drop_na()
 ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
 * geom_point(aes(color = species),size = 2)
@@ -1764,7 +1764,7 @@ count: false
 
 .panel1-point-auto[
 
-``` r
+```r
 penguins_nafree &lt;- penguins %&gt;%  drop_na()
 ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
   geom_point(aes(color = species),size = 2)  +
@@ -1782,7 +1782,7 @@ count: false
 
 .panel1-point-auto[
 
-``` r
+```r
 penguins_nafree &lt;- penguins %&gt;%  drop_na()
 ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
   geom_point(aes(color = species),size = 2)  +
@@ -1801,7 +1801,7 @@ count: false
 
 .panel1-point-auto[
 
-``` r
+```r
 penguins_nafree &lt;- penguins %&gt;%  drop_na()
 ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
   geom_point(aes(color = species),size = 2)  +
@@ -1821,7 +1821,7 @@ count: false
 
 .panel1-point-auto[
 
-``` r
+```r
 penguins_nafree &lt;- penguins %&gt;%  drop_na()
 ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
   geom_point(aes(color = species),size = 2)  +
@@ -1888,7 +1888,7 @@ class: inverse, center, middle
 
 **[slido.com](slido.com)** code **#biosci220**
 
-<div class="countdown" id="timer_a5f0daee" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_5cb81765" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -2273,27 +2273,57 @@ If an **interaction** effect exists the effect of one factor on the response wil
 ]
 
 ---
-#### What can you say about this plot? **[slido.com](slido.com)** code **#biosci220**
+#### What can you say about this plot?
 
 ![](index_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
 ---
-##### Do you think the mean weight of each group are significantly different from each other? Why or why not? **[slido.com](slido.com)** code **#biosci220**
+##### Do you think the mean of each group are significantly different from each other? Why or why not? 
 
 ![](index_files/figure-html/unnamed-chunk-12-1.png)&lt;!-- --&gt;
 
+---
+### Difference in means for our observed data
+
+
+```r
+## read in csv
+## can download from CANVAS after lecture
+data &lt;- readr::read_csv("randomisation_data.csv")
+```
+
+
+```r
+## observed data 
+glimpse(data)
+```
+
+```
+## Rows: 40
+## Columns: 2
+## $ Group &lt;chr&gt; "Blue", "Blue", "Blue", "Blue", "Blue", "Blue", "Blue", "Blue", …
+## $ Value &lt;dbl&gt; 23.06963, 24.41810, 20.07219, 24.42020, 14.92100, 19.72031, 15.7…
+```
 
 ---
-##### Do you think the median weight of each group are significantly different from each other? Why or why not? **[slido.com](slido.com)** code **#biosci220**
+### Difference in means for our observed data
 
-![](index_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
+
+```r
+diff_in_means &lt;- data %&gt;% 
+  group_by(Group) %&gt;% 
+  summarise(mean = mean(Value)) %&gt;%
+  summarise(diff = diff(mean)) %&gt;% as.numeric()
+diff_in_means
+```
+
+```
+## [1] -4.018622
+```
 
 ---
+class: center, middle, inverse
 
-[link](https://github.com/BIOSCI738/cowstats/blob/main/img/randomisation.png?raw=true)
-
-![](https://github.com/BIOSCI738/cowstats/blob/main/img/randomisation.png?raw=true)&lt;!-- --&gt;
-
-
+### [**Demo**]
 
 ---
 **Randomisation test**
@@ -2322,73 +2352,19 @@ If an **interaction** effect exists the effect of one factor on the response wil
 
  + **State** the strength of evidence against the null on the basis of this **probability**.
 
----
-### Difference in medians for our observed data
-
-
-``` r
-## observed differences in medians
-data &lt;- data.frame(weight = c(7.1, 5.2, 6.3, 6.7, 7.4, 
-                              5.9, 5.3, 6.1, 2.1, 4.9,
-                              4.8, 5.4, 3.6, 4.1, 4.4, 
-                              4.8, 3.4, 5.1, 5.3, 5.2),
-           group = rep(c("G1","G2"), each = 10))
-glimpse(data)
-```
-
-```
-## Rows: 20
-## Columns: 2
-## $ weight &lt;dbl&gt; 7.1, 5.2, 6.3, 6.7, 7.4, 5.9, 5.3, 6.1, 2.1, 4.9, 4.8, 5.4, 3.6…
-## $ group  &lt;chr&gt; "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G2…
-```
 
 ---
-### Difference in medians for our observed data
+ ### **[slido.com](slido.com) code #biosci220: Discuss the cheatsheet**
+ 
+[link](https://github.com/BIOSCI738/cowstats/blob/main/img/randomisation.png?raw=true)
 
-
-``` r
-diff_in_medians &lt;- data %&gt;% 
-  group_by(group) %&gt;% 
-  summarise(median = median(weight)) %&gt;%
-  summarise(diff = diff(median)) %&gt;% as.numeric()
-diff_in_medians
-```
-
-```
-## [1] -1.2
-```
-
----
-### Code for you to run
-
-
-``` r
-library(tidyverse)
-data.frame(weight = c(7.1, 5.2, 6.3, 6.7, 7.4, 5.9, 5.3, 6.1, 2.1, 4.9,
-                      4.8, 5.4, 3.6, 4.1, 4.4, 4.8, 3.4, 5.1, 5.3, 5.2),
-           group = rep(c("G1","G2"), each = 10)) %&gt;%
-    mutate(random_labels = sample(group, replace = FALSE)) %&gt;%
-    group_by(random_labels) %&gt;%
-    summarise(median_under_null = median(weight)) %&gt;%
-    summarise(diff_under_null = diff(median_under_null)) %&gt;%
-    as.numeric() %&gt;% round(., 3)
-```
+![](https://github.com/BIOSCI738/cowstats/blob/main/img/randomisation.png?raw=true)&lt;!-- --&gt;
 
 ---
 class: center, middle, inverse
 
 ### [**Live randomisation test**]
 
-
----
-
-### Key points
-
-+ We can carry out hypothesis test on **without the restrictions** of having to know the mathematical form of the sampling distribution.
-+ Embrace the **randomness**!
-+ Simulating under the **NULL hypothesis** shows us what would happen under *chance alone*
-+ The **location of our observed statistic** in the distribution of those simulated under the NULL hypothesis gives us information!
 
 ---
 class: inverse, middle, center
@@ -2453,6 +2429,17 @@ There are **many** different schools of thought about how a p-value should be in
 Most people agree that the p-value is a useful measure of the strength of evidence against the null hypothesis. The smaller the p-value, the stronger the evidence against `\(H_0\)`. 
 
 Some people go further and use an accept/reject framework. Under this framework, the null hypothesis `\(H_0\)` should be rejected if the p-value is less than 0.05 (say), and accepted if the p-value is greater than 0.05.
+
+
+---
+
+### Key points
+
++ We can carry out hypothesis test on **without the restrictions** of having to know the mathematical form of the sampling distribution.
++ Embrace the **randomness**!
++ Simulating under the **NULL hypothesis** shows us what would happen under *chance alone*
++ The **location of our observed statistic** in the distribution of those simulated under the NULL hypothesis gives us information!
+
 
 ---
 class: inverse

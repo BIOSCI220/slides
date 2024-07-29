@@ -1334,63 +1334,61 @@ coffee %>%
 ]
 
 ---
-#### What can you say about this plot? **[slido.com](slido.com)** code **#biosci220**
+#### What can you say about this plot?
 
-```{r, eval = TRUE, echo = FALSE}
+```{r, eval = TRUE, echo = FALSE, message = FALSE}
 library(tidyverse)
-data.frame(weight = c(7.1, 5.2, 6.3, 6.7, 7.4, 5.9, 5.3, 6.1, 2.1, 4.9,
-                      4.8, 5.4, 3.6, 4.1, 4.4, 4.8, 3.4, 5.1, 5.3, 5.2),
-           group = rep(c("G1","G2"), each = 10)) %>%
-	ggplot(., aes(x = group, y = weight)) + geom_violin() + geom_jitter() +
-	xlab("Group") + ylab("Weight (kg)") + theme_light()
+data <- read_csv("img/randomisation_data.csv")
+data %>%
+	ggplot(., aes(x = Group, y = Value)) + geom_violin() + geom_jitter(aes(col = Group), size = 1.5) +
+	xlab("Group") + ylab("Value") + theme_light()  +
+  scale_color_manual(values = c("#80CFF0", "#DFC0D0"))
 
 ```
 ---
-##### Do you think the mean weight of each group are significantly different from each other? Why or why not? **[slido.com](slido.com)** code **#biosci220**
+##### Do you think the mean of each group are significantly different from each other? Why or why not? 
 
 ```{r, eval = TRUE, echo = FALSE}
-library(tidyverse)
-data <- data.frame(weight = c(7.1, 5.2, 6.3, 6.7, 7.4, 5.9, 5.3, 6.1, 2.1, 4.9,
-                      4.8, 5.4, 3.6, 4.1, 4.4, 4.8, 3.4, 5.1, 5.3, 5.2),
-           group = rep(c("G1","G2"), each = 10))
 meds <- data %>%
-	group_by(group) %>%
-	summarise(means = mean(weight))
-ggplot(data, aes(x = group, y = weight)) + geom_violin() + geom_jitter() +
-	xlab("Group") + ylab("Weight (kg)") + theme_light() +
-	annotate(geom = "text", x = meds$group, y = meds$means, label = paste("Means (kg) = ", meds$means))
-	
-
-```
-
-
----
-##### Do you think the median weight of each group are significantly different from each other? Why or why not? **[slido.com](slido.com)** code **#biosci220**
-
-```{r, eval = TRUE, echo = FALSE}
-library(tidyverse)
-data <- data.frame(weight = c(7.1, 5.2, 6.3, 6.7, 7.4, 5.9, 5.3, 6.1, 2.1, 4.9,
-                      4.8, 5.4, 3.6, 4.1, 4.4, 4.8, 3.4, 5.1, 5.3, 5.2),
-           group = rep(c("G1","G2"), each = 10))
-meds <- data %>%
-	group_by(group) %>%
-	summarise(medians = median(weight))
-ggplot(data, aes(x = group, y = weight)) + geom_violin() + geom_jitter() +
-	xlab("Group") + ylab("Weight (kg)") + theme_light() +
-	annotate(geom = "text", x = meds$group, y = meds$medians, label = paste("Median (kg) = ", meds$medians))
+	group_by(Group) %>%
+	summarise(means = round(mean(Value), 3))
+ggplot(data, aes(x = Group, y = Value)) + geom_violin() + geom_jitter(aes(col = Group), size = 1.5) +
+	xlab("Group") + ylab("Value") + theme_light() +
+	annotate(geom = "text", x = meds$Group, y = meds$means, label = paste("Mean = ", meds$means))  +
+  scale_color_manual(values = c("#80CFF0", "#DFC0D0"))
 	
 
 ```
 
 ---
+### Difference in means for our observed data
 
-[link](https://github.com/BIOSCI738/cowstats/blob/main/img/randomisation.png?raw=true)
-
-```{r, echo=FALSE, fig.height=5}
-knitr::include_graphics("https://github.com/BIOSCI738/cowstats/blob/main/img/randomisation.png?raw=true")
+```{r, eval = FALSE}
+## read in csv
+## can download from CANVAS after lecture
+data <- readr::read_csv("randomisation_data.csv")
 ```
 
+```{r}
+## observed data 
+glimpse(data)
+```
 
+---
+### Difference in means for our observed data
+
+```{r}
+diff_in_means <- data %>% 
+  group_by(Group) %>% 
+  summarise(mean = mean(Value)) %>%
+  summarise(diff = diff(mean)) %>% as.numeric()
+diff_in_means
+```
+
+---
+class: center, middle, inverse
+
+### [**Demo**]
 
 ---
 **Randomisation test**
@@ -1419,43 +1417,14 @@ knitr::include_graphics("https://github.com/BIOSCI738/cowstats/blob/main/img/ran
 
  + **State** the strength of evidence against the null on the basis of this **probability**.
 
----
-### Difference in medians for our observed data
-
-```{r}
-## observed differences in medians
-data <- data.frame(weight = c(7.1, 5.2, 6.3, 6.7, 7.4, 
-                              5.9, 5.3, 6.1, 2.1, 4.9,
-                              4.8, 5.4, 3.6, 4.1, 4.4, 
-                              4.8, 3.4, 5.1, 5.3, 5.2),
-           group = rep(c("G1","G2"), each = 10))
-glimpse(data)
-```
 
 ---
-### Difference in medians for our observed data
+ ### **[slido.com](slido.com) code #biosci220: Discuss the cheatsheet**
+ 
+[link](https://github.com/BIOSCI738/cowstats/blob/main/img/randomisation.png?raw=true)
 
-```{r}
-diff_in_medians <- data %>% 
-  group_by(group) %>% 
-  summarise(median = median(weight)) %>%
-  summarise(diff = diff(median)) %>% as.numeric()
-diff_in_medians
-```
-
----
-### Code for you to run
-
-```{r, eval = FALSE}
-library(tidyverse)
-data.frame(weight = c(7.1, 5.2, 6.3, 6.7, 7.4, 5.9, 5.3, 6.1, 2.1, 4.9,
-                      4.8, 5.4, 3.6, 4.1, 4.4, 4.8, 3.4, 5.1, 5.3, 5.2),
-           group = rep(c("G1","G2"), each = 10)) %>%
-    mutate(random_labels = sample(group, replace = FALSE)) %>%
-    group_by(random_labels) %>%
-    summarise(median_under_null = median(weight)) %>%
-    summarise(diff_under_null = diff(median_under_null)) %>%
-    as.numeric() %>% round(., 3)
+```{r, echo=FALSE, fig.height=5}
+knitr::include_graphics("https://github.com/BIOSCI738/cowstats/blob/main/img/randomisation.png?raw=true")
 ```
 
 ---
@@ -1463,15 +1432,6 @@ class: center, middle, inverse
 
 ### [**Live randomisation test**]
 
-
----
-
-### Key points
-
-+ We can carry out hypothesis test on **without the restrictions** of having to know the mathematical form of the sampling distribution.
-+ Embrace the **randomness**!
-+ Simulating under the **NULL hypothesis** shows us what would happen under *chance alone*
-+ The **location of our observed statistic** in the distribution of those simulated under the NULL hypothesis gives us information!
 
 ---
 class: inverse, middle, center
@@ -1536,6 +1496,17 @@ There are **many** different schools of thought about how a p-value should be in
 Most people agree that the p-value is a useful measure of the strength of evidence against the null hypothesis. The smaller the p-value, the stronger the evidence against $H_0$. 
 
 Some people go further and use an accept/reject framework. Under this framework, the null hypothesis $H_0$ should be rejected if the p-value is less than 0.05 (say), and accepted if the p-value is greater than 0.05.
+
+
+---
+
+### Key points
+
++ We can carry out hypothesis test on **without the restrictions** of having to know the mathematical form of the sampling distribution.
++ Embrace the **randomness**!
++ Simulating under the **NULL hypothesis** shows us what would happen under *chance alone*
++ The **location of our observed statistic** in the distribution of those simulated under the NULL hypothesis gives us information!
+
 
 ---
 class: inverse
