@@ -1,0 +1,36 @@
+.rolling-container {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full slide height */
+  overflow: hidden;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.rolling-content {
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  align-items: center; /* Center content horizontally */
+  animation: roll 20s linear infinite;
+  text-align: center; /* Center the text */
+}
+
+.rolling-content p, .rolling-content img {
+  margin-bottom: 30px; /* Space between announcements */
+  font-size: 2em;
+}
+
+@keyframes roll {
+  0% {
+    transform: translateY(50%); /* Start at the top */
+  }
+  100% {
+    transform: translateY(-100%); /* End at the top, looping back */
+  }
+}
+
+.rolling-content img {
+  max-width: 60%; /* Adjust image size */
+  height: auto;
+}

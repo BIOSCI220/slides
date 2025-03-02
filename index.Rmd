@@ -1,12 +1,14 @@
 ---
-title: "BIOSCI 220"
-subtitle: "Quantitative Biology"
+title: "BIOSCI 220: Quantitative Biology"
+subtitle: "![](https://github.com/BIOSCI220/hoiho/blob/main/hoiho_hex.png?raw=true){width=20%}"
 author: "Module 1"
 institute: "Weeks 1–3"
-date: "Charlotte Jones-Todd"
+date: "&copy; 2025 Charlotte Jones-Todd"
 output:
   xaringan::moon_reader:
-   css: xaringan-themer.css
+   css: 
+    - xaringan-themer.css
+    - rolling.css
    lib_dir: libs
    nature:
      highlightStyle: github
@@ -17,28 +19,17 @@ output:
           <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
           </div>
         </div>
-        
-
----
-
-###  `r icons::fontawesome("info-circle")` Week 01, introductory lecture
-
-+ **Course guide**: [biosci220.github.io/BIOSCI220/](https://biosci220.github.io/BIOSCI220/)
-+ **Slides**: [biosci220.github.io/slides/](https://biosci220.github.io/slides/)
-+ Interested in being a **class rep**? Contact Jenn at [jenn.jury@auckland.ac.nz](mailto: jenn.jury@auckland.ac.nz)
-+ My **consultation hours**, Statistics Assistance Hub 301-G040:
-     + Mondays, 10.30–11.30am
-+ **Contact** me directly at [c.jonestodd@auckland.ac.nz](mailto:c.jonestodd@auckland.ac.nz)
-+ 🎲[Dragon Hunt](https://statbiscuit.github.io/mini_games/zork/index.html)
-+ 🎨 **a`R`t competition**! See [this CANVAS discussion](https://canvas.auckland.ac.nz/courses/104040/discussion_topics/1385037)
-
 
 ---
 class: inverse, center, middle
 
-# `R` and `RStudio`
 
-![](https://media4.giphy.com/media/unQ3IJU2RG7DO/200w.gif?cid=82a1493bxhd6w3e6f52fr49g07ntkwl508dqi3nofr3hwjki&rid=200w.gif&ct=g)
+#### Coding is a core part of scientific education!
+
+> "Not only is coding a core skill that gets the basic work of biology done, it's also taught [students] to look at problems in new ways." 
+
+> "Every day, biologists go into the lab to coax data out of living matter—more and more data, with the advent of [new] biological tools …To analyze it all, biologists need to write programs specifically tailored for their experiments." `r tufte::quote_footer('— [Want to Make It as a Biologist? Better Learn to Code](https://www.wired.com/2017/03/biologists-teaching-code-survive/#:~:text=Not%20only%20is%20coding%20a,at%20problems%20in%20new%20ways.&text=As%20tools%20evolve%20to%20allow,core%20part%20of%20scientific%20education.)')`
+
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE, warning = FALSE, message = FALSE)
@@ -59,38 +50,28 @@ style_solarized_light()
 
 ---
 
-class: inverse, center
-
-
-
-![](img/fourth_wing.png)
-
-.footnote[[source](https://the-empyrean-series.fandom.com/wiki/Known_World)]
----
-
 class: inverse, center, middle
 
-# `R` and `RStudio`
+# `R` as the engine, `RStudio` as the dashboard
 
 ![](img/r-rstudio_engine.png)
 
-
 ---
 class: inverse, center, middle
 
+# `R` as Tairneanach, `RStudio` as Violet's saddle
 
-#### Coding is a core part of scientific education!
-
-> "Not only is coding a core skill that gets the basic work of biology done, it's also taught [students] to look at problems in new ways." 
-
-> "Every day, biologists go into the lab to coax data out of living matter—more and more data, with the advent of [new] biological tools …To analyze it all, biologists need to write programs specifically tailored for their experiments." `r tufte::quote_footer('— [Want to Make It as a Biologist? Better Learn to Code](https://www.wired.com/2017/03/biologists-teaching-code-survive/#:~:text=Not%20only%20is%20coding%20a,at%20problems%20in%20new%20ways.&text=As%20tools%20evolve%20to%20allow,core%20part%20of%20scientific%20education.)')`
+```{r, echo = FALSE, fig.width = 8, fig.height = 8}
+knitr::include_graphics("img/tarin.jpeg")
+```
 
 
+.footnote[[source](https://www.instagram.com/sampaiarts/p/Cu7FfCvLtBZ/)]
 ---
 
 
 
-## Before tomorrow!!
+## Before Friday's lecture!!
 
 
 
@@ -98,23 +79,21 @@ class: inverse, center, middle
 
 1.) Instructions in the [Module 1 coursebook](https://biosci220.github.io/BIOSCI220/)
 
-2.) [😎 How to R 😎, CANVAS page](https://canvas.auckland.ac.nz/courses/104040/pages/how-to-r)
+2.) [😎 How to R 😎, CANVAS page](https://canvas.auckland.ac.nz/courses/120365/pages/how-to-r)
 
 3.) **Help sessions** in 106-014
  
-   + **Monday** and **Tuesday** 3.30pm to 5pm
-   + **Tuesday** and **Friday** 11.30am to 1pm
+   + **Tuesday** 11.30pm to 1pm
+   + **Thursday** 3.30pm to 5pm
 
-4.) Come and see me in the **Statistics Assistance Hub** 301-G040:
-
-   + **Today**, 10.30–11.30am
-   
 ---
-
 class: inverse
 
-#### [a`R`t by @djnavarro](https://djnavarro.net/)
+### 🎨  a`R`t challenge
 
++ Get `R` and `RStudio` up and running on your computer
++ Create your own a`R`t!
++ Post your a`R`t to [this CANVAS discussion](https://canvas.auckland.ac.nz/courses/120365/discussion_topics/1443319) (before next Tuesday's lecture)
 
 ```{r, eval = FALSE}
 ## devtools::install_github("djnavarro/turmite59")
@@ -123,62 +102,54 @@ turmite59::turmite59("blue")
 ```
 
 
-<img src = "img/turmite_59_blue.png" width="60%", caption = "[Artwork by @djnavarro](https://djnavarro.net/)">
-
-
-
----
-
-class: inverse
-
-### a`R`t competition
-
-![](img/aRt.png)
-
-.footnote[[Artwork by @djnavarro](https://djnavarro.net/)]
-
-
----
-
-class: inverse
-
-### a`R`t competition
-
-+ Get `R` and `RStudio` up and running on your computer
-+ Create your own a`R`t!
-+ Post your a`R`t to [this CANVAS discussion](https://canvas.auckland.ac.nz/courses/104040/discussion_topics/1385037) (before next Monday's lecture)
-+ Like your favourite piece!
-
-[Some **code** to get you started on CANVAS](https://canvas.auckland.ac.nz/courses/104040/files/13316182?wrap=1)
-
-[Walk-through **vlog** on CANVAS](https://auckland.au.panopto.com/Panopto/Pages/Viewer.aspx?id=8f2f1414-a66f-45c9-b61f-b1ad0174ff6d)
+<center><img src = "img/turmite_59_blue.png" width="30%", caption = "[Artwork by @djnavarro](https://djnavarro.net/)"></center>
 
 .footnote[*[maybe some extra hints if you come along to a drop-in session…]*]
 
+---
+class: inverse
+
+### 🐉  dragon challenge
+
+<div align=center>
+<p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
+<img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
+</div>
+
+Let me know (<a href="mailto:c.jonestodd@auckland.ac.nz">c.jonestodd@auckland.ac.nz</a>) when you've won!
+
+---
+class: rolling-slide
+
+###  `r icons::fontawesome("info-circle")` Week 01, lecture 02
+
+
+<div class="rolling-container">
+  <div class="rolling-content">
+  <p>🌼 <strong>Personal support</strong></p>
+    <p><a href="https://www.auckland.ac.nz/en/students/student-support/personal-support/te-papa-manaaki-campus-care.html" target="_blank">Te Papa Manaaki | Campus Care</a></p>
+    <p>📢 <strong>Class rep?</strong></p>
+    <p> <a href="mailto:jenn.jury@auckland.ac.nz">Email Jenn Jury</a></p>
+     <p>📖 <strong>Courseguide</strong></p>
+    <p><a href="https://biosci220.github.io/BIOSCI220/" target="_blank">Chapter 1</a></p>
+    <p>💬 <strong>My consultation hours</strong></p>
+    <p>Mondays & Tuesdays 1—2pm, <a href="https://maps.auckland.ac.nz/wayfinding?type=poi&selectedLocation=1000028551" target="_blank">blg 303 rm 318</a></p>
+    <p>💡  <strong>Lecture Activities</strong></p>
+    <p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
+    <img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
+  </div>
+</div>
 
 ---
 
 class: inverse
 
-### Selection of contributions from past students
+### 🎨  a`R`t challenge - pick & submit your "best"
 
-
-![](img/220-aRt.jpg)
-
----
-
-
-###  `r icons::fontawesome("info-circle")` Week 01, lecture 02
-
-+ **Course guide**: [biosci220.github.io/BIOSCI220/](https://biosci220.github.io/BIOSCI220/)
-+ **Slides**: [biosci220.github.io/slides/](https://biosci220.github.io/slides/)
-+ Interested in being a **class rep**? Contact Jenn at [jenn.jury@auckland.ac.nz](mailto: jenn.jury@auckland.ac.nz)
-+ My **consultation hours**, Statistics Assistance Hub 301-G040:
-     + Mondays, 10.30–11.30am
-+ **Contact** me directly at [c.jonestodd@auckland.ac.nz](mailto:c.jonestodd@auckland.ac.nz)
-+ 🎨 **a`R`t competition**! See [this CANVAS discussion](https://canvas.auckland.ac.nz/courses/104040/discussion_topics/1385037)
-+ 🎲[Dragon Hunt](https://statbiscuit.github.io/mini_games/zork/index.html)
-
+<div align=center>
+<p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
+<img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
+</div>
 
 ---
 class: inverse, middle, center
@@ -264,15 +235,7 @@ next day and getting it to run almost instantly. I gradually learned that once I
   + [Top 6 reasons you need to be using RStudio](https://www.r-bloggers.com/2013/02/top-6-reasons-you-need-to-be-using-rstudio/)
 
 
----
 
-class: inverse
-
-### a`R`t competition
-
-![](img/aRt.png)
-
-.footnote[[Artwork by @djnavarro](https://djnavarro.net/)]
 
 ---
 class: inverse, center, middle
@@ -379,9 +342,12 @@ I %>%
   try(what = come_to_life())
 ```
 
-Get together and write your own! **[slido.com](slido.com)** code **#biosci220**
+<div align=center>
+<p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
+<img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
+</div>
 
-.footnote[Inspired by [@hadleywickham](https://twitter.com/hadleywickham/status/1359852563726819332?lang=en)]
+
 
 
 ---
@@ -517,19 +483,18 @@ penguins_nafree %>%
 ---
 class: inverse, center, middle
 
-[**code along**, live `R` demo]
-
-[**debugging**, live `R` demo]
-
-**Reply to my questions** at **[slido.com](slido.com)** code **#biosci220**
-
+[**code along** & **debugging**, live `R` demo]
 
 ---
 class: inverse, center, middle
 
 ### Quiz
 
-**[slido.com](slido.com)** code **#biosci220**
+<div align=center>
+<p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
+<img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
+</div>
+
 
 `r countdown::countdown(minutes = 5, seconds = 0, bottom = 0)`
 
@@ -544,20 +509,28 @@ class: inverse, center, middle
 + We can install (and load) other **packages** to give us access to more **functions**
 + We can use the **piping operator** (i.e., `%>%`) to write code in a way that is easier to read and understand
 
----
 
+
+---
+class: rolling-slide
 
 ###  `r icons::fontawesome("info-circle")` Week 02, lecture 01
 
-+ **Slides**: [biosci220.github.io/slides/](https://biosci220.github.io/slides/)
-+ **Course guide** (chapter 2): [biosci220.github.io/BIOSCI220/](https://biosci220.github.io/BIOSCI220/)
-+ My **consultation hours**, Statistics Assistance Hub 301-G040:
-     + Mondays, 10.30–11.30am
-+ **Contact** me directly at [c.jonestodd@auckland.ac.nz](mailto:c.jonestodd@auckland.ac.nz)
-+ Any admin queries please contact Jenn at [jenn.jury@auckland.ac.nz](mailto: jenn.jury@auckland.ac.nz)
-+ **Lab 01**
-+ 🎲[matching syntax](https://statbiscuit.github.io/mini_games/matching/matching.html)
-
+<div class="rolling-container">
+  <div class="rolling-content">
+  <p>🌼 <strong>Personal support</strong></p>
+    <p><a href="https://www.auckland.ac.nz/en/students/student-support/personal-support/te-papa-manaaki-campus-care.html" target="_blank">Te Papa Manaaki | Campus Care</a></p>
+    <p>📢 <strong>Admin queries?</strong></p>
+    <p> <a href="mailto:jenn.jury@auckland.ac.nz">Email Jenn Jury</a></p>
+     <p>📖 <strong>Courseguide</strong></p>
+    <p><a href="https://biosci220.github.io/BIOSCI220/" target="_blank">Chapter 1</a></p>
+    <p>💬 <strong>My consultation hours</strong></p>
+    <p>Mondays & Tuesdays 1—2pm, <a href="https://maps.auckland.ac.nz/wayfinding?type=poi&selectedLocation=1000028551" target="_blank">blg 303 rm 318</a></p>
+    <p>💡  <strong>Lecture Activities</strong></p>
+    <p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
+    <img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
+  </div>
+</div>
 ---
 
 
@@ -573,6 +546,8 @@ class: inverse, center, middle
 + **Discuss** and **critique** data visualizations
 
 ]
+
+
 
 ---
 
@@ -594,16 +569,15 @@ penguins_nafree %>%
   pivot_wider(names_from = c(island), values_from = total_mass_g)
 ```
 
-**Reply to my questions** at **[slido.com](slido.com)** code **#biosci220**
-
 ---
-class: inverse, center, middle
+
+## How would you summarise the a`R`t submitted 
 
 
-![](https://www.bookdesignawards.co.nz/wp-content/uploads/2020/08/We-Are-Here_Page_3-1-768x474.jpg)
-[We Are Here, An atlas of Aotearoa Chris McDowall & Tim Denee](https://www.masseypress.ac.nz/books/we-are-here)
-
-.pull-left[.footnote[**Discuss** at **[slido.com](slido.com)** code **#biosci220**]]
+<div align=center>
+<p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
+<img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
+</div>
 
 ---
 class: inverse, center, middle
@@ -730,15 +704,11 @@ ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
   ylab("Bill depth (mm)")
 ```
 
-**Discuss** at **[slido.com](slido.com)** code **#biosci220**
 
----
-class: inverse, center, middle
-
-[**code along**, live `R` demo]
-
-
-**Reply to my questions** at **[slido.com](slido.com)** code **#biosci220**
+<div align=center>
+<p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
+<img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
+</div>
 
 ---
 
@@ -813,17 +783,15 @@ class: inverse, center, middle
 [**code along**, live `R` demo]
 
 
-**Reply to my questions** at **[slido.com](slido.com)** code **#biosci220**
-
-
-
-
 ---
 class: inverse, center, middle
 
 ### Quiz
 
-**[slido.com](slido.com)** code **#biosci220**
+<div align=center>
+<p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
+<img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
+</div>
 
 `r countdown::countdown(minutes = 5, seconds = 0, bottom = 0)`
 
@@ -844,22 +812,27 @@ class: inverse, center, middle
 
 Guest Lecturer: Nicole Edwards
 
- + 🎲[Kawakawa](https://statbiscuit.github.io/mini_games/kawakawa/index.html)
 
 ---
-
+class: rolling-slide
 
 ###  `r icons::fontawesome("info-circle")` Week 03, lecture 01
 
-+ **Slides**: [biosci220.github.io/slides/](https://biosci220.github.io/slides/)
-+ **Course guide** (chapter 4): [biosci220.github.io/BIOSCI220/](https://biosci220.github.io/BIOSCI220/)
-+ My **consultation hours**, Statistics Assistance Hub 301-G040:
-     + Mondays, 10.30–11.30am
-+ **Contact** me directly at [c.jonestodd@auckland.ac.nz](mailto:c.jonestodd@auckland.ac.nz)
-+ Any admin queries please contact Jenn at [jenn.jury@auckland.ac.nz](mailto: jenn.jury@auckland.ac.nz)
-+ **Lab 02**
-+ 🎲[Design-o-gram](https://statbiscuit.github.io/mini_games/design-o-gram/index.html)
-
+<div class="rolling-container">
+  <div class="rolling-content">
+  <p>🌼 <strong>Personal support</strong></p>
+    <p><a href="https://www.auckland.ac.nz/en/students/student-support/personal-support/te-papa-manaaki-campus-care.html" target="_blank">Te Papa Manaaki | Campus Care</a></p>
+    <p>📢 <strong>Admin queries?</strong></p>
+    <p> <a href="mailto:jenn.jury@auckland.ac.nz">Email Jenn Jury</a></p>
+     <p>📖 <strong>Courseguide</strong></p>
+    <p><a href="https://biosci220.github.io/BIOSCI220/" target="_blank">Chapter 4</a></p>
+    <p>💬 <strong>My consultation hours</strong></p>
+    <p>Mondays & Tuesdays 1—2pm, <a href="https://maps.auckland.ac.nz/wayfinding?type=poi&selectedLocation=1000028551" target="_blank">blg 303 rm 318</a></p>
+    <p>💡  <strong>Lecture Activities</strong></p>
+    <p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
+    <img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
+  </div>
+</div>
 
 ---
 
@@ -1312,17 +1285,26 @@ coffee %>%
 
 ---
 
+---
+class: rolling-slide
+
 ###  `r icons::fontawesome("info-circle")` Week 03, lecture 02
 
-+ **Slides**: [biosci220.github.io/slides/](https://biosci220.github.io/slides/)
-+ **Course guide** (chapter 5): [biosci220.github.io/BIOSCI220/](https://biosci220.github.io/BIOSCI220/)
-+ My **consultation hours**, Statistics Assistance Hub 301-G040:
-     + Mondays, 10.30–11.30am
-+ **Contact** me directly at [c.jonestodd@auckland.ac.nz](mailto:c.jonestodd@auckland.ac.nz)
-+ Any admin queries please contact Jenn at [jenn.jury@auckland.ac.nz](mailto: jenn.jury@auckland.ac.nz)
-+ **Lab 02**
-+ 🎲[shady](https://statbiscuit.github.io/mini_games/shady/index.html)
-
+<div class="rolling-container">
+  <div class="rolling-content">
+  <p>🌼 <strong>Personal support</strong></p>
+    <p><a href="https://www.auckland.ac.nz/en/students/student-support/personal-support/te-papa-manaaki-campus-care.html" target="_blank">Te Papa Manaaki | Campus Care</a></p>
+    <p>📢 <strong>Admin queries?</strong></p>
+    <p> <a href="mailto:jenn.jury@auckland.ac.nz">Email Jenn Jury</a></p>
+     <p>📖 <strong>Courseguide</strong></p>
+    <p><a href="https://biosci220.github.io/BIOSCI220/" target="_blank">Chapter 5</a></p>
+    <p>💬 <strong>My consultation hours</strong></p>
+    <p>Mondays & Tuesdays 1—2pm, <a href="https://maps.auckland.ac.nz/wayfinding?type=poi&selectedLocation=1000028551" target="_blank">blg 303 rm 318</a></p>
+    <p>💡  <strong>Lecture Activities</strong></p>
+    <p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
+    <img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
+  </div>
+</div>
 
 ---
 .small[
@@ -1419,13 +1401,15 @@ class: center, middle, inverse
 
 
 ---
- ### **[slido.com](slido.com) code #biosci220: Discuss the cheatsheet**
- 
-[link](https://github.com/BIOSCI738/cowstats/blob/main/img/randomisation.png?raw=true)
+
+[cheatsheet link](https://github.com/BIOSCI738/cowstats/blob/main/img/randomisation.png?raw=true)
 
 ```{r, echo=FALSE, fig.height=5}
 knitr::include_graphics("https://github.com/BIOSCI738/cowstats/blob/main/img/randomisation.png?raw=true")
 ```
+
+
+
 
 ---
 class: center, middle, inverse
@@ -1437,9 +1421,14 @@ class: center, middle, inverse
 class: inverse, middle, center
 
 ### `r emo::ji('scream')`  p-values `r emo::ji('scream')`
-##### **[slido.com](slido.com) code #biosci220: What does this mean?**
+
 
 ![](https://pbs.twimg.com/media/DzVIekRXcAAUISg?format=png&name=small)
+
+<div align=center>
+<p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
+<img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
+</div>
 
 
 .footnote[[Fisher, Ronald Aylmer, Journal of the Ministry of Agriculture of Great Britain, 33: 503-513 (1926)](https://repository.rothamsted.ac.uk/item/8v61q/the-arrangement-of-field-experiments)]
