@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: column; /* Stack content vertically */
   align-items: center; /* Center content horizontally */
-  animation: roll 20s linear infinite;
+  animation: roll 30s linear infinite;
   text-align: center; /* Center the text */
 }
 

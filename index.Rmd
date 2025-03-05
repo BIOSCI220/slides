@@ -130,6 +130,9 @@ class: rolling-slide
     <p><a href="https://www.auckland.ac.nz/en/students/student-support/personal-support/te-papa-manaaki-campus-care.html" target="_blank">Te Papa Manaaki | Campus Care</a></p>
     <p>📢 <strong>Class rep?</strong></p>
     <p> <a href="mailto:jenn.jury@auckland.ac.nz">Email Jenn Jury</a></p>
+    <p>🎨 <strong>a`R`t challenge</strong></p>
+    <p>Post your a`R`t to<a href="https://canvas.auckland.ac.nz/courses/120365/discussion_topics/1443319" target="_blank"> this CANVAS discussion</a></p>
+    <img src = "img/turmite_59_blue.png" width="30%", caption = "[Artwork by @djnavarro](https://djnavarro.net/)">
      <p>📖 <strong>Courseguide</strong></p>
     <p><a href="https://biosci220.github.io/BIOSCI220/" target="_blank">Chapter 1</a></p>
     <p>💬 <strong>My consultation hours</strong></p>
@@ -144,7 +147,7 @@ class: rolling-slide
 
 class: inverse
 
-### 🎨  a`R`t challenge - pick & submit your "best"
+### 🎨  a`R`t challenge so far
 
 <div align=center>
 <p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
@@ -235,6 +238,16 @@ next day and getting it to run almost instantly. I gradually learned that once I
   + [Top 6 reasons you need to be using RStudio](https://www.r-bloggers.com/2013/02/top-6-reasons-you-need-to-be-using-rstudio/)
 
 
+---
+class: inverse, center, middle
+
+#### `RStudio` 
+
+<div align=center>
+<p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
+<img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
+</div>
+
 
 
 ---
@@ -243,6 +256,24 @@ class: inverse, center, middle
 #### `RStudio` navigation [live demo]
 
 ![](img/rstudio_panes.png)
+
+---
+class: inverse, center, middle
+
+#### `R` code
+
+
+```{r, eval = FALSE}
+plot(1:10, 10:1,  col = c("red", "green"), pch = 12)
+```
+
+<div align=center>
+<p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
+<img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
+</div>
+
+
+
 
 
 ---
@@ -493,6 +524,7 @@ class: inverse, center, middle
 <div align=center>
 <p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
 <img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
+<p>code: #biosci220</p>
 </div>
 
 
