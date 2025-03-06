@@ -1,9 +1,9 @@
 ---
 title: "BIOSCI 220: Quantitative Biology"
 subtitle: "![](https://github.com/BIOSCI220/hoiho/blob/main/hoiho_hex.png?raw=true){width=20%}"
-author: "Module 1"
-institute: "Weeks 1–3"
-date: "&copy; 2025 Charlotte Jones-Todd"
+author: "Module 1, weeks 1–3"
+institute: "&copy; 2025 Charlotte Jones-Todd"
+date: ""
 output:
   xaringan::moon_reader:
    css: 
