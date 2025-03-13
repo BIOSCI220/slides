@@ -838,11 +838,25 @@ class: inverse, center, middle
 
 
 ---
-class: inverse, center, middle
+### `r icons::fontawesome("info-circle")` Week 02, lecture 02
 
-###  Week 02, lecture 02
-
-Guest Lecturer: Nicole Edwards
+<div class="rolling-container">
+  <div class="rolling-content">
+  <p>🌼 <strong>Personal support</strong></p>
+    <p><a href="https://www.auckland.ac.nz/en/students/student-support/personal-support/te-papa-manaaki-campus-care.html" target="_blank">Te Papa Manaaki | Campus Care</a></p>
+    <p>📢 <strong>Admin queries?</strong></p>
+    <p> <a href="mailto:jenn.jury@auckland.ac.nz">Email Jenn Jury</a></p>
+    <p>👥 <strong>Introducing your class rep</strong></p>
+    <p>Maroussia Noirot</p>
+    <p>🎓 <strong>Today, guest lecture by</strong></p>
+    <p>Nicole Edwards</p>
+   <p>💬 <strong>My consultation hours</strong></p>
+    <p>Mondays & Tuesdays 1—2pm, <a href="https://maps.auckland.ac.nz/wayfinding?type=poi&selectedLocation=1000028551" target="_blank">blg 303 rm 318</a></p>
+    <p>🎮  <strong>Code`R`</strong></p>
+    <p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
+    <img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
+  </div>
+</div>
 
 
 ---
