@@ -873,7 +873,7 @@ class: rolling-slide
      <p>📖 <strong>Courseguide</strong></p>
     <p><a href="https://biosci220.github.io/BIOSCI220/" target="_blank">Chapter 4</a></p>
     <p>💬 <strong>My consultation hours</strong></p>
-    <p>Mondays & Tuesdays 1—2pm, <a href="https://maps.auckland.ac.nz/wayfinding?type=poi&selectedLocation=1000028551" target="_blank">blg 303 rm 318</a></p>
+    <p>Mondays, Tuesdays & Fridays 1—2pm, <a href="https://maps.auckland.ac.nz/wayfinding?type=poi&selectedLocation=1000028551" target="_blank">blg 303 rm 318</a></p>
     <p>💡  <strong>Lecture Activities</strong></p>
     <p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
     <img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
@@ -898,6 +898,18 @@ class: inverse
 + **Discuss** and **critique** a given experimental design
 + **Identify** sources of variation within a given experimental design
 ]
+
+---
+class: inverse, center, middle
+
+### What do we look for in a plot?
+
+<div align=center>
+<p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
+<img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
+</div>
+
+
 
 ---
 #### **Between group variation**
@@ -953,6 +965,22 @@ ggplot() +
   geom_segment(data = penguins_nafree, aes(x = x_points, y = y_points, xend = x_points, 
                                  yend = sp_means,color = species), size = 1, alpha = 0.2) 
 ```
+
+
+---
+class: inverse
+### What *could* be the reason?
+
+<div class="row">
+  <div class="column">
+    <p>Choose one...</p>
+<img src="img/spurious-correlations.svg" alt="https://www.tylervigen.com/spurious-correlations">
+  </div>
+  <div class="column">
+     <p>... & comment</p>
+<img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
+  </div>
+</div>
 
 
 
@@ -1223,7 +1251,6 @@ Now, our **question about the strength of coffee** would be *Does the strength o
 .footnote[Note:  a factorial design has **equal** numbers of replicates in each group then it is said to be a **balanced** design; if this is not the case then it is **unbalanced**.]
 
 
-
 ---
 **Possible outcomes**
 
@@ -1320,6 +1347,15 @@ coffee %>%
   ggtitle("Interaction effect") 
 ```
 
+---
+class: inverse, center, middle
+
+### Main effects recap
+
+<div align=center>
+<p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
+<img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
+</div>
 
 ---
 
@@ -1328,8 +1364,6 @@ coffee %>%
 + An **experimental unit** is the item under study for which some treatment is changed
 + An **observational unit** is the smallest unit on which a response is measured
 + **Replication** (helps us generalise results), **Randomisation** (helps protect against bias), and **Blocking** (helps account for some factor we're not interested in) are key when designing experiments
-
----
 
 ---
 class: rolling-slide
