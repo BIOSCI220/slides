@@ -440,7 +440,7 @@ paua &lt;- read_csv("paua.csv")
 ```
 
 ```
-## Error: 'paua.csv' does not exist in current working directory ('/home/cjon911/Git/slides').
+## Error: 'paua.csv' does not exist in current working directory ('/home/charlotte/Git/slides').
 ```
 
 
@@ -1292,7 +1292,7 @@ class: inverse, center, middle
 &lt;/div&gt;
 
 
-<div class="countdown" id="timer_cb538b4a" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_cd700cb8" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1884,7 +1884,7 @@ class: inverse, center, middle
 &lt;img src="img/qr_biosci220.svg" alt="dub.sh.biosci220"&gt;
 &lt;/div&gt;
 
-<div class="countdown" id="timer_6b9a56e7" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_e8fc60b0" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -2107,7 +2107,7 @@ class: center, middle
 
 --
 
-### **Randomisation**
+### **randomization**
 
 --
 
@@ -2177,11 +2177,11 @@ class: center, middle
 
 ---
 
-**Randomisation**
+**randomization**
 
 .footnote[See [Chapter 4](https://biosci220.github.io/BIOSCI220/introduction-to-the-design-and-analysis-of-experiments.html) of the course guide]
 
-+ Typically statistical analysis assumes that observations are **independent**. This is almost never strictly true in practice but randomisation means that our estimates will behave as if they were based on independent observations
++ Typically statistical analysis assumes that observations are **independent**. This is almost never strictly true in practice but randomization means that our estimates will behave as if they were based on independent observations
 
 ---
 
@@ -2298,7 +2298,7 @@ class: inverse, center, middle
 
 + An **experimental unit** is the item under study for which some treatment is changed
 + An **observational unit** is the smallest unit on which a response is measured
-+ **Replication** (helps us generalise results), **Randomisation** (helps protect against bias), and **Blocking** (helps account for some factor we're not interested in) are key when designing experiments
++ **Replication** (helps us generalise results), **randomization** (helps protect against bias), and **Blocking** (helps account for some factor we're not interested in) are key when designing experiments
 
 ---
 class: rolling-slide
@@ -2314,7 +2314,7 @@ class: rolling-slide
      &lt;p&gt;📖 &lt;strong&gt;Courseguide&lt;/strong&gt;&lt;/p&gt;
     &lt;p&gt;&lt;a href="https://biosci220.github.io/BIOSCI220/" target="_blank"&gt;Chapter 5&lt;/a&gt;&lt;/p&gt;
     &lt;p&gt;💬 &lt;strong&gt;My consultation hours&lt;/strong&gt;&lt;/p&gt;
-    &lt;p&gt;Mondays &amp; Tuesdays 1—2pm, &lt;a href="https://maps.auckland.ac.nz/wayfinding?type=poi&amp;selectedLocation=1000028551" target="_blank"&gt;blg 303 rm 318&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;Mondays, Tuesdays &amp; Fridays 1—2pm, &lt;a href="https://maps.auckland.ac.nz/wayfinding?type=poi&amp;selectedLocation=1000028551" target="_blank"&gt;blg 303 rm 318&lt;/a&gt;&lt;/p&gt;
     &lt;p&gt;💡  &lt;strong&gt;Lecture Activities&lt;/strong&gt;&lt;/p&gt;
     &lt;p&gt;&lt;a href="https://dub.sh/biosci220" target="_blank"&gt;dub.sh/biosci220&lt;/a&gt;&lt;/p&gt;
     &lt;img src="img/qr_biosci220.svg" alt="dub.sh.biosci220"&gt;
@@ -2326,47 +2326,44 @@ class: rolling-slide
 ### Learning objectives
 
 + **Formulate** a question/hypothesis to investigate based on the given data
-+ **List** the aims, **write** out the appropriate null and alternative hypothesis using statistical notation for, and write `R` code to carry out a randomisation test
-+ **Correctly interpret** and **communicate** a p-value in terms of a randomisation test
++ **List** the aims of, **write** out the appropriate null and alternative hypothesis using statistical notation for, and write `R` code to carry out a randomization test
++ **Correctly interpret** and **communicate** a p-value in terms of a randomization test
 ]
 
----
-#### What can you say about this plot?
 
+---
+class: inverse, middle, center
+
+##### Do you think the means of each group are *significantly* different from each other? Why or why not? 
+
+  
 ![](index_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
----
-##### Do you think the mean of each group are significantly different from each other? Why or why not? 
 
-![](index_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
 
 ---
-### Difference in means for our observed data
+class: inverse, middle, center
+
+##### Do you think the means of each group are *significantly* different from each other? Why or why not? 
+
+  
+
+&lt;div &gt;
+  &lt;p&gt;&lt;a href="https://dub.sh/biosci220" target="_blank"&gt;dub.sh/biosci220&lt;/a&gt;&lt;/p&gt;
+&lt;img src="img/qr_biosci220.svg" alt="dub.sh.biosci220"&gt;
+&lt;/div&gt;
+
+
+
+---
+### Difference in means for our observed data 
+
+Let `\(\mu_\text{White}\)` be the mean of Group *White* and `\(\mu_\text{Blue}\)` be the mean of Group *Blue* 
 
 
 ``` r
-## read in csv
-## can download from CANVAS after lecture
-data &lt;- readr::read_csv("randomisation_data.csv")
-```
+data &lt;- data.frame(Group = rep(c("Blue", "White"), each = 5),
+                   Value = c(7,6,4,2,2,5,4,6,11,3))
 
-
-``` r
-## observed data 
-glimpse(data)
-```
-
-```
-## Rows: 40
-## Columns: 2
-## $ Group &lt;chr&gt; "Blue", "Blue", "Blue", "Blue", "Blue", "Blue", "Blue", "Blue", …
-## $ Value &lt;dbl&gt; 23.06963, 24.41810, 20.07219, 24.42020, 14.92100, 19.72031, 15.7…
-```
-
----
-### Difference in means for our observed data
-
-
-``` r
 diff_in_means &lt;- data %&gt;% 
   group_by(Group) %&gt;% 
   summarise(mean = mean(Value)) %&gt;%
@@ -2375,40 +2372,72 @@ diff_in_means
 ```
 
 ```
-## [1] -4.018622
+## [1] 1.6
 ```
+That is, `\(\mu_\text{White} - \mu_\text{Blue} = 1.6\)`
+---
+class: center, middle, inverse
+
+### [**Sticker Demo**]
+
+NULL `\(H_0: \mu_\text{White} = \mu_\text{Blue}\)` 
+
+vs 
+
+alternative `\(H_1: \mu_\text{White} \neq \mu_\text{Blue}\)`
+---
+
+### Code for you to run *(as many times as you like)*
+
+
+``` r
+data.frame(Group = rep(c("Blue", "White"), each = 5),
+                   Value = c(7,6,4,2,2,5,4,6,11,3)) %&gt;%
+  mutate(random_labels  = sample(Group, replace = FALSE)) %&gt;%
+  group_by(random_labels) %&gt;% 
+  summarise(mean = mean(Value)) %&gt;%
+  summarise(diff = diff(mean)) %&gt;% as.numeric()
+```
+
 
 ---
 class: center, middle, inverse
 
-### [**Demo**]
+### **Annotate the plot with your values**
+
+
+&lt;div align=center&gt;
+&lt;p&gt;&lt;a href="https://dub.sh/biosci220" target="_blank"&gt;dub.sh/biosci220&lt;/a&gt;&lt;/p&gt;
+&lt;img src="img/qr_biosci220.svg" alt="dub.sh.biosci220"&gt;
+&lt;/div&gt;
+
+
 
 ---
-**Randomisation test**
+**Randomization test**
 
 
- + **Decide** on a metric to measure the effect in question (e.g., differences between group medians)
+ + **Decide** on a metric (Note this metric can be **anything** you wish) to measure the effect in question, we chose `\(\mu_\text{White} - \mu_\text{Blue}\)`
  
 --
  
- + **Calculate** that test statistic on the observed data. Note this metric can be **anything** you wish
+ + **Calculate** that test statistic on the observed data, we had `\(\mu_\text{White} - \mu_\text{Blue} = 1.6\)`
  
 --
 
  + For chosen number of times (*bigger the better*)
     + **Shuffle** the data labels
-    + **Calculate** the test statistic for the reshuffled data and retain
+    + **Calculate** the test statistic for the reshuffled data and retain those values
   
 ---
-**Randomisation test**
+**Randomization test**
 
  + **Calculate** the proportion of times your reshuffled statistics equal or exceed the observed
-    + typically here we use the absolute values as we'd be carrying out a **two-tailed** test (or we could double the p-value)
     + this is the probability of such an extreme result under the null
     
 --
 
- + **State** the strength of evidence against the null on the basis of this **probability**.
+ + **State** the strength of evidence against the null on the basis of this **probability**
 
 
 ---
@@ -2418,26 +2447,15 @@ class: center, middle, inverse
 ![](https://github.com/BIOSCI738/cowstats/blob/main/img/randomisation.png?raw=true)&lt;!-- --&gt;
 
 
-
-
----
-class: center, middle, inverse
-
-### [**Live randomisation test**]
-
-
 ---
 class: inverse, middle, center
 
-### 😱  p-values 😱
+### 😱  p-values 😱 
+
+**5% is NOT some magic threshold**
 
 
 ![](https://pbs.twimg.com/media/DzVIekRXcAAUISg?format=png&amp;name=small)
-
-&lt;div align=center&gt;
-&lt;p&gt;&lt;a href="https://dub.sh/biosci220" target="_blank"&gt;dub.sh/biosci220&lt;/a&gt;&lt;/p&gt;
-&lt;img src="img/qr_biosci220.svg" alt="dub.sh.biosci220"&gt;
-&lt;/div&gt;
 
 
 .footnote[[Fisher, Ronald Aylmer, Journal of the Ministry of Agriculture of Great Britain, 33: 503-513 (1926)](https://repository.rothamsted.ac.uk/item/8v61q/the-arrangement-of-field-experiments)]
@@ -2461,11 +2479,11 @@ A: Informally, a p-value is the probability under a specified statistical model 
 ### 😱  p-values 😱
 
 
-+ **P-values** can indicate how incompatible the data are with a specified statistical model
++ **p-values** can indicate how incompatible the data are with a specified statistical model
 
 --
 
-+ P-values **do not** measure the probability that the studied hypothesis is true, or the probability that the data were produced by random chance alone
++ p-values **do not** measure the probability that the studied hypothesis is true, or the probability that the data were produced by random chance alone
 
 --
 
@@ -2479,11 +2497,112 @@ A: Informally, a p-value is the probability under a specified statistical model 
 
 --
 
-+ P-value, or statistical significance, does **not** measure the size of an effect or the importance of a result
++ p-value, or statistical significance, does **not** measure the size of an effect or the importance of a result
 
 --
 
 + By itself, a p-value does **not** provide a good measure of evidence regarding a model or hypothesis
+
+
+---
+
+### 😱 Correctly interpreting p-values 😱
+
+Let's go back to our in-class randomization test; how likely was what we observed, `\(\mu_\text{White} - \mu_\text{Blue} = 1.6\)`, to have occured by chance alone? Use `R` to reshuffle our data labels 1000 times:
+
+
+``` r
+nreps &lt;- 1000 
+## initialize empty array to hold results
+randomisation_difference_mean &lt;- numeric(nreps)
+set.seed(1234) ## for consistency
+data &lt;- data.frame(Group = rep(c("Blue", "White"), each = 5),
+                   Value = c(7,6,4,2,2,5,4,6,11,3)) 
+for (i in 1:nreps) {
+  randomisation_difference_mean[i] &lt;- data %&gt;%
+  mutate(random_labels  = sample(Group, replace = FALSE)) %&gt;%
+  group_by(random_labels) %&gt;% 
+  summarise(mean = mean(Value)) %&gt;%
+  summarise(diff = diff(mean)) %&gt;% as.numeric()
+}
+## results, combine with the observed statistic
+results &lt;- data.frame(randomisation_difference_mean = randomisation_difference_mean)
+```
+
+
+
+---
+
+### 😱 Correctly interpreting p-values 😱
+
+How likely was what we observed, `\(\mu_\text{White} - \mu_\text{Blue} = 1.6\)`, to occur by chance alone? A look at the full sampling distribution.
+
+
+``` r
+ggplot(results, aes(x = randomisation_difference_mean)) +
+  geom_histogram(bins = 35) +
+  theme_bw() + theme(axis.text = element_text(size = 14)) + 
+  ylab("Count") + xlab("Differences between randomised group means") +
+  geom_vline(xintercept = diff_in_means, col = "#023020", linewidth = 1,alpha = 0.6) +
+  annotate(geom = 'text', label = "Observed difference \n between means" , 
+           x = 02, y = 100, color = "#023020")
+```
+
+.footnote[[See Chapter 5 of the course guide](https://biosci220.github.io/BIOSCI220/introduction-to-hypothesis-testing.html)]
+
+---
+
+## 
+
+![](index_files/figure-html/unnamed-chunk-19-1.png)&lt;!-- --&gt;
+
+---
+
+### 😱 Correctly interpreting p-values 😱
+
+How likely was what we observed, `\(\mu_\text{White} - \mu_\text{Blue} = 1.6\)`, to occur by chance alone? A look at the numbers.
+
+
+``` r
+sum(results$randomisation_difference_mean &gt;= diff_in_means)
+```
+
+```
+## [1] 276
+```
+
+``` r
+sum(results$randomisation_difference_mean &lt;= -1*diff_in_means)
+```
+
+```
+## [1] 219
+```
+
+That is, out of the 1000 iterations
+
+ + a value &gt;= 1.6 was obtained 276 times, and 
+ + a value &lt;= -1.6 was obtained 219 times.
+ 
+---
+ 
+### 😱 Correctly interpreting p-values 😱
+
+How likely was what we observed, `\(\mu_\text{White} - \mu_\text{Blue} = 1.6\)`, to occur by chance alone? A look at the numbers.
+
+Therefore, the proportion of times a value *as least as extreme* as the magnitude of the test statistic was observed is
+
+
+``` r
+n_exceed &lt;- sum(abs(results$randomisation_difference_mean) &gt;= abs(diff_in_means))
+n_exceed/nreps
+```
+
+```
+## [1] 0.495
+```
+
+We therefore have no evidence against the NULL hypothesis that `\(\mu_\text{White} = \mu_\text{Blue}\)` (i.e., what we observed was quite likely to have occurred by chance alone).
 
 ---
 
@@ -2609,23 +2728,23 @@ class: inverse
 
 + **Hypothesis testing**
    + Formulate your question! Define your test statistic!
-   + We can formulate our own tests! (e.g., randomisaion test)
+   + We can formulate our own tests! (e.g., randomization test)
    + You cannot interpret a p-value without first establishing the null hypothesis it is testing
 
 ---
 class: inverse
 
-## So, that's a wrap from me. 👋 Hwyl fawr 👋
+**So, that's a wrap from me. 👋 Hwyl fawr 👋** **Any question about the content so far and/or for the test-tutorial (week 06) reach out via &lt;a href="mailto:c.jonestodd@auckland.ac.nz"&gt;c.jonestodd@auckland.ac.nz&lt;/a&gt;&lt;/p&gt;**
 
 &lt;p align="center"&gt;&lt;img src="img/cmjt_intro.jpeg" width="100%"&gt;&lt;/p&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-"highlightStyle": "github",
-"highlightLines": true,
-"countIncrementalSlides": false,
-"slideNumberFormat": "<div class=\"progress-bar-container\">\n  <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">\n  </div>\n</div>\n"
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "slideNumberFormat": "<div class=\"progress-bar-container\">\n  <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">\n  </div>\n</div>\n"
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
