@@ -71,7 +71,7 @@ knitr::include_graphics("img/tarin.jpeg")
 
 
 
-## Before Friday's lecture!!
+## Before Wednesday's lecture!!
 
 
 
@@ -79,12 +79,11 @@ knitr::include_graphics("img/tarin.jpeg")
 
 1.) Instructions in the [Module 1 coursebook](https://biosci220.github.io/BIOSCI220/)
 
-2.) [😎 How to R 😎, CANVAS page](https://canvas.auckland.ac.nz/courses/120365/pages/how-to-r)
+2.) [😎 How to R 😎, CANVAS page](https://canvas.auckland.ac.nz/courses/120675/pages/resources-to-get-you-up-and-running-with-r-and-rstudio)
 
-3.) **Help sessions** in 106-014
- 
-   + **Tuesday** 11.30pm to 1pm
-   + **Thursday** 3.30pm to 5pm
+3.) [BIOSCI220 focused `R` tutorials](https://daniel-heslop.shinyapps.io/SRS_Project/)
+
+
 
 ---
 class: inverse
@@ -93,7 +92,7 @@ class: inverse
 
 + Get `R` and `RStudio` up and running on your computer
 + Create your own a`R`t!
-+ Post your a`R`t to [this CANVAS discussion](https://canvas.auckland.ac.nz/courses/120365/discussion_topics/1443319) (before next Tuesday's lecture)
++ Post your a`R`t to [this CANVAS discussion](https://canvas.auckland.ac.nz/courses/120675/discussion_topics/1513674)
 
 ```{r, eval = FALSE}
 ## devtools::install_github("djnavarro/turmite59")
@@ -106,17 +105,6 @@ turmite59::turmite59("blue")
 
 .footnote[*[maybe some extra hints if you come along to a drop-in session…]*]
 
----
-class: inverse
-
-### 🐉  dragon challenge
-
-<div align=center>
-<p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
-<img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
-</div>
-
-Let me know (<a href="mailto:c.jonestodd@auckland.ac.nz">c.jonestodd@auckland.ac.nz</a>) when you've won!
 
 ---
 class: rolling-slide
@@ -126,20 +114,21 @@ class: rolling-slide
 
 <div class="rolling-container">
   <div class="rolling-content">
+  <p>🐶  <strong>Cai chat</strong></p>
+    <p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
   <p>🌼 <strong>Personal support</strong></p>
     <p><a href="https://www.auckland.ac.nz/en/students/student-support/personal-support/te-papa-manaaki-campus-care.html" target="_blank">Te Papa Manaaki | Campus Care</a></p>
     <p>📢 <strong>Class rep?</strong></p>
     <p> <a href="mailto:jenn.jury@auckland.ac.nz">Email Jenn Jury</a></p>
     <p>🎨 <strong>a`R`t challenge</strong></p>
-    <p>Post your a`R`t to<a href="https://canvas.auckland.ac.nz/courses/120365/discussion_topics/1443319" target="_blank"> this CANVAS discussion</a></p>
+    <p>Post your a`R`t to<a href="https://canvas.auckland.ac.nz/courses/120675/discussion_topics/1513674" target="_blank"> this CANVAS discussion</a></p>
     <img src = "img/turmite_59_blue.png" width="30%", caption = "[Artwork by @djnavarro](https://djnavarro.net/)">
      <p>📖 <strong>Courseguide</strong></p>
     <p><a href="https://biosci220.github.io/BIOSCI220/" target="_blank">Chapter 1</a></p>
     <p>💬 <strong>My consultation hours</strong></p>
-    <p>Mondays & Tuesdays 1—2pm, <a href="https://maps.auckland.ac.nz/wayfinding?type=poi&selectedLocation=1000028551" target="_blank">blg 303 rm 318</a></p>
+    <p>Mondays & Wednesdays 10—11am, <a href="https://maps.auckland.ac.nz/wayfinding?type=poi&selectedLocation=1000028551" target="_blank">blg 303 rm 318</a></p>
     <p>💡  <strong>Lecture Activities</strong></p>
-    <p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
-    <img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
+    <p><a href="https://ggl.link/biosci220" target="_blank">ggl.link/biosci220</a></p>
   </div>
 </div>
 
@@ -147,19 +136,10 @@ class: rolling-slide
 
 class: inverse
 
-### 🎨  a`R`t challenge so far
+### 🎨  a`R`t 
 
-<div align=center>
-<p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
-<img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
-</div>
+<p><iframe title="Intro aRt" src="https://cmjt.shinyapps.io/intro_aRt/" width="100%" height="400" loading="lazy"></iframe></p>
 
----
-class: inverse, middle, center
-
-
-> There were multiple times where I poured in hours to try to get the code to work and essentially went around in circles achieving nothing, only to come back to the same problem a few hours later or the
-next day and getting it to run almost instantly. I gradually learned that once I start to find myself banging my head against the wall on the same problem for too long it’s better to let it simmer and come back to it later! `r tufte::quote_footer('— Student reflection')`
 
 
 ---
@@ -238,17 +218,6 @@ next day and getting it to run almost instantly. I gradually learned that once I
   + [Top 6 reasons you need to be using RStudio](https://www.r-bloggers.com/2013/02/top-6-reasons-you-need-to-be-using-rstudio/)
 
 
----
-class: inverse, center, middle
-
-#### `RStudio` 
-
-<div align=center>
-<p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
-<img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
-</div>
-
-
 
 ---
 class: inverse, center, middle
@@ -268,8 +237,8 @@ plot(1:10, 10:1,  col = c("red", "green"), pch = 12)
 ```
 
 <div align=center>
-<p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
-<img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
+<p><a href="https://ggl.link/biosci220" target="_blank">ggl.link/biosci220</a></p>
+<img src="img/ggl_biosci220.svg" alt="ggl.link.biosci220">
 </div>
 
 
@@ -361,7 +330,7 @@ class: centre, middle, inverse
 ---
 
 
-### Piping (`%>%`)
+#### Piping (`%>%`) 🐶 *Write your own* 🐶
 
 ```{r, eval = FALSE}
 I %>% 
@@ -375,7 +344,7 @@ I %>%
 
 <div align=center>
 <p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
-<img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
+<img src="img/dub_biosci220.svg" alt="dub.sh/biosci220">
 </div>
 
 
@@ -516,19 +485,6 @@ class: inverse, center, middle
 
 [**code along** & **debugging**, live `R` demo]
 
----
-class: inverse, center, middle
-
-### Quiz
-
-<div align=center>
-<p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
-<img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
-<p>code: #biosci220</p>
-</div>
-
-
-`r countdown::countdown(minutes = 5, seconds = 0, bottom = 0)`
 
 ---
 
@@ -550,6 +506,8 @@ class: rolling-slide
 
 <div class="rolling-container">
   <div class="rolling-content">
+  <p>🐶  <strong>Cai chat</strong></p>
+    <p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
   <p>🌼 <strong>Personal support</strong></p>
     <p><a href="https://www.auckland.ac.nz/en/students/student-support/personal-support/te-papa-manaaki-campus-care.html" target="_blank">Te Papa Manaaki | Campus Care</a></p>
     <p>📢 <strong>Admin queries?</strong></p>
@@ -557,10 +515,9 @@ class: rolling-slide
      <p>📖 <strong>Courseguide</strong></p>
     <p><a href="https://biosci220.github.io/BIOSCI220/" target="_blank">Chapter 1</a></p>
     <p>💬 <strong>My consultation hours</strong></p>
-    <p>Mondays & Tuesdays 1—2pm, <a href="https://maps.auckland.ac.nz/wayfinding?type=poi&selectedLocation=1000028551" target="_blank">blg 303 rm 318</a></p>
+    <p>Mondays & Wednesdays 10—11am, <a href="https://maps.auckland.ac.nz/wayfinding?type=poi&selectedLocation=1000028551" target="_blank">blg 303 rm 318</a></p>
     <p>💡  <strong>Lecture Activities</strong></p>
-    <p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
-    <img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
+    <p><a href="https://ggl.link/biosci220" target="_blank">ggl.link/biosci220</a></p>
   </div>
 </div>
 ---
@@ -608,7 +565,7 @@ penguins_nafree %>%
 
 <div align=center>
 <p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
-<img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
+<img src="img/dub_biosci220.svg" alt="dub.sh/biosci220">
 </div>
 
 ---
@@ -739,7 +696,7 @@ ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
 
 <div align=center>
 <p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
-<img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
+<img src="img/dub_biosci220.svg" alt="dub.sh/biosci220">
 </div>
 
 ---
@@ -815,17 +772,6 @@ class: inverse, center, middle
 [**code along**, live `R` demo]
 
 
----
-class: inverse, center, middle
-
-### Quiz
-
-<div align=center>
-<p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
-<img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
-</div>
-
-`r countdown::countdown(minutes = 5, seconds = 0, bottom = 0)`
 
 ---
 
@@ -842,6 +788,8 @@ class: inverse, center, middle
 
 <div class="rolling-container">
   <div class="rolling-content">
+  <p>🐶  <strong>Cai chat</strong></p>
+    <p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
   <p>🌼 <strong>Personal support</strong></p>
     <p><a href="https://www.auckland.ac.nz/en/students/student-support/personal-support/te-papa-manaaki-campus-care.html" target="_blank">Te Papa Manaaki | Campus Care</a></p>
     <p>📢 <strong>Admin queries?</strong></p>
@@ -851,10 +799,7 @@ class: inverse, center, middle
     <p>🎓 <strong>Today, guest lecture by</strong></p>
     <p>Nicole Edwards</p>
    <p>💬 <strong>My consultation hours</strong></p>
-    <p>Mondays & Tuesdays 1—2pm, <a href="https://maps.auckland.ac.nz/wayfinding?type=poi&selectedLocation=1000028551" target="_blank">blg 303 rm 318</a></p>
-    <p>🎮  <strong>Code`R`</strong></p>
-    <p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
-    <img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
+    <p>Mondays & Wednesdays 10—11am, <a href="https://maps.auckland.ac.nz/wayfinding?type=poi&selectedLocation=1000028551" target="_blank">blg 303 rm 318</a></p>
   </div>
 </div>
 
@@ -866,6 +811,8 @@ class: rolling-slide
 
 <div class="rolling-container">
   <div class="rolling-content">
+  <p>🐶  <strong>Cai chat</strong></p>
+    <p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
   <p>🌼 <strong>Personal support</strong></p>
     <p><a href="https://www.auckland.ac.nz/en/students/student-support/personal-support/te-papa-manaaki-campus-care.html" target="_blank">Te Papa Manaaki | Campus Care</a></p>
     <p>📢 <strong>Admin queries?</strong></p>
@@ -873,10 +820,9 @@ class: rolling-slide
      <p>📖 <strong>Courseguide</strong></p>
     <p><a href="https://biosci220.github.io/BIOSCI220/" target="_blank">Chapter 4</a></p>
     <p>💬 <strong>My consultation hours</strong></p>
-    <p>Mondays, Tuesdays & Fridays 1—2pm, <a href="https://maps.auckland.ac.nz/wayfinding?type=poi&selectedLocation=1000028551" target="_blank">blg 303 rm 318</a></p>
+    <p>Mondays & Wednesdays 10—11am, <a href="https://maps.auckland.ac.nz/wayfinding?type=poi&selectedLocation=1000028551" target="_blank">blg 303 rm 318</a></p>
     <p>💡  <strong>Lecture Activities</strong></p>
-    <p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
-    <img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
+    <p><a href="https://ggl.link/biosci220" target="_blank">ggl.link/biosci220</a></p>
   </div>
 </div>
 
@@ -906,7 +852,7 @@ class: inverse, center, middle
 
 <div align=center>
 <p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
-<img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
+<img src="img/dub_biosci220.svg" alt="dub.sh/biosci220">
 </div>
 
 
@@ -978,7 +924,7 @@ class: inverse
   </div>
   <div class="column">
      <p>... & comment</p>
-<img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
+<img src="img/dub_biosci220.svg" alt="dub.sh/biosci220">
   </div>
 </div>
 
@@ -1354,7 +1300,7 @@ class: inverse, center, middle
 
 <div align=center>
 <p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
-<img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
+<img src="img/dub_biosci220.svg" alt="dub.sh/biosci220">
 </div>
 
 ---
@@ -1372,6 +1318,8 @@ class: rolling-slide
 
 <div class="rolling-container">
   <div class="rolling-content">
+  <p>🐶  <strong>Cai chat</strong></p>
+    <p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
   <p>🌼 <strong>Personal support</strong></p>
     <p><a href="https://www.auckland.ac.nz/en/students/student-support/personal-support/te-papa-manaaki-campus-care.html" target="_blank">Te Papa Manaaki | Campus Care</a></p>
     <p>📢 <strong>Admin queries?</strong></p>
@@ -1379,10 +1327,9 @@ class: rolling-slide
      <p>📖 <strong>Courseguide</strong></p>
     <p><a href="https://biosci220.github.io/BIOSCI220/" target="_blank">Chapter 5</a></p>
     <p>💬 <strong>My consultation hours</strong></p>
-    <p>Mondays, Tuesdays & Fridays 1—2pm, <a href="https://maps.auckland.ac.nz/wayfinding?type=poi&selectedLocation=1000028551" target="_blank">blg 303 rm 318</a></p>
+    <p>Mondays & Wednesdays 10—11am, <a href="https://maps.auckland.ac.nz/wayfinding?type=poi&selectedLocation=1000028551" target="_blank">blg 303 rm 318</a></p>
     <p>💡  <strong>Lecture Activities</strong></p>
-    <p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
-    <img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
+    <p><a href="https://ggl.link/biosci220" target="_blank">ggl.link/biosci220</a></p>
   </div>
 </div>
 
@@ -1425,7 +1372,7 @@ class: inverse, middle, center
 
 <div >
   <p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
-<img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
+<img src="img/dub_biosci220.svg" alt="dub.sh/biosci220">
 </div>
 
 
@@ -1478,7 +1425,7 @@ class: center, middle, inverse
 
 <div align=center>
 <p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
-<img src="img/qr_biosci220.svg" alt="dub.sh.biosci220">
+<img src="img/dub_biosci220.svg" alt="dub.sh/biosci220">
 </div>
 
 
