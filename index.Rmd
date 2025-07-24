@@ -428,6 +428,7 @@ paua %>%
 ### Data manipulation
 
 ```{r penguins_na, results='hide'}
+library(tidyverse)
 library(palmerpenguins)
 penguins
 penguins_nafree <- penguins %>% 
@@ -513,7 +514,7 @@ class: rolling-slide
     <p>📢 <strong>Admin queries?</strong></p>
     <p> <a href="mailto:jenn.jury@auckland.ac.nz">Email Jenn Jury</a></p>
      <p>📖 <strong>Courseguide</strong></p>
-    <p><a href="https://biosci220.github.io/BIOSCI220/" target="_blank">Chapter 1</a></p>
+    <p><a href="https://biosci220.github.io/BIOSCI220/" target="_blank">Chapter 2</a></p>
     <p>💬 <strong>My consultation hours</strong></p>
     <p>Mondays & Wednesdays 10—11am, <a href="https://maps.auckland.ac.nz/wayfinding?type=poi&selectedLocation=1000028551" target="_blank">blg 303 rm 318</a></p>
     <p>💡  <strong>Lecture Activities</strong></p>
@@ -536,7 +537,22 @@ class: rolling-slide
 
 ]
 
+---
 
+class: inverse
+
+### 🎨  a`R`t challenge voting
+
+.pull-left[
+<div><img src = "img/turmite_59_blue.png" width="30%", caption = "[Artwork by @djnavarro](https://djnavarro.net/)">
+</div>
+]
+.pull-right[
+<div>
+<p><a href="https://ggl.link/biosci220" target="_blank">ggl.link/biosci220</a></p>
+<img src="img/ggl_biosci220.svg" alt="ggl.link.biosci220">
+</div>
+]
 
 ---
 
@@ -560,13 +576,13 @@ penguins_nafree %>%
 
 ---
 
-## How would you summarise the a`R`t submitted 
-
+**What does this plot show you?** <p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
 
 <div align=center>
-<p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
-<img src="img/dub_biosci220.svg" alt="dub.sh/biosci220">
+<img src="https://github.com/cmjt/studyinswift/blob/main/README_files/figure-markdown_strict/unnamed-chunk-1-2.png?raw=true">
 </div>
+
+
 
 ---
 class: inverse, center, middle
@@ -582,79 +598,6 @@ class: inverse, center, middle
 
 > "Scientific visualization is classically defined as the process of graphically displaying scientific data ... There are so many different ways to represent the same data: scatter plots, linear plots, bar plots, and pie charts ... the same data, using the same type of plot, may be perceived very differently depending on who is looking at the figure." `r tufte::quote_footer('— Nicolas P. Rougier, Michael Droettboom, Philip E. Bourne, Ten Simple Rules for Better Figures ')`
 
-
----
-
-
-### Exploratory plots
-
-<br>
-
-  + are for data **exploration**,
-  
-  + don't have to look pretty,
-  
-  + just needs to **get to the point**,
-  
-  + help you **explore** and **discover** new data facets, and
-  
-  + aid in formulating **new questions**.
-  
-
----
-
-
-### Explanatory plots
-
-<br>
-
-   + have a **clear** purpose,
-   
-   + are specifically designed for the audience,
-   
-   + should be **easy to read** (*this covers a lot of things*),
-   
-   + should not distort the data,
-   
-   + should guide the reader to a **particular conclusion**,
-   
-   + should answer a **specific question**, and
-   
-   + **support** a particular decision.
-   
----
-
-
-## [Ten Simple Rules for Better Figures](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833)
-
-<br>
-
- 1 **Know** Your Audience
- 
- 2 **Identify** Your Message
- 
- 3 **Adapt** the Figure to the Support Medium
- 
- 4 **Captions** Are Not Optional
- 
- 5 **Do Not** Trust the Defaults
- 
----
-
-
-## [Ten Simple Rules for Better Figures](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833)
-
-<br>
-
- 6 Use **Color** Effectively
- 
- 7 **Do Not Mislead** the Reader
-    
- 8 **Avoid** *Chartjunk*
- 
- 9 **Message** Trumps Beauty
-
- 10 Get the Right **Tool**
 
 
 ---
@@ -682,9 +625,11 @@ Every `ggplot2` plot has three key components:
 .footnote[See [Chapter 2](https://biosci220.github.io/BIOSCI220/dealing-with-data.html#data-wrangling-and-manipulation) of the course guide]
 
 ---
-Last week we met the `palmerpenguins`. **What you think the code below produces?** 
+We've met the `palmerpenguins`! **Draw what (you think) the code below creates?** 
 
 ```{r pnt, eval = FALSE, echo = TRUE}
+library(palmerpenguins)
+library(tidyverse)
 penguins_nafree <- penguins %>%  drop_na()
 ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
   geom_point(aes(color = species),size = 2)  +
@@ -694,12 +639,27 @@ ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
 ```
 
 
-<div align=center>
-<p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
-<img src="img/dub_biosci220.svg" alt="dub.sh/biosci220">
-</div>
+<p><a href="https://ggl.link/biosci220" target="_blank">ggl.link/biosci220</a></p>
 
 ---
+
+### Recall...
+
+...every `ggplot2` plot has three key components:
+
+  + `data`, (e.g., `penguins_nafree`)
+
+  + A set of `aes`thetic mappings between variables in the data and visual properties, (e.g., `x = bill_length_mm` & `y = bill_depth_mm`) and
+
+  + At least one layer which describes how to render each observation (e.g., `geom_point`)
+
+.footnote[See [Chapter 2](https://biosci220.github.io/BIOSCI220/dealing-with-data.html#data-wrangling-and-manipulation) of the course guide]
+
+
+---
+
+
+
 
 
 ```{r, eval = FALSE}
@@ -764,17 +724,21 @@ ggplot(data = penguins_nafree, aes(x = bill_length_mm, y = bill_depth_mm)) +
 
 ---
 
-
-
-
 class: inverse, center, middle
 
 [**code along**, live `R` demo]
 
 
-
 ---
 
+
+**Write pseudo `ggplot` code for this plot** <p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
+
+<div align=center>
+<img src="https://github.com/cmjt/studyinswift/blob/main/README_files/figure-markdown_strict/unnamed-chunk-1-2.png?raw=true">
+</div>
+
+---
 
 ### Key points
 
