@@ -812,28 +812,20 @@ class: inverse
 ---
 class: inverse, center, middle
 
-### What do we look for in a plot?
-
-<div align=center>
-<p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
-<img src="img/dub_biosci220.svg" alt="dub.sh/biosci220">
-</div>
+### What do we look for in a plot? [https://dub.sh/biosci220](dub.sh/biosci220)
 
 
-
----
-#### **Between group variation**
-
-```{r, echo = FALSE, warning=FALSE, message=FALSE}
+```{r, echo = FALSE, warning=FALSE, message=FALSE, fig.width=12, fig.height=6}
+require(patchwork)
 means <- penguins_nafree %>% group_by(species) %>% summarise(means = mean(bill_length_mm))
 mean <- mean(penguins_nafree$bill_length_mm)
 means$ends <- mean
 means$lag1 <- means$means[c(2,3,1)]
 means$lag2 <- means$means[c(3,1,2)]
-ggplot(penguins_nafree,aes(x = species, y = bill_length_mm)) + 
+p1 <- ggplot(penguins_nafree,aes(x = species, y = bill_length_mm)) + 
     geom_violin()  + 
   ylab("Bill length (mm)") +
-  xlab("Species") +
+  xlab("") +
   geom_point(data = means, aes(x = species, y = means),color = "blue", size = 2) +
   annotate(geom = 'text', label = "Average bill length per species" , x = -Inf, y = Inf, hjust = 0, vjust = 1.2, color = "blue") +
   geom_hline(yintercept = mean, color = "red") +
@@ -846,16 +838,8 @@ ggplot(penguins_nafree,aes(x = species, y = bill_length_mm)) +
   geom_segment(data = means, aes(x = as.numeric(species) + 0.15, y = means, 
                                  xend = as.numeric(species) + 0.15, yend = lag2),col = "purple", size = 2)+
   annotate(geom = 'text', label = "Differences between groups" , x = -Inf, y = Inf, 
-           hjust = 0, vjust = 7, color = "purple")
-```
-
-
-
----
-
-#### **Within group variation** 
-
-```{r,echo = FALSE, warning=FALSE, message=FALSE}
+           hjust = 0, vjust = 7, color = "purple") +
+  labs(subtitle = "Between group variation")
 jit <- ggplot() + 
   geom_jitter(data = penguins_nafree,aes(x = species, y = bill_length_mm, color = species), alpha = 0.2) 
 
@@ -863,9 +847,9 @@ penguins_nafree$x_points <- layer_data(jit)$x
 penguins_nafree$y_points <- layer_data(jit)$y
 penguins_nafree <- penguins_nafree %>% group_by(species) %>% mutate(sp_means = mean(bill_length_mm))
 
-ggplot() + 
+p2 <- ggplot() + 
   ylab("Bill length (mm)") +
-  xlab("Species") +
+  xlab("") +
   geom_point(data = means, aes(x = species, y = means, color = species), size = 2) +
   geom_text(data = means, aes(x = species, y = means + 2.5, color = species, 
                               label = paste0("Species average = ",round(means,3)))) +
@@ -873,24 +857,11 @@ ggplot() +
   geom_point(data = penguins_nafree,aes(x = x_points, y = y_points, color = species), alpha = 0.2) +
   theme(legend.position = "none") + 
   geom_segment(data = penguins_nafree, aes(x = x_points, y = y_points, xend = x_points, 
-                                 yend = sp_means,color = species), size = 1, alpha = 0.2) 
+                                 yend = sp_means,color = species), size = 1, alpha = 0.2) +
+  labs(subtitle = "Within group variation")
+p1 + p2 
 ```
 
-
----
-class: inverse
-### What *could* be the reason?
-
-<div class="row">
-  <div class="column">
-    <p>Choose one...</p>
-<img src="img/spurious-correlations.svg" alt="https://www.tylervigen.com/spurious-correlations">
-  </div>
-  <div class="column">
-     <p>... & comment</p>
-<img src="img/dub_biosci220.svg" alt="dub.sh/biosci220">
-  </div>
-</div>
 
 
 
@@ -928,6 +899,32 @@ The **dependent variable** or **response** is the output (or thing) that is meas
 
 An **effect** is the change in the response variable caused by the controlled changes in the independent variable. Whether the magnitude of the effect (it's size) is significant (or or any practical interest) is determined by the researcher after carrying out some appropriate analyses.
 
+
+---
+class: center, middle, inverse
+ 
+## [live demo] - come and collect your *experiment pack*
+
+![](img/sweet_sorting-01.png)
+
+---
+class: center, middle, inverse
+ 
+## [live demo] - Link to record your data
+ 
+## [LINK - Data recording sheet](https://docs.google.com/spreadsheets/d/1njyRAzRFg-IKXXG-BUOCXfUyyC6mRPrz1OnQ4Hji2E8/edit?usp=sharing) 
+(*need to be signed into your UoA account*)
+
+
+---
+class: inverse, center, middle
+
+### Sweet Sorting Recap
+
+<div align=center>
+<p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
+<img src="img/dub_biosci220.svg" alt="dub.sh/biosci220">
+</div>
 
 ---
 ### An example: `r icons::icon_style(icons::fontawesome("coffee", style = "solid"), fill = "brown")` `r icons::icon_style(icons::fontawesome("coffee", style = "solid"), fill = "black")` `r icons::icon_style(icons::fontawesome("coffee", style = "solid"), fill = "grey")`
@@ -997,7 +994,7 @@ class: center, middle
 
 --
 
-### **randomization**
+### **Randomization**
 
 --
 
@@ -1067,7 +1064,7 @@ class: center, middle
 
 ---
 
-**randomization**
+**Randomization**
 
 .footnote[See [Chapter 4](https://biosci220.github.io/BIOSCI220/introduction-to-the-design-and-analysis-of-experiments.html) of the course guide]
 
@@ -1127,15 +1124,9 @@ The variation between blocks (the groups of experimental units) should be large 
 
 ![An illustration of a RCBD with one tratment factor, three treatment levels (A, B, & C), and three blocks (rows)](https://github.com/cmjt/ggdesign/raw/main/README_files/figure-markdown_strict/unnamed-chunk-6-1.png)
 
----
-class: center, middle, inverse
- 
-[live demo]
-
-[experiment set-up]
 
 ---
-### Factorial design (back to slide example)
+### Factorial design
 
 A factorial experiment is one where there are two or more sets of (factor) treatments. Rather than studying each factor separately all combinations of the treatment factors are considered. 
 
@@ -1257,15 +1248,6 @@ coffee %>%
   ggtitle("Interaction effect") 
 ```
 
----
-class: inverse, center, middle
-
-### Main effects recap
-
-<div align=center>
-<p><a href="https://dub.sh/biosci220" target="_blank">dub.sh/biosci220</a></p>
-<img src="img/dub_biosci220.svg" alt="dub.sh/biosci220">
-</div>
 
 ---
 
