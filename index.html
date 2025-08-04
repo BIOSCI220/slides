@@ -2232,73 +2232,81 @@ class: rolling-slide
 + **Correctly interpret** and **communicate** a p-value in terms of a randomization test
 ]
 
+---
+
+[`R` demo] - download [sweets.csv](https://canvas.auckland.ac.nz/courses/120675/files/15934050?wrap=1) from CANVAS (i.e., last lectures' data)
+
+
+``` r
+library(tidyverse)
+sweets &lt;- read_csv("sweets.csv")
+## drop NA Time (response) values
+sweets &lt;- sweets[!is.na(sweets$Time),] 
+## One unusually high time value 
+## here I've chosen to assume the , is meant to be a decimal 
+## and have overwritten it 'manually' (is this best practice?)
+sweets$Time[1] &lt;- 49.53
+## Plotting 
+ggplot(sweets, aes(x = Treatment, y = Time)) +
+  geom_violin()
+```
 
 ---
 class: inverse, middle, center
 
-##### Do you think the means of each group are *significantly* different from each other? Why or why not? 
+**Are the means of each treatment are *significantly* different from each other? Why or why not?**&lt;p&gt;&lt;a href="https://dub.sh/biosci220" target="_blank"&gt;dub.sh/biosci220&lt;/a&gt;&lt;/p&gt;
 
-  
-![](index_files/figure-html/unnamed-chunk-12-1.png)&lt;!-- --&gt;
-
-
----
-class: inverse, middle, center
-
-##### Do you think the means of each group are *significantly* different from each other? Why or why not? 
-
-  
-
-&lt;div &gt;
-  &lt;p&gt;&lt;a href="https://dub.sh/biosci220" target="_blank"&gt;dub.sh/biosci220&lt;/a&gt;&lt;/p&gt;
-&lt;img src="img/dub_biosci220.svg" alt="dub.sh/biosci220"&gt;
-&lt;/div&gt;
+![](index_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
 
 
 
 ---
 ### Difference in means for our observed data 
 
-Let `\(\mu_\text{White}\)` be the mean of Group *White* and `\(\mu_\text{Blue}\)` be the mean of Group *Blue* 
+Let `\(\mu_\text{A}\)` be the mean of *Treatment A* and `\(\mu_\text{B}\)` be the mean of *Treatment B* 
 
 
 ``` r
-data &lt;- data.frame(Group = rep(c("Blue", "White"), each = 5),
-                   Value = c(7,6,4,2,2,5,4,6,11,3))
-
+library(tidyverse)
+## pre-cleaned data
+data &lt;- read_csv("https://raw.githubusercontent.com/STATS-UOA/databunker/master/data/sweets.csv")
 diff_in_means &lt;- data %&gt;% 
-  group_by(Group) %&gt;% 
-  summarise(mean = mean(Value)) %&gt;%
-  summarise(diff = diff(mean)) %&gt;% as.numeric()
-diff_in_means
+  group_by(Treatment) %&gt;% 
+  summarise(mean = mean(Time)) %&gt;%
+  summarise(diff = diff(rev(mean))) %&gt;% as.numeric()
+round(diff_in_means, 3)
 ```
 
 ```
-## [1] 1.6
+## [1] 1.494
 ```
-That is, `\(\mu_\text{White} - \mu_\text{Blue} = 1.6\)`
+
+That is, `\(\mu_\text{A} - \mu_\text{B} = 1.494\)` (on average a ~1.5(s) difference in time to complete the task)
 ---
 class: center, middle, inverse
 
-### [**Sticker Demo**]
+### [**Sticker Demo**] (*White = Treatment A, Blue = Treatment B*)
 
-NULL `\(H_0: \mu_\text{White} = \mu_\text{Blue}\)` 
+(NULL hypothesis) `\(H_0: \mu_\text{A} = \mu_\text{B}\)` 
 
 vs 
 
-alternative `\(H_1: \mu_\text{White} \neq \mu_\text{Blue}\)`
+(alternative hypothesis) `\(H_1: \mu_\text{A} \neq \mu_\text{B}\)`
+
+Take a sticker and...[update this sheet after following Charlotte's instructions](https://docs.google.com/spreadsheets/d/1xyda-lzAlPUWLzf2M2jNpOUWbaL38LX2XFxo4pGDMao/edit?usp=sharing) 
+
 ---
 
 ### Code for you to run *(as many times as you like)*
 
 
 ``` r
-data.frame(Group = rep(c("Blue", "White"), each = 5),
-                   Value = c(7,6,4,2,2,5,4,6,11,3)) %&gt;%
-  mutate(random_labels  = sample(Group, replace = FALSE)) %&gt;%
+library(tidyverse)
+read_csv("https://raw.githubusercontent.com/STATS-UOA/databunker/master/data/sweets.csv") %&gt;%
+  mutate(random_labels  = sample(Treatment, replace = FALSE)) %&gt;%
   group_by(random_labels) %&gt;% 
-  summarise(mean = mean(Value)) %&gt;%
-  summarise(diff = diff(mean)) %&gt;% as.numeric()
+  summarise(mean = mean(Time)) %&gt;%
+  summarise(diff = diff(rev(mean))) %&gt;% as.numeric()
 ```
 
 
@@ -2309,8 +2317,8 @@ class: center, middle, inverse
 
 
 &lt;div align=center&gt;
-&lt;p&gt;&lt;a href="https://dub.sh/biosci220" target="_blank"&gt;dub.sh/biosci220&lt;/a&gt;&lt;/p&gt;
-&lt;img src="img/dub_biosci220.svg" alt="dub.sh/biosci220"&gt;
+&lt;p&gt;&lt;a href="https://ggl.link/biosci220" target="_blank"&gt;ggl.link/biosci220&lt;/a&gt;&lt;/p&gt;
+&lt;img src="img/ggl_biosci220.svg" alt="ggl.link/biosci220"&gt;
 &lt;/div&gt;
 
 
@@ -2319,11 +2327,11 @@ class: center, middle, inverse
 **Randomization test**
 
 
- + **Decide** on a metric (Note this metric can be **anything** you wish) to measure the effect in question, we chose `\(\mu_\text{White} - \mu_\text{Blue}\)`
+ + **Decide** on a metric (Note this metric can be **anything** you wish) to measure the effect in question, we used `\(\mu_\text{A} - \mu_\text{B}\)`
  
 --
  
- + **Calculate** that test statistic on the observed data, we had `\(\mu_\text{White} - \mu_\text{Blue} = 1.6\)`
+ + **Calculate** that test statistic on the observed data, we had `\(\mu_\text{A} - \mu_\text{B} = 1.494\)`
  
 --
 
@@ -2408,9 +2416,9 @@ A: Informally, a p-value is the probability under a specified statistical model 
 
 ---
 
-### 😱 Correctly interpreting p-values 😱
+#### 😱 Correctly interpreting p-values 😱
 
-Let's go back to our in-class randomization test; how likely was what we observed, `\(\mu_\text{White} - \mu_\text{Blue} = 1.6\)`, to have occured by chance alone? Use `R` to reshuffle our data labels 1000 times:
+Let's go back to our in-class randomization test; how likely was what we observed, `\(\mu_\text{A} - \mu_\text{B} = -1.494\)`, to have occurred by chance alone? Use `R` to reshuffle our data labels 1000 times:
 
 
 ``` r
@@ -2418,16 +2426,15 @@ nreps &lt;- 1000
 ## initialize empty array to hold results
 randomisation_difference_mean &lt;- numeric(nreps)
 set.seed(1234) ## for consistency
-data &lt;- data.frame(Group = rep(c("Blue", "White"), each = 5),
-                   Value = c(7,6,4,2,2,5,4,6,11,3)) 
+data &lt;- read_csv("https://raw.githubusercontent.com/STATS-UOA/databunker/master/data/sweets.csv")
 for (i in 1:nreps) {
   randomisation_difference_mean[i] &lt;- data %&gt;%
-  mutate(random_labels  = sample(Group, replace = FALSE)) %&gt;%
+  mutate(random_labels  = sample(Treatment, replace = FALSE)) %&gt;%
   group_by(random_labels) %&gt;% 
-  summarise(mean = mean(Value)) %&gt;%
-  summarise(diff = diff(mean)) %&gt;% as.numeric()
+  summarise(mean = mean(Time)) %&gt;%
+  summarise(diff = diff(rev(mean))) %&gt;% as.numeric()
 }
-## results, combine with the observed statistic
+## results
 results &lt;- data.frame(randomisation_difference_mean = randomisation_difference_mean)
 ```
 
@@ -2435,16 +2442,16 @@ results &lt;- data.frame(randomisation_difference_mean = randomisation_differenc
 
 ---
 
-### 😱 Correctly interpreting p-values 😱
+#### 😱 Correctly interpreting p-values 😱
 
-How likely was what we observed, `\(\mu_\text{White} - \mu_\text{Blue} = 1.6\)`, to occur by chance alone? A look at the full sampling distribution.
+How likely was what we observed, `\(\mu_\text{A} - \mu_\text{B} = 1.494\)`, to occur by chance alone? A look at the full sampling distribution.
 
 
 ``` r
 ggplot(results, aes(x = randomisation_difference_mean)) +
   geom_histogram(bins = 35) +
   theme_bw() + theme(axis.text = element_text(size = 14)) + 
-  ylab("Count") + xlab("Differences between randomised group means") +
+  ylab("Count") + xlab("Differences between randomised treatment means") +
   geom_vline(xintercept = diff_in_means, col = "#023020", linewidth = 1,alpha = 0.6) +
   annotate(geom = 'text', label = "Observed difference \n between means" , 
            x = 02, y = 100, color = "#023020")
@@ -2456,13 +2463,13 @@ ggplot(results, aes(x = randomisation_difference_mean)) +
 
 ## 
 
-![](index_files/figure-html/unnamed-chunk-18-1.png)&lt;!-- --&gt;
+![](index_files/figure-html/unnamed-chunk-19-1.png)&lt;!-- --&gt;
 
 ---
 
 ### 😱 Correctly interpreting p-values 😱
 
-How likely was what we observed, `\(\mu_\text{White} - \mu_\text{Blue} = 1.6\)`, to occur by chance alone? A look at the numbers.
+How likely was what we observed, `\(\mu_\text{A} - \mu_\text{B} = 1.494\)`, to occur by chance alone? A look at the numbers.
 
 
 ``` r
@@ -2470,7 +2477,7 @@ sum(results$randomisation_difference_mean &gt;= diff_in_means)
 ```
 
 ```
-## [1] 276
+## [1] 267
 ```
 
 ``` r
@@ -2478,19 +2485,19 @@ sum(results$randomisation_difference_mean &lt;= -1*diff_in_means)
 ```
 
 ```
-## [1] 219
+## [1] 315
 ```
 
 That is, out of the 1000 iterations
 
- + a value &gt;= 1.6 was obtained 276 times, and 
- + a value &lt;= -1.6 was obtained 219 times.
+ + a value &gt;= 1.494 was obtained 267 times, and 
+ + a value &lt;= -1.494 was obtained 315 times.
  
 ---
  
 ### 😱 Correctly interpreting p-values 😱
 
-How likely was what we observed, `\(\mu_\text{White} - \mu_\text{Blue} = 1.6\)`, to occur by chance alone? A look at the numbers.
+How likely was what we observed, `\(\mu_\text{A} - \mu_\text{B} = 1.494\)`, to occur by chance alone? A look at the numbers.
 
 Therefore, the proportion of times a value *as least as extreme* as the magnitude of the test statistic was observed is
 
@@ -2501,10 +2508,10 @@ n_exceed/nreps
 ```
 
 ```
-## [1] 0.495
+## [1] 0.582
 ```
 
-We therefore have no evidence against the NULL hypothesis that `\(\mu_\text{White} = \mu_\text{Blue}\)` (i.e., what we observed was quite likely to have occurred by chance alone).
+So, we have **no evidence against the NULL hypothesis** that `\(\mu_\text{A} = \mu_\text{B}\)` (i.e., the difference between averages of time to complete tasks likely to have occurred by chance alone).
 
 ---
 
