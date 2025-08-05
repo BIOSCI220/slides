@@ -1484,7 +1484,7 @@ A: Informally, a p-value is the probability under a specified statistical model 
 
 #### `r emo::ji('scream')` Correctly interpreting p-values `r emo::ji('scream')`
 
-Let's go back to our in-class randomization test; how likely was what we observed, $\mu_\text{A} - \mu_\text{B} = -1.494$, to have occurred by chance alone? Use `R` to reshuffle our data labels 1000 times:
+Let's go back to our in-class randomization test; how likely was what we observed, $\mu_\text{A} - \mu_\text{B} = 1.494$, to have occurred by chance alone? Use `R` to reshuffle our data labels 1000 times:
 
 ```{r, message = FALSE}
 nreps <- 1000 
